@@ -1,0 +1,132 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<section class="admin-exercise-form-section">
+    <div class="admin-exercise-form-paper">
+        <h1>{{ page_title }}</h1>
+
+        <div class="admin-exercise-form-info">
+            <p>
+                <strong>Курс:</strong> {{ course.title }}
+            </p>
+
+            <p>
+                <strong>Урок:</strong> {{ lesson.title }}
+            </p>
+        </div>
+
+        <form method="post" class="admin-exercise-form">
+            {% csrf_token %}
+
+            {% for field in form %}
+                <div class="admin-exercise-form-group exercise-field-{{ field.name }}">
+                    <label>{{ field.label }}</label>
+                    {{ field }}
+
+                    {% if field.help_text %}
+                        <small>{{ field.help_text }}</small>
+                    {% endif %}
+
+                    {% if field.errors %}
+                        <div class="admin-exercise-form-error">
+                            {{ field.errors }}
+                        </div>
+                    {% endif %}
+                </div>
+            {% endfor %}
+
+            <div class="admin-exercise-form-actions">
+                <button type="submit" class="btn admin-exercise-form-btn">
+                    {{ button_text }}
+                </button>
+
+                <a href="{% url 'admin_lesson_exercises' course.id lesson.id %}" class="btn admin-exercise-form-cancel">
+                    Отмена
+                </a>
+            </div>
+        </form>
+    </div>
+</section>
+
+<script>
+document.addEventListener("DOMContentLoaded", function () {
+    const typeField = document.querySelector('[name="exercise_type"]');
+
+    const allDynamicFields = [
+        "source_text",
+        "option_1",
+        "option_2",
+        "option_3",
+        "option_4",
+        "words_for_ordering"
+    ];
+
+    const fieldsByType = {
+        "choice": [
+            "option_1",
+            "option_2",
+            "option_3",
+            "option_4"
+        ],
+        "text_input": [],
+        "translate": [
+            "source_text"
+        ],
+        "fill_gap": [
+            "source_text"
+        ],
+        "order_words": [
+            "words_for_ordering"
+        ]
+    };
+
+    function hideField(fieldName) {
+        const group = document.querySelector(".exercise-field-" + fieldName);
+
+        if (group) {
+            group.style.display = "none";
+
+            const input = group.querySelector("input, textarea, select");
+
+            if (input) {
+                input.required = false;
+            }
+        }
+    }
+
+    function showField(fieldName) {
+        const group = document.querySelector(".exercise-field-" + fieldName);
+
+        if (group) {
+            group.style.display = "block";
+        }
+    }
+
+    function updateFields() {
+        if (!typeField) {
+            return;
+        }
+
+        const selectedType = typeField.value;
+
+        allDynamicFields.forEach(function (fieldName) {
+            hideField(fieldName);
+        });
+
+        const visibleFields = fieldsByType[selectedType] || [];
+
+        visibleFields.forEach(function (fieldName) {
+            showField(fieldName);
+        });
+    }
+
+    updateFields();
+
+    if (typeField) {
+        typeField.addEventListener("change", updateFields);
+    }
+});
+</script>
+
+{% endblock %}

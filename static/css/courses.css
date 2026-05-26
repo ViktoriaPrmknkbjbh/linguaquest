@@ -1,0 +1,951 @@
+.courses-title {
+    margin: 0 0 10px;
+    text-align: center;
+    color: #d6b56d;
+    font-size: 46px;
+    font-weight: 900;
+}
+
+.courses-description {
+    margin: 12px 0 26px;
+    text-align: center;
+    color: rgba(245, 236, 212, 0.78);
+    font-size: 18px;
+    font-weight: 600;
+}
+
+.shelf-header {
+    position: relative;
+    top: -45px;
+    overflow: visible;
+    padding: 34px;
+    background: #5a3822;
+}
+
+.shelf-header .courses-title,
+.shelf-header .courses-description,
+.shelf-filter-panel {
+    position: relative;
+    z-index: 10;
+}
+
+.shelf-filter-panel {
+    display: grid;
+    grid-template-columns: 1.1fr 1.3fr auto auto;
+    gap: 14px;
+    align-items: center;
+    margin-left: 15px;
+}
+
+.shelf-search {
+    height: 48px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 0 16px;
+    border-radius: 999px;
+    background: rgba(21, 14, 8, 0.42);
+    border: 1px solid rgba(214, 181, 109, 0.25);
+}
+
+.shelf-search span {
+    color: #d6b56d;
+    font-size: 28px;
+}
+
+.shelf-search input {
+    width: 100%;
+    border: none;
+    outline: none;
+    background: transparent;
+    color: #f5ecd4;
+    font-weight: 700;
+}
+
+.shelf-search input::placeholder {
+    color: rgba(245, 236, 212, 0.55);
+}
+
+.shelf-level-filter {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+}
+
+.shelf-level-filter a {
+    height: 40px;
+    min-width: 48px;
+    padding: 0 14px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 999px;
+    background: rgba(21, 14, 8, 0.38);
+    border: 1px solid rgba(214, 181, 109, 0.22);
+    color: rgba(245, 236, 212, 0.78);
+    text-decoration: none;
+    font-weight: 900;
+}
+
+.shelf-level-filter a:hover,
+.shelf-level-filter a.active {
+    background: linear-gradient(90deg, rgba(9, 20, 15, 0.98), rgba(18, 36, 26, 0.98), rgba(9, 20, 15, 0.98));
+    border-bottom: 1px solid rgba(214, 181, 109, 0.22);
+    box-shadow: 0 8px 28px rgba(0, 0, 0, 0.35);
+    color: #f5ecd4;
+    text-decoration: none;
+}
+
+.shelf-sort select {
+    height: 48px;
+    padding: 0 16px;
+    border-radius: 999px;
+    background: rgba(21, 14, 8, 0.42);
+    border: 1px solid rgba(214, 181, 109, 0.25);
+    color: #d6b56d;
+    font-weight: 900;
+    outline: none;
+}
+
+.shelf-sort option {
+    background: #2b1608;
+    color: #f5ecd4;
+}
+
+.shelf-search-button {
+    height: 48px;
+    padding: 0 22px;
+    border-radius: 999px;
+    border: 1px solid rgba(214, 181, 109, 0.35);
+    background: linear-gradient(90deg, rgba(9, 20, 15, 0.98), rgba(18, 36, 26, 0.98), rgba(9, 20, 15, 0.98));
+    border-bottom: 1px solid rgba(214, 181, 109, 0.22);
+    box-shadow: 0 8px 28px rgba(0, 0, 0, 0.35);
+    color: #f5ecd4;
+    font-weight: 900;
+    cursor: pointer;
+}
+
+.img-decor {
+    width: 80px;
+    height: 30px;
+    object-fit: contain;
+    vertical-align: middle;
+}
+
+.shelf-corner-vine {
+    position: absolute;
+    top: -35px;
+    width: clamp(180px, 24vw, 400px);
+    height: auto;
+    z-index: 50;
+    pointer-events: none;
+    opacity: 0.9;
+}
+
+.shelf-corner-vine-left {
+    left: -70px;
+}
+
+.shelf-corner-vine-right {
+    right: -70px;
+    transform: scaleX(-1);
+}
+
+.book-container {
+    width: 100%;
+    min-height: 100%;
+    margin-top: -45px;
+    border-color: #5a3822;
+    border-style: solid;
+    border-width: 10px;
+    background-color: #5a3822;
+    box-shadow: 0 18px 35px rgba(0, 0, 0, 0.28);
+}
+
+.book-line {
+    width: 100%;
+    min-height: 300px;
+    padding: 35px 45px;
+    border-style: solid;
+    border-top-width: 0;
+    border-bottom-width: 25px;
+    border-left-width: 14px;
+    border-right-width: 14px;
+    border-bottom-color: #725034;
+    border-left-color: #3f2b1d;
+    border-right-color: #3a281b;
+    background-image:
+        linear-gradient(
+            90deg,
+            rgba(87, 42, 11, 0.45) 0%,
+            rgba(255, 218, 139, 0.06) 18%,
+            rgba(255, 218, 139, 0.02) 50%,
+            rgba(255, 218, 139, 0.06) 82%,
+            rgba(87, 42, 11, 0.45) 100%
+        ),
+        linear-gradient(
+            180deg,
+            rgba(74, 35, 8, 0.32) 0%,
+            rgba(255, 255, 255, 0) 22%,
+            rgba(255, 255, 255, 0) 72%,
+            rgba(95, 47, 12, 0.22) 100%
+        ),
+        url("../images/polka.png");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 35px;
+    align-items: end;
+}
+
+.line {
+    width: 100%;
+    height: 30px;
+    background:
+        linear-gradient(
+            180deg,
+            #9a7d57 0%,
+            #7b5f42 42%,
+            #3f2818 100%
+        );
+    box-shadow: 0 13px 13px rgba(0, 0, 0, 0.32);
+}
+
+.course-book {
+    position: relative;
+    display: grid;
+    grid-template-columns: 155px 1fr;
+    gap: 18px;
+    min-height: 235px;
+    padding: 14px;
+    background: rgba(48, 28, 18, 0.60);
+    border: 1px solid rgba(224, 196, 138, 0.12);
+    box-shadow:
+        8px 14px 18px rgba(24, 15, 8, 0.42),
+        inset 0 0 0 1px rgba(220, 190, 130, 0.1);
+}
+
+.course-book-cover {
+    position: relative;
+    display: block;
+    width: 155px;
+    height: 225px;
+    overflow: hidden;
+    border-radius: 4px 13px 13px 4px;
+    background:
+        linear-gradient(
+            90deg,
+            rgba(0, 0, 0, 0.42) 0%,
+            rgba(0, 0, 0, 0.18) 16%,
+            rgba(255, 255, 255, 0.08) 100%
+        ),
+        linear-gradient(135deg, #2e160a, #7a3519);
+    border: 2px solid rgba(214, 181, 109, 0.45);
+    box-shadow:
+        10px 12px 16px rgba(25, 12, 5, 0.48),
+        inset 10px 0 9px rgba(0, 0, 0, 0.35),
+        inset -3px 0 6px rgba(255, 255, 255, 0.16);
+    text-decoration: none;
+    transition: 0.25s ease;
+}
+
+.course-book-cover:hover {
+    transform: translateY(-8px) rotate(-1deg);
+    box-shadow:
+        14px 18px 24px rgba(25, 12, 5, 0.55),
+        0 0 24px rgba(142, 81, 196, 0.22),
+        inset 10px 0 9px rgba(0, 0, 0, 0.35);
+}
+
+.course-book-cover::before {
+    content: "";
+    position: absolute;
+    top: 10px;
+    bottom: 10px;
+    left: 13px;
+    width: 2px;
+    background-color: rgba(255, 226, 150, 0.32);
+    z-index: 3;
+}
+
+.course-book-cover::after {
+    content: "";
+    position: absolute;
+    inset: 10px;
+    border: 1px solid rgba(255, 226, 150, 0.28);
+    border-radius: 3px 10px 10px 3px;
+    z-index: 3;
+    pointer-events: none;
+}
+
+.course-book-cover img {
+    width: 100%;
+    height: 100%;
+    display: block;
+    object-fit: cover;
+    filter: sepia(0.18) contrast(1.05) brightness(0.9);
+}
+
+.course-book-empty {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #f6d889;
+    font-size: 54px;
+    font-weight: 900;
+    text-transform: uppercase;
+    background:
+        radial-gradient(circle at 50% 28%, rgba(244, 206, 128, 0.16), transparent 30%),
+        linear-gradient(
+            90deg,
+            rgba(0, 0, 0, 0.34) 0%,
+            transparent 22%
+        ),
+        linear-gradient(
+            135deg,
+            #35190d,
+            #8a3d1c,
+            #2a1208
+        );
+}
+
+.course-book-content {
+    display: flex;
+    flex-direction: column;
+    min-width: 0;
+    padding: 4px 0 2px;
+}
+
+.course-book-content,
+.course-book-content * {
+    text-shadow: none !important;
+}
+
+.course-book-content h3 {
+    margin: 0 0 8px;
+    color: #fff2c6;
+    font-size: 24px;
+    line-height: 1.12;
+    font-weight: 900;
+}
+
+.course-book-content p {
+    margin: 0 0 7px;
+    color: rgba(255, 240, 194, 0.92);
+    font-size: 15px;
+    line-height: 1.35;
+}
+
+.course-book-content strong {
+    color: #ffe6a3;
+}
+
+.course-book-text {
+    max-height: 60px;
+    overflow: hidden;
+}
+
+.status-open {
+    width: fit-content;
+    padding: 5px 10px;
+    color: #fff2c6 !important;
+    border-radius: 999px;
+    font-weight: 800;
+}
+
+
+ .shelf {
+    position: relative;
+    overflow: visible;
+}
+
+.glob-img{
+
+    position: absolute;
+
+    left: -45px;
+    bottom: -42px;
+
+    width: 210px;
+    height: auto;
+
+    z-index: 30;
+
+    pointer-events: none;
+    user-select: none;
+
+    transform: translate(-8%, 6%) rotate(2deg);
+    transform-origin: bottom left;
+
+    filter:
+        drop-shadow(0 18px 18px rgba(0, 0, 0, 0.5))
+        drop-shadow(0 4px 8px rgba(255, 205, 120, 0.18));
+
+
+}
+.peper{
+
+    position: absolute;
+
+    left: 890px;
+    bottom: -45px;
+
+    width: 210px;
+    height: auto;
+
+    z-index: 30;
+
+    pointer-events: none;
+    user-select: none;
+
+    transform: translate(-8%, 6%) rotate(2deg);
+    transform-origin: bottom left;
+
+    filter:
+        drop-shadow(0 18px 18px rgba(0, 0, 0, 0.5))
+        drop-shadow(0 4px 8px rgba(255, 205, 120, 0.18));
+
+
+}
+.status-closed {
+    width: fit-content;
+    padding: 5px 10px;
+    color: #fff2c6 !important;
+    border-radius: 999px;
+    font-weight: 800;
+}
+
+.course-book-content .btn {
+    width: fit-content;
+    margin-top: auto;
+    padding: 10px 18px;
+    border: 1px solid rgba(222, 178, 255, 0.42);
+    border-radius: 999px;
+    color: #fff4ff;
+    background:
+        linear-gradient(
+            135deg,
+            #4b1d66 0%,
+            #7c3fb0 52%,
+            #a86be2 100%
+        );
+    box-shadow:
+        0 8px 16px rgba(67, 24, 92, 0.34),
+        0 0 18px rgba(159, 83, 216, 0.22),
+        inset 0 1px 0 rgba(255, 255, 255, 0.28);
+    text-decoration: none;
+    font-weight: 900;
+    transition: 0.2s ease;
+}
+
+.course-book-content .btn:hover {
+    color: #ffffff;
+    background:
+        linear-gradient(
+            135deg,
+            #5c237c 0%,
+            #914ed0 52%,
+            #c085ff 100%
+        );
+    transform: translateY(-2px);
+    box-shadow:
+        0 12px 22px rgba(67, 24, 92, 0.42),
+        0 0 24px rgba(181, 103, 244, 0.32);
+}
+
+.empty-book-line {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.empty-courses {
+    padding: 25px 35px;
+    background: rgba(101, 55, 18, 0.22);
+    box-shadow: 7px 13px 16px rgba(46, 23, 6, 0.32);
+}
+
+.empty-courses p {
+    margin: 0;
+    color: #fff0c2;
+    font-size: 22px;
+    font-weight: 700;
+    text-shadow: none !important;
+}
+
+.decor-book-line {
+    min-height: 210px;
+    display: flex;
+    align-items: end;
+    justify-content: center;
+}
+
+.decor-shelf-content {
+    width: 100%;
+    min-height: 120px;
+}
+
+@media (max-width: 980px) {
+    .shelf-filter-panel {
+        grid-template-columns: 1fr;
+        margin-left: 0;
+    }
+
+    .shelf-search-button {
+        width: 100%;
+    }
+}
+@media (max-width: 1300px){
+.peper{
+   display:none;
+    }
+}
+
+@media (max-width: 900px) {
+    .book-line {
+        grid-template-columns: 1fr;
+        min-height: auto;
+        padding: 30px 25px 35px;
+    }
+    .peper{
+   display:none;
+    }
+
+    .course-book {
+        max-width: 620px;
+        width: 100%;
+        margin: 0 auto;
+    }
+
+    .decor-book-line {
+        min-height: 190px;
+    }
+
+    .shelf-corner-vine {
+        width: clamp(110px, 24vw, 190px);
+        opacity: 0.72;
+    }
+
+    .shelf-corner-vine-left {
+        left: -34px;
+        transform: translateY(-8px);
+    }
+
+    .shelf-corner-vine-right {
+        right: -34px;
+        transform: translateY(-8px) scaleX(-1);
+    }
+}
+
+@media (max-width: 560px) {
+    .shelf-header {
+        padding: 34px 18px 24px;
+    }
+    .glob-img{
+    width:190px;
+    left:-70px;
+    }
+    .peper{
+   display:none;
+    }
+    .shelf-header .courses-title {
+        max-width: 260px;
+        margin: 0 auto 18px;
+        font-size: 36px;
+        line-height: 1.08;
+        text-align: center;
+    }
+
+    .shelf-header .courses-description {
+        max-width: 300px;
+        margin: 0 auto 22px;
+        font-size: 14px;
+        line-height: 1.4;
+    }
+
+    .img-decor {
+        width: 48px;
+        height: 20px;
+    }
+
+    .shelf-corner-vine {
+        width: 175px;
+        top: -4px;
+        opacity: 0.55;
+    }
+
+    .shelf-corner-vine-left {
+        left: -68px;
+    }
+
+    .shelf-corner-vine-right {
+        right: -68px;
+        transform: scaleX(-1);
+    }
+
+    .shelf-level-filter {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+    }
+
+    .book-container {
+        border-width: 7px;
+    }
+
+    .book-line {
+        display: block;
+        min-height: 0;
+        padding: 0;
+        border: none;
+        background: none;
+    }
+
+    .line {
+        display: none;
+    }
+
+    .book-line .course-book {
+        position: relative;
+        display: grid;
+        grid-template-columns: 1fr;
+        width: 100%;
+        max-width: none;
+        min-height: 0;
+        margin: 0;
+        padding: 25px 15px 60px;
+        border-style: solid;
+        border-top-width: 0;
+        border-bottom-width: 20px;
+        border-left-width: 9px;
+        border-right-width: 9px;
+        border-bottom-color: #725034;
+        border-left-color: #3f2b1d;
+        border-right-color: #3a281b;
+        background-image:
+            linear-gradient(
+                90deg,
+                rgba(87, 42, 11, 0.45) 0%,
+                rgba(255, 218, 139, 0.06) 18%,
+                rgba(255, 218, 139, 0.02) 50%,
+                rgba(255, 218, 139, 0.06) 82%,
+                rgba(87, 42, 11, 0.45) 100%
+            ),
+            linear-gradient(
+                180deg,
+                rgba(74, 35, 8, 0.32) 0%,
+                rgba(255, 255, 255, 0) 22%,
+                rgba(255, 255, 255, 0) 72%,
+                rgba(95, 47, 12, 0.22) 100%
+            ),
+            url("../images/polka.png");
+        background-size: cover;
+        background-position: center;
+        background-repeat: no-repeat;
+        box-shadow: none;
+    }
+
+    .book-line .course-book:not(:last-child) {
+        margin-bottom: 30px;
+    }
+
+    .book-line .course-book::after {
+        content: "";
+        position: absolute;
+        left: -9px;
+        right: -9px;
+        bottom: -50px;
+        height: 30px;
+        background:
+            linear-gradient(
+                180deg,
+                #9a7d57 0%,
+                #7b5f42 42%,
+                #3f2818 100%
+            );
+        box-shadow: 0 13px 13px rgba(0, 0, 0, 0.32);
+    }
+
+    .book-line .course-book:not(:last-child)::after {
+        bottom: -30px;
+    }
+
+    .course-book-cover {
+        width: 170px;
+        height: 245px;
+        margin: 0 auto;
+    }
+
+    .course-book-content {
+        text-align: center;
+        align-items: center;
+    }
+
+    .course-book-content .btn {
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    .decor-book-line {
+        display: flex;
+        min-height: 190px;
+        padding: 25px 15px 35px;
+        border-style: solid;
+        border-top-width: 0;
+        border-bottom-width: 20px;
+        border-left-width: 9px;
+        border-right-width: 9px;
+        border-bottom-color: #725034;
+        border-left-color: #3f2b1d;
+        border-right-color: #3a281b;
+        background-image:
+            linear-gradient(
+                90deg,
+                rgba(87, 42, 11, 0.45) 0%,
+                rgba(255, 218, 139, 0.06) 18%,
+                rgba(255, 218, 139, 0.02) 50%,
+                rgba(255, 218, 139, 0.06) 82%,
+                rgba(87, 42, 11, 0.45) 100%
+            ),
+            linear-gradient(
+                180deg,
+                rgba(74, 35, 8, 0.32) 0%,
+                rgba(255, 255, 255, 0) 22%,
+                rgba(255, 255, 255, 0) 72%,
+                rgba(95, 47, 12, 0.22) 100%
+            ),
+            url("../images/polka.png");
+        background-size: cover;
+        background-position: center;
+        background-repeat: no-repeat;
+    }
+
+    .decor-shelf-content {
+        min-height: 100px;
+    }
+}
+.course-book-content h3 {
+    max-width: 100%;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+}
+.decor-book-line {
+    min-height: 260px;
+    padding: 35px 45px;
+}
+
+.decor-shelf-content {
+    width: 100%;
+    min-height: 190px;
+    display: grid;
+    grid-template-columns: 130px 1fr 120px;
+    gap: 26px;
+    align-items: end;
+}
+
+.shelf-decor-left {
+    display: grid;
+    gap: 8px;
+    justify-items: center;
+}
+
+.decor-globe {
+    width: 86px;
+    height: 86px;
+    display: grid;
+    place-items: center;
+    border-radius: 50%;
+    background: radial-gradient(circle, #234d5d, #12221d 70%);
+    border: 2px solid rgba(214, 181, 109, 0.55);
+    box-shadow: 0 14px 24px rgba(0, 0, 0, 0.35);
+    font-size: 42px;
+}
+
+.decor-books {
+    display: grid;
+    gap: 4px;
+    width: 95px;
+}
+
+.decor-books span {
+    height: 18px;
+    border-radius: 4px;
+    background: linear-gradient(90deg, #2b3b2d, #80613a);
+    border: 1px solid rgba(214, 181, 109, 0.28);
+    box-shadow: 0 6px 10px rgba(0, 0, 0, 0.28);
+}
+
+.decor-info-panel {
+    padding: 18px;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 18px;
+    background: rgba(25, 13, 7, 0.42);
+    border: 1px solid rgba(214, 181, 109, 0.18);
+    box-shadow: inset 0 0 30px rgba(0, 0, 0, 0.28);
+}
+
+.decor-feature-card {
+    display: grid;
+    grid-template-columns: 44px 1fr;
+    gap: 12px;
+    align-items: center;
+    padding: 18px;
+    background: rgba(28, 17, 10, 0.62);
+    border: 1px solid rgba(214, 181, 109, 0.18);
+    box-shadow: 0 10px 18px rgba(0, 0, 0, 0.28);
+}
+
+.decor-feature-icon {
+    font-size: 30px;
+}
+
+.decor-feature-card h3 {
+    margin: 0 0 6px;
+    color: #f6d889;
+    font-size: 16px;
+}
+
+.decor-feature-card p {
+    margin: 0;
+    color: rgba(255, 240, 194, 0.82);
+    font-size: 13px;
+    line-height: 1.45;
+}
+
+.shelf-plant {
+    position: relative;
+    width: 96px;
+    height: 150px;
+    justify-self: center;
+}
+
+.plant-pot {
+    position: absolute;
+    left: 20px;
+    bottom: 0;
+    width: 58px;
+    height: 48px;
+    border-radius: 8px 8px 18px 18px;
+    background: linear-gradient(180deg, #9b8061, #5d4734);
+    border: 2px solid rgba(214, 181, 109, 0.22);
+}
+
+.leaf {
+    position: absolute;
+    width: 34px;
+    height: 54px;
+    border-radius: 50% 0 50% 0;
+    background: linear-gradient(135deg, #4f7c32, #1e3b20);
+    transform-origin: bottom center;
+}
+
+
+
+.leaf-5 {
+    left: 36px;
+    bottom: 98px;
+    transform: rotate(4deg);
+}
+
+@media (max-width: 900px) {
+    .decor-shelf-content {
+        grid-template-columns: 1fr;
+        justify-items: center;
+    }
+
+    .decor-info-panel {
+        grid-template-columns: 1fr;
+        width: 100%;
+    }
+}
+
+@media (max-width: 560px) {
+    .decor-book-line {
+        padding: 28px 15px 40px;
+    }
+
+    .shelf-decor-left,
+    .shelf-plant {
+        display: none;
+    }
+}
+.decor-book-line {
+    min-height: 270px;
+    padding: 35px 45px;
+}
+
+.decor-shelf-content {
+    position: relative;
+    width: 100%;
+    min-height: 190px;
+    display: grid;
+    grid-template-columns: 1fr;
+    align-items: center;
+    justify-items: center;
+}
+
+.shelf-decor-left {
+    position: absolute;
+    left: 28px;
+    bottom: 0;
+    z-index: 2;
+}
+
+.decor-info-panel {
+    width: min(760px, 100%);
+    margin: 0 auto;
+    padding: 0;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 22px;
+    background: transparent;
+    border: none;
+    box-shadow: none;
+    z-index: 3;
+}
+
+.decor-feature-card {
+    min-height: 132px;
+    padding: 22px;
+    border: 1px solid rgba(214, 181, 109, 0.18);
+    background: rgba(48, 28, 18, 0.60);
+    box-shadow:
+        7px 13px 16px rgba(46, 23, 6, 0.32),
+        inset 0 0 0 1px rgba(255, 220, 145, 0.14);
+}
+
+.shelf-plant {
+    position: absolute;
+    right: 36px;
+    bottom: 0;
+    z-index: 2;
+}
+
+.decor-books {
+    display: none;
+}
+
+@media (max-width: 900px) {
+    .decor-info-panel {
+        grid-template-columns: 1fr;
+        max-width: 420px;
+    }
+
+    .shelf-decor-left,
+    .shelf-plant {
+        display: none;
+    }
+}
+.blok-img{
+    width:45px;
+    height:45px;
+}
+.blok-img:hover{
+    width:47px;
+    height:47px;
+}

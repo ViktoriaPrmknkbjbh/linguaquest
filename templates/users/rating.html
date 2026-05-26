@@ -1,0 +1,42 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block page_css %}
+<link rel="stylesheet" href="{% static 'css/rating.css' %}">
+{% endblock %}
+
+{% block content %}
+
+<section class="rating-page">
+    <div class="rating-header">
+        <h1>Рейтинг пользователей</h1>
+
+
+    </div>
+
+    {% if profiles %}
+        <div class="rating-list">
+            {% for profile in profiles %}
+                <div class="rating-user-paper {% if user.is_authenticated and user == profile.user %}current-user-paper{% endif %}">
+                    <div class="rating-place">
+                        №{{ forloop.counter }}
+                    </div>
+
+                    <div class="rating-user-name">
+                        {{ profile.user.username }}
+                    </div>
+
+                    <div class="rating-user-points">
+                        {{ profile.total_points }} баллов
+                    </div>
+                </div>
+            {% endfor %}
+        </div>
+    {% else %}
+        <div class="rating-empty-paper">
+            <p>Пока в рейтинге нет пользователей.</p>
+        </div>
+    {% endif %}
+</section>
+
+{% endblock %}

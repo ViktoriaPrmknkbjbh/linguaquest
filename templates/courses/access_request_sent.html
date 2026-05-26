@@ -1,0 +1,28 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+
+<section class="access-sent-section">
+    <div class="access-sent-paper">
+        <img src="{% static 'images/titel.png' %}" alt="Пергамент" class="access-sent-img">
+
+        <div class="access-sent-content">
+            <h1>Заявка отправлена</h1>
+
+            <p>
+                Ваша заявка на курс <strong>{{ course.title }}</strong> отправлена администратору.
+            </p>
+
+            <p>
+                После рассмотрения заявки вы сможете увидеть результат в личном кабинете.
+            </p>
+
+            <a href="{% url 'course_detail' course.id %}" class="btn">
+                Вернуться к курсу
+            </a>
+        </div>
+    </div>
+</section>
+
+{% endblock %}

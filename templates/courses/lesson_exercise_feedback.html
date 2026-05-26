@@ -1,0 +1,75 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block page_css %}
+<link rel="stylesheet" href="{% static 'css/lesson_exercise_feedback.css' %}">
+{% endblock %}
+
+{% block content %}
+
+<section class="feedback-paper-section">
+    <div class="feedback-paper-card">
+
+        {% if is_correct %}
+            <h1 class="feedback-title feedback-title-correct">Правильно!</h1>
+        {% else %}
+            <h1 class="feedback-title feedback-title-wrong">Неправильно</h1>
+        {% endif %}
+
+        <p class="feedback-counter">
+            Упражнение {{ exercise_number }} из {{ exercises_count }}
+        </p>
+
+        <div class="feedback-divider"></div>
+
+        {% if exercise.exercise_type == 'translate' %}
+            <h2>Перевод фразы</h2>
+        {% elif exercise.exercise_type == 'fill_gap' %}
+            <h2>Заполнение пропуска</h2>
+        {% elif exercise.exercise_type == 'order_words' %}
+            <h2>Сбор предложения</h2>
+        {% else %}
+            <h2>{{ exercise.question }}</h2>
+        {% endif %}
+
+        {% if exercise.source_text %}
+            <p class="exercise-source">
+                {{ exercise.source_text }}
+            </p>
+        {% endif %}
+
+        <div class="answer-feedback">
+            <p>
+                <strong>Ваш ответ:</strong>
+                {{ user_answer|default:"Ответ не указан" }}
+            </p>
+
+            <p>
+                <strong>Правильный ответ:</strong>
+                {{ correct_answer }}
+            </p>
+        </div>
+
+        {% if exercise.explanation %}
+            <div class="feedback-explanation">
+                <h3>Объяснение</h3>
+                <p>{{ exercise.explanation }}</p>
+            </div>
+        {% endif %}
+
+        <div class="feedback-actions">
+            {% if has_next_exercise %}
+                <a href="{% url 'lesson_exercise' course.id lesson.id next_exercise_number %}" class="btn">
+                    Следующее упражнение
+                </a>
+            {% else %}
+                <a href="{% url 'lesson_result' course.id lesson.id %}" class="btn">
+                    Посмотреть результат
+                </a>
+            {% endif %}
+        </div>
+
+    </div>
+</section>
+
+{% endblock %}

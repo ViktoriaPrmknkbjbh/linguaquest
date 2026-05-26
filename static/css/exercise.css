@@ -1,0 +1,361 @@
+.feedback-paper-section {
+    width: 100%;
+    padding: 35px 0 70px;
+}
+
+.feedback-paper-card {
+    width: min(980px, 100%);
+    min-height: 500px;
+    margin: 0 auto;
+    padding: 90px 110px 85px;
+    text-align: center;
+    background-image: url("../images/lesson-paper-exercise.png");
+    background-size: 100% 100%;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+.feedback-title {
+    margin: 0 0 10px;
+    font-size: 42px;
+    line-height: 1.1;
+    font-weight: 900;
+}
+
+.feedback-title-correct {
+    color: #315829;
+}
+
+.feedback-title-wrong {
+    color: #8b2e2e;
+}
+
+.feedback-counter {
+    margin: 0 0 16px;
+    color: #5a3822;
+    font-size: 18px;
+    font-weight: 800;
+}
+
+.feedback-divider {
+    width: 70%;
+    height: 1px;
+    margin: 16px auto 24px;
+    background: rgba(90, 56, 34, 0.35);
+}
+
+.feedback-paper-card h2 {
+    margin: 0 0 18px;
+    color: #5a3822;
+    font-size: 30px;
+    font-weight: 900;
+}
+
+.feedback-paper-card h3 {
+    margin: 0 0 10px;
+    color: #5a3822;
+    font-size: 22px;
+    font-weight: 900;
+}
+
+.feedback-paper-card p,
+.feedback-paper-card strong {
+    color: #5a3822;
+}
+
+.exercise-source {
+    width: min(680px, 100%);
+    margin: 0 auto 20px;
+    padding: 14px 18px;
+    border-radius: 16px;
+    background: rgba(90, 56, 34, 0.1);
+    border: 1px solid rgba(90, 56, 34, 0.18);
+    color: #5a3822;
+    font-size: 18px;
+    font-weight: 800;
+}
+
+.answer-feedback {
+    width: min(720px, 100%);
+    margin: 22px auto;
+    padding: 18px 22px;
+    border-radius: 18px;
+    background: rgba(90, 56, 34, 0.1);
+    border: 1px solid rgba(90, 56, 34, 0.2);
+    text-align: left;
+}
+
+.answer-feedback p {
+    margin: 8px 0;
+    color: #5a3822;
+    font-size: 17px;
+    font-weight: 700;
+    line-height: 1.45;
+    overflow-wrap: anywhere;
+}
+
+.feedback-explanation {
+    width: min(720px, 100%);
+    margin: 18px auto;
+    padding: 18px 22px;
+    border-radius: 18px;
+    background: rgba(124, 63, 176, 0.1);
+    border: 1px solid rgba(124, 63, 176, 0.22);
+}
+
+.feedback-explanation p {
+    margin: 0;
+    color: #5a3822;
+    font-size: 16px;
+    font-weight: 700;
+    line-height: 1.5;
+    overflow-wrap: anywhere;
+}
+
+.feedback-actions {
+    display: flex;
+    justify-content: center;
+    margin-top: 24px;
+}
+
+.feedback-actions .btn {
+    background: linear-gradient(135deg, #4b1d66, #7c3fb0, #a86be2);
+    border: 1px solid rgba(222, 178, 255, 0.42);
+    color: #fff4ff;
+}
+
+@media (max-width: 768px) {
+    .feedback-paper-card {
+        min-height: 460px;
+        padding: 78px 58px 68px;
+    }
+
+    .feedback-title {
+        font-size: 34px;
+    }
+
+    .feedback-paper-card h2 {
+        font-size: 25px;
+    }
+
+    .feedback-counter,
+    .exercise-source,
+    .answer-feedback p {
+        font-size: 15px;
+    }
+}
+
+@media (max-width: 480px) {
+    .feedback-paper-card {
+        min-height: 420px;
+        padding: 66px 30px 58px;
+    }
+
+    .feedback-title {
+        font-size: 28px;
+    }
+
+    .feedback-paper-card h2 {
+        font-size: 22px;
+    }
+
+    .feedback-actions .btn {
+        min-height: 34px;
+        padding: 7px 13px;
+        font-size: 12px;
+        width: auto;
+    }
+}
+.lesson-result-section {
+    width: 100%;
+    padding: 35px 0 70px;
+}
+
+.lesson-result-paper {
+    width: min(980px, 100%);
+    min-height: 520px;
+    margin: 0 auto;
+    padding: 90px 110px 85px;
+    text-align: center;
+    background-image: url("../images/lesson-paper-exercise.png");
+    background-size: 100% 100%;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+.lesson-result-paper h1 {
+    margin: 0 0 14px;
+    color: #5a3822;
+    font-size: 42px;
+    line-height: 1.1;
+    font-weight: 900;
+}
+
+.lesson-result-paper h2 {
+    margin: 0 0 18px;
+    color: #5a3822;
+    font-size: 28px;
+    line-height: 1.15;
+    font-weight: 900;
+}
+
+.lesson-result-paper p,
+.lesson-result-paper strong {
+    color: #5a3822;
+}
+
+.lesson-result-paper p {
+    margin: 8px auto;
+    max-width: 720px;
+    font-size: 17px;
+    font-weight: 700;
+    line-height: 1.45;
+    overflow-wrap: anywhere;
+}
+
+.lesson-result-score {
+    margin: 20px auto !important;
+    color: #7c3fb0 !important;
+    font-size: 64px !important;
+    line-height: 1 !important;
+    font-weight: 900 !important;
+    text-shadow: 0 0 18px rgba(124, 63, 176, 0.24);
+}
+
+.lesson-result-success {
+    color: #315829 !important;
+    font-weight: 900 !important;
+}
+
+.lesson-result-error {
+    color: #8b2e2e !important;
+    font-weight: 900 !important;
+}
+
+.achievement-result-box {
+    width: min(720px, 100%);
+    margin: 24px auto;
+    padding: 18px 22px;
+    border-radius: 18px;
+    background: rgba(124, 63, 176, 0.1);
+    border: 1px solid rgba(124, 63, 176, 0.22);
+}
+
+.achievement-item {
+    display: grid;
+    grid-template-columns: 74px 1fr;
+    gap: 16px;
+    align-items: center;
+    margin-top: 14px;
+    padding: 14px;
+    text-align: left;
+    border-radius: 16px;
+    background: rgba(90, 56, 34, 0.08);
+    border: 1px solid rgba(90, 56, 34, 0.16);
+}
+
+.achievement-sticker {
+    width: 64px;
+    height: 64px;
+    object-fit: contain;
+}
+
+.achievement-item h3 {
+    margin: 0 0 6px;
+    color: #5a3822;
+    font-size: 19px;
+    font-weight: 900;
+}
+
+.achievement-item p {
+    margin: 0;
+    font-size: 14px;
+    line-height: 1.35;
+}
+
+.lesson-result-actions {
+    display: flex;
+    justify-content: center;
+    gap: 12px;
+    flex-wrap: wrap;
+    margin-top: 26px;
+}
+
+.lesson-result-actions .btn {
+    background: linear-gradient(135deg, #4b1d66, #7c3fb0, #a86be2);
+    border: 1px solid rgba(222, 178, 255, 0.42);
+    color: #fff4ff;
+}
+
+.lesson-result-actions .btn-outline {
+    background: rgba(90, 56, 34, 0.1);
+    border: 1px solid rgba(90, 56, 34, 0.24);
+    color: #5a3822;
+}
+
+@media (max-width: 768px) {
+    .lesson-result-paper {
+        min-height: 460px;
+        padding: 78px 58px 68px;
+    }
+
+    .lesson-result-paper h1 {
+        font-size: 34px;
+    }
+
+    .lesson-result-paper h2 {
+        font-size: 24px;
+    }
+
+    .lesson-result-paper p {
+        font-size: 15px;
+    }
+
+    .lesson-result-score {
+        font-size: 52px !important;
+    }
+}
+
+@media (max-width: 480px) {
+    .lesson-result-paper {
+        min-height: 420px;
+        padding: 66px 30px 58px;
+    }
+
+    .lesson-result-paper h1 {
+        font-size: 28px;
+    }
+
+    .lesson-result-paper h2 {
+        font-size: 21px;
+    }
+
+    .lesson-result-score {
+        font-size: 44px !important;
+    }
+
+    .achievement-item {
+        grid-template-columns: 1fr;
+        text-align: center;
+        justify-items: center;
+    }
+
+    .lesson-result-actions .btn {
+        min-height: 34px;
+        padding: 7px 13px;
+        font-size: 12px;
+        width: auto;
+    }
+}
+.exercise-field-error {
+    display: none;
+    margin-top: 12px;
+    text-align: center;
+    color: #7c3fb0;
+    font-size: 14px;
+    font-weight: 900;
+}
+
+.exercise-field-error.show {
+    display: block;
+}

@@ -1,0 +1,46 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<section class="admin-lesson-form-section">
+    <div class="admin-lesson-form-paper">
+        <h1>{{ page_title }}</h1>
+
+        <p class="admin-lesson-form-course">
+            <strong>Курс:</strong> {{ course.title }}
+        </p>
+
+        <form method="post" class="admin-lesson-form">
+            {% csrf_token %}
+
+            {% for field in form %}
+                <div class="admin-lesson-form-group">
+                    <label>{{ field.label }}</label>
+                    {{ field }}
+
+                    {% if field.help_text %}
+                        <small>{{ field.help_text }}</small>
+                    {% endif %}
+
+                    {% if field.errors %}
+                        <div class="admin-lesson-form-error">
+                            {{ field.errors }}
+                        </div>
+                    {% endif %}
+                </div>
+            {% endfor %}
+
+            <div class="admin-lesson-form-actions">
+                <button type="submit" class="btn admin-lesson-form-btn">
+                    {{ button_text }}
+                </button>
+
+                <a href="{% url 'admin_course_lessons' course.id %}" class="btn admin-lesson-form-cancel">
+                    Отмена
+                </a>
+            </div>
+        </form>
+    </div>
+</section>
+
+{% endblock %}

@@ -1,0 +1,68 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<section class="admin-lessons-section">
+    <div class="admin-lessons-header-paper">
+        <p class="admin-lessons-back">
+            <a href="{% url 'admin_dashboard' %}">← Вернуться в панель администратора</a>
+        </p>
+
+        <h1>Уроки курса</h1>
+
+        <h2>{{ course.title }}</h2>
+
+        <p class="admin-lessons-description">
+            {{ course.description }}
+        </p>
+
+        <a href="{% url 'admin_lesson_create' course.id %}" class="btn admin-lessons-add-btn">
+            Добавить урок
+        </a>
+    </div>
+
+    {% if lessons %}
+        <div class="admin-lessons-list">
+            {% for lesson in lessons %}
+                <article class="admin-lesson-card">
+                    <div class="admin-lesson-main">
+                        <span class="admin-lesson-order">
+                            Урок {{ lesson.order }}
+                        </span>
+
+                        <h3>{{ lesson.title }}</h3>
+
+                        <div class="admin-lesson-meta">
+                            <span>Баллы: {{ lesson.points_reward }}</span>
+                            <span>Дата создания: {{ lesson.created_at }}</span>
+                        </div>
+                    </div>
+
+                    <div class="admin-lesson-actions">
+                        <a href="{% url 'lesson_detail' course.id lesson.id %}" class="admin-lesson-link">
+                            Смотреть
+                        </a>
+
+                        <a href="{% url 'admin_lesson_exercises' course.id lesson.id %}" class="admin-lesson-link">
+                            Упражнения
+                        </a>
+
+                        <a href="{% url 'admin_lesson_update' course.id lesson.id %}" class="admin-lesson-link">
+                            Изменить
+                        </a>
+
+                        <a href="{% url 'admin_lesson_delete' course.id lesson.id %}" class="admin-lesson-link admin-lesson-danger">
+                            Удалить
+                        </a>
+                    </div>
+                </article>
+            {% endfor %}
+        </div>
+    {% else %}
+        <div class="admin-lesson-card admin-lesson-empty">
+            <p>В этом курсе пока нет уроков.</p>
+        </div>
+    {% endif %}
+</section>
+
+{% endblock %}

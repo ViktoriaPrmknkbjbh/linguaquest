@@ -1,0 +1,94 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block page_css %}
+<link rel="stylesheet" href="{% static 'css/lesson_result.css' %}">
+{% endblock %}
+
+{% block content %}
+
+<section class="lesson-result-section">
+    <div class="lesson-result-paper">
+        <h1>Результат урока</h1>
+
+        <h2>{{ lesson.title }}</h2>
+
+        <p>
+            Правильных ответов:
+            <strong>{{ correct_count }}</strong>
+            из
+            <strong>{{ exercises_count }}</strong>
+        </p>
+
+        <p class="lesson-result-score">
+            {{ score }}%
+        </p>
+
+        {% if user.is_staff %}
+            <p>
+                Вы проходили урок как администратор.
+                Баллы не начисляются, результат не сохраняется.
+            </p>
+        {% else %}
+
+            {% if score >= 50 %}
+                <p class="lesson-result-success">
+                    Урок пройден. Следующий урок разблокирован.
+                </p>
+            {% else %}
+                <p class="lesson-result-error">
+                    Урок не пройден. Нужно набрать минимум 50%.
+                </p>
+            {% endif %}
+
+            {% if score > old_best_score %}
+                <p>Новый лучший результат сохранён.</p>
+            {% else %}
+                <p>Ваш лучший результат не изменился.</p>
+            {% endif %}
+
+            {% if points_added > 0 %}
+                <p>
+                    Начислено баллов:
+                    <strong>{{ points_added }}</strong>
+                </p>
+            {% endif %}
+
+            {% if new_achievements %}
+                <div class="achievement-result-box">
+                    <h2>Новые достижения</h2>
+
+                    {% for user_achievement in new_achievements %}
+                        <div class="achievement-item">
+                            {% if user_achievement.achievement.sticker %}
+                                <img
+                                    src="{{ user_achievement.achievement.sticker.url }}"
+                                    alt="{{ user_achievement.achievement.title }}"
+                                    class="achievement-sticker"
+                                >
+                            {% endif %}
+
+                            <div>
+                                <h3>{{ user_achievement.achievement.title }}</h3>
+                                <p>{{ user_achievement.achievement.description }}</p>
+                            </div>
+                        </div>
+                    {% endfor %}
+                </div>
+            {% endif %}
+
+        {% endif %}
+
+        <div class="lesson-result-actions">
+            <a href="{% url 'lesson_detail' course.id lesson.id %}" class="btn">
+                Повторить урок
+            </a>
+
+            <a href="{% url 'course_detail' course.id %}" class="btn btn-outline">
+                Вернуться к курсу
+            </a>
+        </div>
+    </div>
+</section>
+
+{% endblock %}

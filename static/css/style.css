@@ -1,0 +1,327 @@
+:root {
+    --bg-card: #d7d0bd;
+    --bg-card-light: #eee6cf;
+    --text-main: #26332c;
+    --text-muted: #5d675f;
+    --text-light: #f5ecd4;
+    --green: #5f8f73;
+    --green-dark: #355545;
+    --green-light: #9db9a8;
+    --gold: #d6b56d;
+    --gold-light: #f1d99a;
+    --danger: #b85b63;
+    --warning: #d0a84f;
+    --success: #5f9e73;
+    --shadow: 0 18px 45px rgba(10, 18, 14, 0.28);
+    --shadow-soft: 0 10px 25px rgba(10, 18, 14, 0.18);
+    --radius-xl: 34px;
+    --radius-lg: 24px;
+    --radius-md: 16px;
+    --radius-sm: 10px;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    font-family: Georgia, "Times New Roman", serif;
+    background:
+        radial-gradient(circle at 50% 0%, rgba(214, 181, 109, 0.16), transparent 32%),
+        radial-gradient(circle at 15% 35%, rgba(120, 84, 48, 0.22), transparent 28%),
+        radial-gradient(circle at 85% 45%, rgba(95, 143, 115, 0.12), transparent 30%),
+        linear-gradient(135deg, #141f19 0%, #223226 42%, #151d18 100%);
+    color: var(--text-main);
+    min-height: 100vh;
+}
+
+.container {
+    width: 92%;
+    max-width: 1180px;
+    margin: 0 auto;
+}
+
+.main {
+    padding: 44px 0 70px;
+    min-height: 75vh;
+}
+
+h1,
+h2,
+h3 {
+    margin-top: 0;
+    color: var(--text-main);
+    line-height: 1.15;
+}
+
+h1 {
+    font-size: 46px;
+    margin-bottom: 22px;
+}
+
+h2 {
+    font-size: 30px;
+    margin-bottom: 18px;
+}
+
+h3 {
+    font-size: 22px;
+    margin-bottom: 12px;
+}
+
+p {
+    color: var(--text-muted);
+    line-height: 1.65;
+}
+
+a {
+    color: var(--green-dark);
+}
+
+a:hover {
+    color: var(--green);
+}
+
+hr {
+    border: none;
+    border-top: 1px solid rgba(241, 217, 154, 0.22);
+    margin: 34px 0;
+}
+
+.btn {
+    width: fit-content;
+    margin-top: 20px;
+    padding: 10px 18px;
+    border: 1px solid rgba(222, 178, 255, 0.42);
+    border-radius: 999px;
+    color: #fff4ff;
+    background:
+        linear-gradient(
+            135deg,
+            #4b1d66 0%,
+            #7c3fb0 52%,
+            #a86be2 100%
+        );
+    box-shadow:
+        0 8px 16px rgba(67, 24, 92, 0.34),
+        0 0 18px rgba(159, 83, 216, 0.22),
+        inset 0 1px 0 rgba(255, 255, 255, 0.28);
+    text-decoration: none;
+    font-weight: 900;
+    transition: 0.2s ease;
+}
+
+.btn:hover {
+      color: #ffffff;
+    background:
+        linear-gradient(
+            135deg,
+            #5c237c 0%,
+            #914ed0 52%,
+            #c085ff 100%
+        );
+    transform: translateY(-2px);
+    box-shadow:
+        0 12px 22px rgba(67, 24, 92, 0.42),
+        0 0 24px rgba(181, 103, 244, 0.32);
+    text-decoration: none;
+
+}
+
+.btn-outline {
+    background: rgba(215, 208, 189, 0.9);
+    color: var(--green-dark);
+    border-color: rgba(53, 85, 69, 0.25);
+    box-shadow: none;
+}
+
+.btn-outline:hover {
+    background: var(--bg-card-light);
+    color: var(--green-dark);
+}
+
+.btn-danger {
+    background: linear-gradient(135deg, #8e3944, var(--danger));
+    border-color: rgba(184, 91, 99, 0.45);
+}
+
+.btn-danger:hover {
+    background: linear-gradient(135deg, var(--danger), #d9828a);
+}
+
+.cards,
+.profile-grid,
+.achievement-grid {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 22px;
+    margin-top: 26px;
+}
+
+.card,
+.lesson-item,
+.profile-box,
+.course-detail,
+.form-wrapper,
+.result-box,
+.achievement-card {
+    position: relative;
+    overflow: hidden;
+    background: linear-gradient(145deg, rgba(238, 230, 207, 0.96), rgba(204, 211, 196, 0.94));
+    border: 1px solid rgba(241, 217, 154, 0.28);
+    border-radius: var(--radius-lg);
+    box-shadow: var(--shadow-soft);
+}
+
+.card,
+.lesson-item,
+.achievement-card {
+    padding: 24px;
+    transition: 0.22s ease;
+}
+
+.card:hover,
+.lesson-item:hover,
+.achievement-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 18px 38px rgba(10, 18, 14, 0.22);
+}
+
+.card::before,
+.lesson-item::before,
+.achievement-card::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    background:
+        radial-gradient(circle at 85% 15%, rgba(241, 217, 154, 0.26), transparent 20%),
+        linear-gradient(90deg, rgba(53, 85, 69, 0.12), transparent 30%);
+}
+
+.card::after,
+.lesson-item::after {
+
+    position: absolute;
+    right: 18px;
+    top: 14px;
+    color: rgba(53, 85, 69, 0.22);
+    font-size: 28px;
+}
+
+.card h3,
+.card p,
+.card .btn,
+.lesson-item h3,
+.lesson-item p,
+.lesson-item .btn,
+.achievement-card h3,
+.achievement-card p,
+.achievement-card .btn {
+    position: relative;
+    z-index: 1;
+}
+
+.course-detail {
+    padding: 34px;
+    background:
+        linear-gradient(135deg, rgba(47, 68, 56, 0.94), rgba(93, 116, 101, 0.9)),
+        radial-gradient(circle at 80% 20%, rgba(241, 217, 154, 0.28), transparent 22%);
+    color: var(--text-light);
+}
+
+.course-detail h1,
+.course-detail h2,
+.course-detail h3,
+.course-detail p,
+.course-detail a,
+.course-detail strong {
+    color: var(--text-light);
+}
+
+.course-detail a:hover {
+    color: var(--gold-light);
+}
+
+.status-open {
+    color: var(--success);
+    font-weight: 900;
+}
+
+.status-closed {
+    color: var(--danger);
+    font-weight: 900;
+}
+
+.status-pending {
+    color: var(--warning);
+    font-weight: 900;
+}
+
+.messages {
+    margin-bottom: 22px;
+}
+
+.message {
+    padding: 14px 18px;
+    background: rgba(215, 208, 189, 0.94);
+    border: 1px solid rgba(241, 217, 154, 0.35);
+    border-radius: var(--radius-md);
+    color: var(--green-dark);
+    font-weight: 800;
+    box-shadow: var(--shadow-soft);
+    margin-bottom: 10px;
+}
+
+
+
+@media (max-width: 1024px) {
+    .cards,
+    .profile-grid,
+    .achievement-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+}
+
+@media (max-width: 768px) {
+    h1 {
+        font-size: 34px;
+    }
+
+    .cards,
+    .profile-grid,
+    .achievement-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .course-detail,
+    .profile-box,
+    .form-wrapper,
+    .result-box {
+        padding: 24px;
+    }
+
+    .btn {
+        width: 100%;
+    }
+
+    .action-row .btn {
+        width: auto;
+    }
+}
+
+@media (max-width: 480px) {
+    .container {
+        width: 94%;
+    }
+
+    .main {
+        padding: 30px 0 54px;
+    }
+
+    .card,
+    .lesson-item {
+        padding: 20px;
+    }
+}

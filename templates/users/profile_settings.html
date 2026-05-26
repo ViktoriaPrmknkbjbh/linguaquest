@@ -1,0 +1,59 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<section class="profile-settings-section">
+    <div class="profile-settings-paper">
+        <h1>Настройки профиля</h1>
+
+        <form method="post" enctype="multipart/form-data" class="profile-settings-form">
+            {% csrf_token %}
+
+            <div class="profile-settings-block">
+                <h2>Личные данные</h2>
+
+                {% for field in user_form %}
+                    <div class="profile-settings-group">
+                        <label>{{ field.label }}</label>
+                        {{ field }}
+
+                        {% if field.errors %}
+                            <div class="profile-settings-error">
+                                {{ field.errors }}
+                            </div>
+                        {% endif %}
+                    </div>
+                {% endfor %}
+            </div>
+
+            <div class="profile-settings-block">
+                <h2>Аватар</h2>
+
+                {% for field in profile_form %}
+                    <div class="profile-settings-group">
+                        <label>{{ field.label }}</label>
+                        {{ field }}
+
+                        {% if field.errors %}
+                            <div class="profile-settings-error">
+                                {{ field.errors }}
+                            </div>
+                        {% endif %}
+                    </div>
+                {% endfor %}
+            </div>
+
+            <div class="profile-settings-actions">
+                <button type="submit" class="btn profile-settings-save">
+                    Сохранить изменения
+                </button>
+
+                <a href="{% url 'profile' %}" class="btn profile-settings-cancel">
+                    Отмена
+                </a>
+            </div>
+        </form>
+    </div>
+</section>
+
+{% endblock %}

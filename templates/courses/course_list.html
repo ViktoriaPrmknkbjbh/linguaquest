@@ -1,0 +1,173 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block page_css %}
+<link rel="stylesheet" href="{% static 'css/courses.css' %}">
+{% endblock %}
+
+{% block content %}
+
+<div class="shelf-header">
+
+    <img src="{% static 'images/purple-vines.png' %}" alt="" class="shelf-corner-vine shelf-corner-vine-left">
+    <img src="{% static 'images/purple-vines.png' %}" alt="" class="shelf-corner-vine shelf-corner-vine-right">
+
+    <h1 class="courses-title">
+        <img src="{% static 'images/decor-left.png' %}" alt="" class="img-decor">
+        Библиотека курсов
+        <img src="{% static 'images/decor-right.png' %}" alt="" class="img-decor">
+    </h1>
+
+    <p class="courses-description">
+        Здесь отображаются курсы для изучения английского языка.
+    </p>
+
+    <form method="get" class="shelf-filter-panel">
+        <div class="shelf-search">
+            <span>⌕</span>
+            <input
+                type="text"
+                name="q"
+                value="{{ search_query }}"
+                placeholder="Поиск курса..."
+            >
+        </div>
+
+        <div class="shelf-level-filter">
+            <a href="{% url 'course_list' %}" class="{% if not selected_level %}active{% endif %}">
+                Все
+            </a>
+
+            {% for level_code, level_name in levels %}
+                <a
+                    href="?level={{ level_code }}{% if search_query %}&q={{ search_query }}{% endif %}{% if selected_sort %}&sort={{ selected_sort }}{% endif %}"
+                    class="{% if selected_level == level_code %}active{% endif %}"
+                >
+                    {{ level_code }}
+                </a>
+            {% endfor %}
+        </div>
+
+        <div class="shelf-sort">
+            <select name="sort" onchange="this.form.submit()">
+                <option value="new" {% if selected_sort == 'new' %}selected{% endif %}>
+                    Новые
+                </option>
+
+                <option value="title" {% if selected_sort == 'title' %}selected{% endif %}>
+                    По названию
+                </option>
+            </select>
+        </div>
+
+        <button type="submit" class="shelf-search-button">
+            Найти
+        </button>
+    </form>
+
+</div>
+
+{% if courses %}
+<div class="book-container">
+
+    {% for course in courses %}
+
+        {% if forloop.counter0|divisibleby:2 %}
+        <div class="book-line">
+        {% endif %}
+
+            <div class="course-book">
+
+                <a href="{% url 'course_detail' course.id %}" class="course-book-cover">
+                    {% if course.image %}
+                        <img src="{{ course.image.url }}" alt="{{ course.title }}">
+                    {% else %}
+                        <div class="course-book-empty">
+                            {{ course.title|first }}
+                        </div>
+                    {% endif %}
+                </a>
+
+                <div class="course-book-content">
+                    <h3>{{ course.title }}</h3>
+
+
+                    <p>
+                        <strong>Уровень:</strong> {{ course.get_level_display }}
+                    </p>
+
+                    <p>
+                        <strong>Категория:</strong> {{ course.get_category_display }}
+                    </p>
+
+                    {% if course.is_public %}
+                        <p class="status-open">Открытый курс</p>
+                    {% else %}
+                        <p class="status-closed">Доступ по заявке</p>
+                    {% endif %}
+
+                    <a href="{% url 'course_detail' course.id %}" class="btn">
+                        Подробнее
+                    </a>
+                </div>
+
+            </div>
+
+        {% if forloop.counter|divisibleby:2 or forloop.last %}
+        </div>
+        <div class="line"></div>
+        {% endif %}
+
+    {% endfor %}
+
+   <div class="book-line decor-book-line shelf">
+    <div class="decor-shelf-content">
+
+        <img src="{% static 'images/globys.png' %}" alt="" class="glob-img">
+        <img src="{% static 'images/peper.png' %}" alt="" class="peper">
+
+        <div class="decor-info-panel">
+            <div class="decor-feature-card">
+                <div class="decor-feature-icon"> <img src="{% static 'images/blok1.png' %}" alt="" class="blok-img"></div>
+                <div>
+                    <h3>Увлекательное обучение</h3>
+                    <p>Интерактивные уроки и игровой подход.</p>
+                </div>
+            </div>
+
+            <div class="decor-feature-card">
+                <div class="decor-feature-icon"><img src="{% static 'images/blok2.png' %}" alt="" class="blok-img"></div>
+                <div>
+                    <h3>Отслеживание прогресса</h3>
+                    <p>Следите за своими успехами и достижениями.</p>
+                </div>
+            </div>
+
+            <div class="decor-feature-card">
+                <div class="decor-feature-icon"><img src="{% static 'images/blok3.png' %}" alt="" class="blok-img"></div>
+                <div>
+                    <h3>Достижения и награды</h3>
+                    <p>Получайте награды и поднимайтесь в рейтинге.</p>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</div>
+{% else %}
+<div class="book-container">
+    <div class="book-line empty-book-line">
+        <div class="empty-courses">
+            <p>Курсы не найдены.</p>
+        </div>
+    </div>
+
+    <div class="line"></div>
+
+    <div class="book-line decor-book-line">
+        <div class="decor-shelf-content"></div>
+    </div>
+</div>
+{% endif %}
+
+{% endblock %}

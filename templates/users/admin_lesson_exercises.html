@@ -1,0 +1,73 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<section class="admin-exercises-section">
+    <div class="admin-exercises-header-paper">
+        <p class="admin-exercises-back">
+            <a href="{% url 'admin_course_lessons' course.id %}">← Вернуться к урокам курса</a>
+        </p>
+
+        <h1>Упражнения урока</h1>
+
+        <h2>{{ lesson.title }}</h2>
+
+        <p>
+            <strong>Курс:</strong> {{ course.title }}
+        </p>
+
+        <a href="{% url 'admin_exercise_create' course.id lesson.id %}" class="btn admin-exercises-add-btn">
+            Добавить упражнение
+        </a>
+    </div>
+
+    {% if exercises %}
+        <div class="admin-exercises-list">
+            {% for exercise in exercises %}
+                <article class="admin-exercise-card">
+                    <div class="admin-exercise-main">
+                        <span class="admin-exercise-order">
+                            Упражнение {{ exercise.order }}
+                        </span>
+
+                        <h3>{{ exercise.get_exercise_type_display }}</h3>
+
+                        <p>
+                            <strong>Задание:</strong>
+                            {{ exercise.question|truncatewords:12 }}
+                        </p>
+
+                        <p>
+                            <strong>Правильный ответ:</strong>
+                            {% if exercise.exercise_type == 'choice' %}
+                                Вариант {{ exercise.correct_option }}
+                            {% else %}
+                                {{ exercise.correct_answer|default:"—" }}
+                            {% endif %}
+                        </p>
+                    </div>
+
+                    <div class="admin-exercise-actions">
+                        <a href="{% url 'lesson_detail' course.id lesson.id %}" class="admin-exercise-link">
+                            Смотреть урок
+                        </a>
+
+                        <a href="{% url 'admin_exercise_update' course.id lesson.id exercise.id %}" class="admin-exercise-link">
+                            Изменить
+                        </a>
+
+                        <a href="{% url 'admin_exercise_delete' course.id lesson.id exercise.id %}" class="admin-exercise-link admin-exercise-danger">
+                            Удалить
+                        </a>
+                    </div>
+                </article>
+            {% endfor %}
+        </div>
+    {% else %}
+        <div class="admin-exercise-card admin-exercise-empty">
+            <p>В этом уроке пока нет упражнений.</p>
+        </div>
+    {% endif %}
+</section>
+
+{% endblock %}

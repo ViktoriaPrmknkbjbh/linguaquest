@@ -1,0 +1,169 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<section class="admin-panel-page">
+    <div class="admin-panel-hero">
+        <h1>Панель администратора</h1>
+
+        <p>
+            <strong>Администратор:</strong> {{ user.username }}
+        </p>
+
+        <p>
+            Здесь администратор управляет курсами, уроками, упражнениями,
+            комментариями и заявками пользователей.
+        </p>
+    </div>
+
+    <div class="admin-panel-actions">
+        <article class="admin-panel-action-card">
+            <h3>Курсы</h3>
+            <p>Создание, редактирование и удаление курсов.</p>
+
+            <a href="{% url 'admin_course_create' %}" class="btn admin-panel-btn">
+                Добавить курс
+            </a>
+        </article>
+
+        <article class="admin-panel-action-card">
+            <h3>Уроки</h3>
+            <p>Откройте нужный курс ниже и перейдите к управлению уроками.</p>
+        </article>
+
+        <article class="admin-panel-action-card">
+            <h3>Комментарии</h3>
+            <p>Просмотр и удаление комментариев пользователей.</p>
+
+            <a href="{% url 'admin_comments' %}" class="btn admin-panel-outline-btn">
+                Комментарии
+            </a>
+        </article>
+    </div>
+
+    <div class="admin-panel-title-paper">
+        <h2>Курсы</h2>
+    </div>
+
+    {% if courses %}
+        <div class="admin-course-cards">
+            {% for course in courses %}
+                <article class="admin-course-card">
+                    <div>
+                        <h3>{{ course.title }}</h3>
+
+                        <p><strong>Уровень:</strong> {{ course.get_level_display }}</p>
+                        <p><strong>Категория:</strong> {{ course.get_category_display }}</p>
+
+                        <p>
+                            <strong>Доступ:</strong>
+                            {% if course.is_public %}
+                                <span class="status-open">Открытый</span>
+                            {% else %}
+                                <span class="status-closed">По заявке</span>
+                            {% endif %}
+                        </p>
+                    </div>
+
+                    <div class="admin-course-actions">
+                        <a href="{% url 'course_detail' course.id %}">Смотреть</a>
+                        <a href="{% url 'admin_course_lessons' course.id %}">Уроки</a>
+                        <a href="{% url 'admin_course_update' course.id %}">Изменить</a>
+                        <a href="{% url 'admin_course_delete' course.id %}" class="danger-link">Удалить</a>
+                    </div>
+                </article>
+            {% endfor %}
+        </div>
+    {% else %}
+        <div class="admin-empty-paper">
+            <p>Курсов пока нет.</p>
+        </div>
+    {% endif %}
+
+    <div class="admin-panel-title-paper">
+        <h2>Заявки на рассмотрении</h2>
+    </div>
+
+    {% if pending_requests %}
+        <div class="admin-request-list">
+            {% for request_item in pending_requests %}
+                <article class="admin-request-card">
+                    <h3>{{ request_item.course.title }}</h3>
+
+                    <p><strong>Пользователь:</strong> {{ request_item.user.username }}</p>
+                    <p><strong>Email:</strong> {{ request_item.user.email|default:"Не указан" }}</p>
+                    <p><strong>Дата заявки:</strong> {{ request_item.created_at }}</p>
+
+                    <div class="admin-request-actions">
+                        <form method="post" action="{% url 'approve_access_request' request_item.id %}">
+                            {% csrf_token %}
+                            <button type="submit" class="btn admin-panel-btn">
+                                Одобрить
+                            </button>
+                        </form>
+
+                        <a href="{% url 'reject_access_request' request_item.id %}" class="btn admin-panel-danger-btn">
+                            Отклонить
+                        </a>
+                    </div>
+                </article>
+            {% endfor %}
+        </div>
+    {% else %}
+        <div class="admin-empty-paper">
+            <p>Новых заявок пока нет.</p>
+        </div>
+    {% endif %}
+
+    <div class="admin-panel-title-paper">
+        <h2>Последние одобренные заявки</h2>
+    </div>
+
+    {% if approved_requests %}
+        <div class="admin-request-list">
+            {% for request_item in approved_requests %}
+                <article class="admin-request-card">
+                    <h3>{{ request_item.course.title }}</h3>
+                    <p><strong>Пользователь:</strong> {{ request_item.user.username }}</p>
+                    <p><strong>Статус:</strong> <span class="status-open">Одобрено</span></p>
+                    <p><strong>Дата обновления:</strong> {{ request_item.updated_at }}</p>
+                </article>
+            {% endfor %}
+        </div>
+    {% else %}
+        <div class="admin-empty-paper">
+            <p>Одобренных заявок пока нет.</p>
+        </div>
+    {% endif %}
+
+    <div class="admin-panel-title-paper">
+        <h2>Последние отклонённые заявки</h2>
+    </div>
+
+    {% if rejected_requests %}
+        <div class="admin-request-list">
+            {% for request_item in rejected_requests %}
+                <article class="admin-request-card">
+                    <h3>{{ request_item.course.title }}</h3>
+                    <p><strong>Пользователь:</strong> {{ request_item.user.username }}</p>
+                    <p><strong>Статус:</strong> <span class="status-closed">Отклонено</span></p>
+
+                    {% if request_item.admin_comment %}
+                        <p>
+                            <strong>Причина отказа:</strong>
+                            {{ request_item.admin_comment }}
+                        </p>
+                    {% endif %}
+
+                    <p><strong>Дата обновления:</strong> {{ request_item.updated_at }}</p>
+                </article>
+            {% endfor %}
+        </div>
+    {% else %}
+        <div class="admin-empty-paper">
+            <p>Отклонённых заявок пока нет.</p>
+        </div>
+    {% endif %}
+</section>
+
+{% endblock %}

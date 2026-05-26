@@ -1,0 +1,42 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+
+<section class="delete-comment-paper-section">
+    <div class="delete-comment-paper">
+        <h1>Удаление комментария</h1>
+
+        <div class="delete-comment-info">
+            <p>
+                <strong>Курс:</strong> {{ comment.course.title }}
+            </p>
+
+            <p>
+                <strong>Пользователь:</strong> {{ comment.user.username }}
+            </p>
+
+            <p class="delete-comment-text">
+                {{ comment.text }}
+            </p>
+
+            <p class="delete-comment-warning">
+                Это действие нельзя отменить.
+            </p>
+        </div>
+
+        <form method="post" class="delete-comment-actions">
+            {% csrf_token %}
+
+            <button type="submit" class="btn delete-comment-danger-btn">
+                Да, удалить
+            </button>
+
+            <a href="{% url 'admin_comments' %}" class="btn delete-comment-cancel-btn">
+                Отмена
+            </a>
+        </form>
+    </div>
+</section>
+
+{% endblock %}

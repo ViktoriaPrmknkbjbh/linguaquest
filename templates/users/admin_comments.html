@@ -1,0 +1,50 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<section class="admin-comments-section">
+    <div class="admin-comments-header-paper">
+        <p class="admin-comments-back">
+            <a href="{% url 'admin_dashboard' %}">← Вернуться в панель администратора</a>
+        </p>
+
+        <h1>Комментарии пользователей</h1>
+
+        <p>
+            Здесь администратор может просматривать отзывы пользователей к курсам
+            и удалять неподходящие комментарии.
+        </p>
+    </div>
+
+    {% if comments %}
+        <div class="admin-comments-list">
+            {% for comment in comments %}
+                <article class="admin-comment-paper">
+                    <h3>{{ comment.course.title }}</h3>
+
+                    <p>
+                        <strong>Пользователь:</strong> {{ comment.user.username }}
+                    </p>
+
+                    <p class="admin-comment-text">
+                        {{ comment.text }}
+                    </p>
+
+                    <p class="admin-comment-date">
+                        {{ comment.created_at }}
+                    </p>
+
+                    <a href="{% url 'admin_comment_delete' comment.id %}" class="btn admin-comment-delete-btn">
+                        Удалить комментарий
+                    </a>
+                </article>
+            {% endfor %}
+        </div>
+    {% else %}
+        <div class="admin-comment-paper admin-comment-empty">
+            <p>Комментариев пока нет.</p>
+        </div>
+    {% endif %}
+</section>
+
+{% endblock %}

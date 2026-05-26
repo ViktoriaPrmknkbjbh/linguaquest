@@ -1,0 +1,410 @@
+.lesson-paper-section {
+    display: flex;
+    justify-content: center;
+    padding: 30px 0 45px;
+}
+
+.lesson-paper-card {
+    position: relative;
+    width: min(1120px, 100%);
+    min-height: 360px;
+}
+
+.lesson-paper-img {
+    width: 100%;
+    min-height: 360px;
+    display: block;
+    object-fit: fill;
+}
+
+.lesson-paper-content {
+    position: absolute;
+    inset: 12% 10% 12%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    text-align: left;
+    top:20px;
+}
+
+.lesson-paper-content h1 {
+    color: #5a3822;
+    font-size: 30px;
+    line-height: 1.15;
+    margin: 0 0 22px;
+    overflow-wrap: anywhere;
+}
+
+.lesson-paper-content p,
+.lesson-paper-content strong {
+    color: #5a3822;
+}
+
+.lesson-paper-content p {
+    font-size: 18px;
+    font-weight: 700;
+    line-height: 1.45;
+    margin: 7px 0;
+}
+
+.lesson-back-link {
+    margin-bottom: 16px;
+}
+
+.lesson-back-link a {
+    color: #7c3fb0 !important;
+    font-weight: 900;
+    text-decoration: underline;
+}
+
+.lesson-back-link a:hover {
+    color: #a86be2 !important;
+}
+
+.lesson-material-section {
+    width: 100%;
+    padding: 30px 0 60px;
+}
+
+.lesson-material-paper {
+    width: 100%;
+    min-height: 420px;
+    height: auto;
+    padding: 95px 120px 90px;
+    background-image: url("../images/lesson-paper-wide.png");
+    background-size: 100% 100%;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+.lesson-material-paper h2 {
+    margin: 0 0 24px;
+    text-align: center;
+    color: #5a3822;
+    font-size: 30px;
+    font-weight: 900;
+}
+
+.lesson-material-content {
+    max-width: 900px;
+    margin: 0 auto;
+    color: #5a3822;
+    font-size: 19px;
+    font-weight: 700;
+    line-height: 1.75;
+    text-align: center;
+    overflow-wrap: anywhere;
+    word-break: break-word;
+}
+
+.lesson-material-content p {
+    margin: 0 0 16px;
+    color: #5a3822;
+}
+
+.lesson-practice-section {
+    width: 100%;
+    padding: 30px 0 60px;
+}
+
+.lesson-practice-paper {
+    width: min(820px, 100%);
+    min-height: 300px;
+    margin: 0 auto;
+    padding: 40px 90px;
+    text-align: center;
+    background-image: url("../images/comment-paper.png");
+    background-size: 100% 100%;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+.lesson-practice-paper h2 {
+    margin: 0 0 18px;
+    color: #5a3822;
+    font-size: 34px;
+    font-weight: 900;
+}
+
+.lesson-practice-paper p {
+    margin: 0 auto 22px;
+    max-width: 560px;
+    color: #5a3822;
+    font-size: 17px;
+    font-weight: 700;
+    line-height: 1.5;
+}
+
+@media (max-width: 768px) {
+    .lesson-paper-card {
+        min-height: 320px;
+    }
+
+    .lesson-paper-img {
+        min-height: 320px;
+    }
+
+    .lesson-paper-content {
+        inset: 11% 9% 10%;
+    }
+
+    .lesson-paper-content h1 {
+        font-size: 24px;
+        margin-bottom: 14px;
+    }
+
+    .lesson-paper-content p {
+        font-size: 15px;
+        line-height: 1.35;
+    }
+
+    .lesson-material-paper {
+        min-height: 360px;
+        padding: 90px 56px 70px;
+    }
+
+    .lesson-material-paper h2 {
+        font-size: 30px;
+    }
+
+    .lesson-material-content {
+        font-size: 16px;
+        line-height: 1.55;
+    }
+}
+
+@media (max-width: 560px) {
+    .lesson-paper-card {
+        min-height: 300px;
+    }
+
+    .lesson-paper-img {
+        min-height: 300px;
+    }
+
+    .lesson-paper-content {
+        inset: 10% 9% 10%;
+    }
+
+    .lesson-paper-content h1 {
+        font-size: 22px;
+        margin-bottom: 12px;
+    }
+
+    .lesson-paper-content p {
+        font-size: 14px;
+        line-height: 1.3;
+    }
+
+    .lesson-practice-paper {
+        min-height: 230px;
+        padding: 56px 34px;
+    }
+
+    .lesson-practice-paper h2 {
+        font-size: 25px;
+    }
+
+    .lesson-practice-paper p {
+        font-size: 14px;
+        line-height: 1.35;
+    }
+
+    .lesson-practice-paper .btn {
+        min-height: 34px;
+        padding: 7px 13px;
+        font-size: 12px;
+        width: auto;
+    }
+}
+
+@media (max-width: 480px) {
+    .lesson-material-paper {
+        min-height: 320px;
+        padding: 68px 32px 58px;
+    }
+
+    .lesson-material-paper h2 {
+        font-size: 25px;
+    }
+
+    .lesson-material-content {
+        font-size: 14px;
+        line-height: 1.45;
+    }
+}
+.progress-line {
+    width: 100%;
+    height: 12px;
+    background: rgba(75, 29, 102, 0.22);
+    border: 1px solid rgba(222, 178, 255, 0.28);
+    border-radius: 999px;
+    overflow: hidden;
+    box-shadow: inset 0 2px 8px rgba(40, 12, 58, 0.45);
+}
+
+.progress-line-fill {
+    height: 100%;
+    background: linear-gradient(90deg, #4b1d66, #7c3fb0, #a86be2);
+    border-radius: 999px;
+    box-shadow: 0 0 16px rgba(168, 107, 226, 0.45);
+}
+.exercise-paper-section {
+    width: 100%;
+    padding: 30px 0 60px;
+}
+
+.exercise-paper-card {
+    width: min(920px, 100%);
+    min-height: 420px;
+    margin: 0 auto;
+    padding: 90px 105px 80px;
+    background-image: url("../images/lesson-paper-exercise.png");
+    background-size: 100% 100%;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+.exercise-paper-card h2 {
+    margin: 0 0 22px;
+    text-align: center;
+    color: #5a3822;
+    font-size: 32px;
+    font-weight: 900;
+}
+
+.exercise-paper-card p,
+.exercise-paper-card label,
+.exercise-paper-card strong {
+    color: #5a3822;
+}
+
+.exercise-source {
+    max-width: 680px;
+    margin: 0 auto 22px;
+    padding: 14px 18px;
+    border-radius: 16px;
+    background: rgba(90, 56, 34, 0.12);
+    border: 1px solid rgba(90, 56, 34, 0.18);
+    color: #5a3822;
+    font-size: 18px;
+    font-weight: 800;
+    text-align: center;
+}
+
+.answer-options {
+    display: grid;
+    gap: 12px;
+    max-width: 680px;
+    margin: 24px auto;
+}
+
+.answer-option {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    min-height: 48px;
+    padding: 12px 16px;
+    border-radius: 16px;
+    background: rgba(90, 56, 34, 0.12);
+    border: 1px solid rgba(90, 56, 34, 0.18);
+    color: #5a3822;
+    font-size: 16px;
+    font-weight: 800;
+    cursor: pointer;
+    transition: 0.2s ease;
+}
+
+.answer-option:hover {
+    background: rgba(124, 63, 176, 0.14);
+    border-color: rgba(124, 63, 176, 0.38);
+}
+
+.answer-option input {
+    accent-color: #7c3fb0;
+}
+
+.big-answer-input {
+    display: block;
+    width: min(680px, 100%);
+    margin: 24px auto 0;
+    padding: 14px 18px;
+    border-radius: 16px;
+    background: rgba(90, 56, 34, 0.1);
+    border: 1px solid rgba(90, 56, 34, 0.22);
+    color: #5a3822;
+    font-size: 17px;
+    font-weight: 800;
+    outline: none;
+}
+
+.big-answer-input:focus {
+    border-color: rgba(124, 63, 176, 0.58);
+    box-shadow: 0 0 0 4px rgba(124, 63, 176, 0.14);
+}
+
+.big-answer-input::placeholder {
+    color: rgba(90, 56, 34, 0.58);
+}
+
+.exercise-submit {
+    display: flex;
+    margin: 24px auto 0;
+    width: fit-content;
+    background: linear-gradient(135deg, #4b1d66, #7c3fb0, #a86be2);
+    border: 1px solid rgba(222, 178, 255, 0.42);
+    color: #fff4ff;
+}
+
+.word-bank {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 10px;
+    max-width: 700px;
+    margin: 24px auto;
+}
+
+.word-chip {
+    padding: 9px 14px;
+    border-radius: 999px;
+    background: linear-gradient(135deg, #4b1d66, #7c3fb0);
+    border: 1px solid rgba(222, 178, 255, 0.42);
+    color: #fff4ff;
+    font-weight: 900;
+}
+
+@media (max-width: 768px) {
+    .exercise-paper-card {
+        min-height: 360px;
+        padding: 78px 56px 66px;
+    }
+
+    .exercise-paper-card h2 {
+        font-size: 26px;
+    }
+}
+
+@media (max-width: 480px) {
+    .exercise-paper-card {
+        min-height: 320px;
+        padding: 66px 30px 56px;
+    }
+
+    .exercise-paper-card h2 {
+        font-size: 22px;
+    }
+
+    .exercise-source,
+    .answer-option,
+    .big-answer-input {
+        font-size: 14px;
+    }
+
+    .exercise-submit {
+        min-height: 34px;
+        padding: 7px 13px;
+        font-size: 12px;
+        width: auto;
+    }
+}

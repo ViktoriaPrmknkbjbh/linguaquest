@@ -1,0 +1,28 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+
+<section class="access-sent-section">
+    <div class="access-sent-paper">
+        <img src="{% static 'images/titel.png' %}" alt="Пергамент" class="access-sent-img">
+
+        <div class="access-sent-content">
+            <h1>Заявка не требуется</h1>
+
+            <p>
+                Курс <strong>{{ course.title }}</strong> является открытым.
+            </p>
+
+            <p>
+                Вы можете проходить его без заявки.
+            </p>
+
+            <a href="{% url 'course_detail' course.id %}" class="btn">
+                Перейти к курсу
+            </a>
+        </div>
+    </div>
+</section>
+
+{% endblock %}

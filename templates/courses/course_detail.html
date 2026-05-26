@@ -1,0 +1,280 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+
+<section class="course-scroll-section">
+    <div class="course-scroll-card">
+        <img src="{% static 'images/titel.png' %}" alt="Пергамент курса" class="course-scroll-img">
+
+        <div class="course-scroll-content">
+            <h2 class="course-scroll-title">{{ course.title }}</h2>
+
+            <p class="course-scroll-description">
+                {{ course.description }}
+            </p>
+
+            <div class="course-scroll-info">
+                <p>
+                    <span>Уровень:</span>
+                    <span class="pyrpyr">{{ course.level }}</span>
+                </p>
+
+                <p>
+                    <span>Категория:</span>
+                    <span class="pyrpyr">{{ course.get_category_display }}</span>
+                </p>
+
+                <p>
+                    {% if course.is_open %}
+                    <span>Открытый курс</span>
+                    {% else %}
+                    <span>Закрытый курс</span>
+                    {% endif %}
+                </p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<hr>
+
+<h2 class="h2-list-curses">Путь обучения</h2>
+
+{% if has_access %}
+
+{% if lesson_data %}
+<div class="lesson-map">
+    {% for item in lesson_data %}
+    <div class="lesson-node-wrapper {% if forloop.counter|divisibleby:2 %}lesson-node-right{% else %}lesson-node-left{% endif %}">
+
+        <div class="lesson-node
+                        {% if item.result and item.result.best_score >= 50 %}
+                            lesson-node-completed
+                        {% elif item.unlocked %}
+                            lesson-node-unlocked
+                        {% else %}
+                            lesson-node-locked
+                        {% endif %}
+                    ">
+
+            <div class="lesson-node-icon">
+                {% if item.result and item.result.best_score >= 50 %}
+                <img class="site-lesson-icon" src="{% static 'images/okey.png' %}" alt="Урок пройден">
+                {% elif item.unlocked %}
+                <img class="site-lesson-icon" src="{% static 'images/none.png' %}" alt="Урок открыт">
+                {% else %}
+                <img class="site-lesson-icon" src="{% static 'images/closet.png' %}" alt="Урок закрыт">
+                {% endif %}
+            </div>
+
+            <div class="lesson-node-content">
+                <h3 class="lesson-node-title-1" title="Урок {{ item.lesson.order }}. {{ item.lesson.title }}">
+                    Урок {{ item.lesson.order }}. {{ item.lesson.title }}
+                </h3>
+
+                <p>
+                    Баллы за прохождение: {{ item.lesson.points_reward }}
+                </p>
+
+                {% if item.result %}
+                <p>
+                    <strong>Лучший результат:</strong>
+                    {{ item.result.best_score }}%
+                </p>
+                <br>
+                {% else %}
+                <p>
+                    <strong>Лучший результат:</strong>
+                    урок ещё не проходился
+                </p>
+                <br>
+                {% endif %}
+
+                {% if item.unlocked %}
+                <a href="{% url 'lesson_detail' course.id item.lesson.id %}" class="btn">
+                    Перейти к уроку
+                </a>
+                <br>
+                <br>
+                <br>
+                {% else %}
+                <p class="status-closed">
+                    Нужно пройти предыдущий урок минимум на 50%.
+                </p>
+                {% endif %}
+            </div>
+        </div>
+
+    </div>
+    {% endfor %}
+</div>
+{% else %}
+<div class="lesson-empty-paper">
+    <div class="lesson-empty-paper-content">
+        <p>В этом курсе пока нет уроков.</p>
+    </div>
+</div>
+{% endif %}
+
+{% else %}
+
+<div class="access-paper">
+    <div class="access-paper-content">
+        <p class="access-paper-main-text">
+            У вас пока нет доступа к этому курсу.
+        </p>
+
+        {% if user.is_authenticated %}
+
+        {% if access_request %}
+
+        {% if access_request.status == 'pending' %}
+        <p>
+            <strong>Статус заявки:</strong>
+            <span class="pyrpyr">На рассмотрении</span>
+        </p>
+
+        <p>
+            Ваша заявка уже отправлена. Дождитесь решения администратора.
+        </p>
+
+        {% elif access_request.status == 'rejected' %}
+        <p>
+            <strong>Статус заявки:</strong>
+            <span class="pyrpyr">Отклонено</span>
+        </p>
+
+        {% if access_request.admin_comment %}
+        <p>
+            <strong>Комментарий администратора:</strong>
+            {{ access_request.admin_comment }}
+        </p>
+        <br>
+        {% endif %}
+
+        <a href="{% url 'request_course_access' course.id %}" class="btn">
+            Отправить заявку повторно
+        </a>
+        {% endif %}
+
+        {% else %}
+        <br>
+        <a href="{% url 'request_course_access' course.id %}" class="btn">
+            Отправить заявку
+        </a>
+        {% endif %}
+
+        {% else %}
+        <p>
+            Чтобы запросить доступ и проходить курс, необходимо войти в аккаунт.
+        </p>
+        <br>
+        <a href="{% url 'login' %}" class="btn">
+            Войти
+        </a>
+        {% endif %}
+    </div>
+</div>
+
+{% endif %}
+{% if page_obj.has_other_pages %}
+<div class="pagination">
+
+    {% if page_obj.has_previous %}
+        <a href="?page={{ page_obj.previous_page_number }}" class="pagination-link">
+            Назад
+        </a>
+    {% endif %}
+
+    {% for num in page_obj.paginator.page_range %}
+        {% if page_obj.number == num %}
+            <span class="pagination-link active">{{ num }}</span>
+        {% else %}
+            <a href="?page={{ num }}" class="pagination-link">{{ num }}</a>
+        {% endif %}
+    {% endfor %}
+
+    {% if page_obj.has_next %}
+        <a href="?page={{ page_obj.next_page_number }}" class="pagination-link">
+            Далее
+        </a>
+    {% endif %}
+
+</div>
+{% endif %}
+<hr>
+
+<h2 class="h2-list-curses">Отзывы курса</h2>
+
+{% if user.is_authenticated and not user.is_staff %}
+<section class="comment-paper-section">
+    <div class="comment-paper-card">
+        <img src="{% static 'images/comment-paper.png' %}" alt="Пергамент отзыва" class="comment-paper-img">
+
+        <div class="comment-paper-content">
+            <h2 class="comment-paper-title">Оставить отзыв</h2>
+
+            <form method="post" class="comment-paper-form">
+                {% csrf_token %}
+
+
+                <textarea
+                        name="text"
+                        id="comment"
+                        class="comment-paper-textarea"
+                        placeholder="Поделитесь мнением о курсе"
+                        maxlength="500"
+                        required
+                ></textarea>
+
+                <div class="comment-char-counter">
+                    <span id="comment-current">0</span>/500
+                </div>
+
+                <button type="submit" class="comment-paper-btn">
+                    Отправить отзыв
+                </button>
+            </form>
+        </div>
+    </div>
+</section>
+{% endif %}
+
+{% if comments %}
+<div class="comments-list">
+    {% for comment in comments %}
+    <div class="comment-item">
+        <div class="comment-item-content">
+            <h3>{{ comment.user.username }}</h3>
+            <p>{{ comment.text }}</p>
+            <small>{{ comment.created_at }}</small>
+        </div>
+    </div>
+    {% endfor %}
+</div>
+{% else %}
+<div class="comments-list">
+    <div class="comment-item comment-empty">
+        <div class="comment-item-content">
+            <p>Отзывов пока нет.</p>
+        </div>
+    </div>
+</div>
+{% endif %}
+<script>
+    document.addEventListener("DOMContentLoaded", function () {
+        const textarea = document.getElementById("comment");
+        const current = document.getElementById("comment-current");
+
+        if (textarea && current) {
+            function updateCounter() {
+                current.textContent = textarea.value.length;
+            }
+
+            textarea.addEventListener("input", updateCounter);
+            updateCounter();
+        }
+    });
+</script>
+{% endblock %}

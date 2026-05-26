@@ -1,0 +1,258 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+<section class="lesson-paper-section">
+    <div class="lesson-paper-card">
+        <img src="{% static 'images/comment-paper.png' %}" alt="Пергамент урока" class="lesson-paper-img">
+
+        <div class="lesson-paper-content">
+            <p class="lesson-back-link">
+                <a href="{% url 'lesson_detail' course.id lesson.id %}">← Вернуться к материалу</a>
+            </p>
+
+            <h1>Упражнение {{ exercise_number }} из {{ exercises_count }}</h1>
+
+            <p>
+                <strong>Урок:</strong> {{ lesson.title }}
+            </p>
+
+            <div class="progress-line">
+                <div class="progress-line-fill" style="width: {{ progress_percent }}%;"></div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<hr>
+
+<section class="exercise-paper-section">
+    <div class="exercise-paper-card">
+
+    {% if exercise.exercise_type == 'choice' %}
+        <h2>{{ exercise.question }}</h2>
+
+        {% if exercise.source_text %}
+            <p class="exercise-source">
+                {{ exercise.source_text }}
+            </p>
+        {% endif %}
+
+        <form method="post" class="exercise-form" novalidate>
+            {% csrf_token %}
+
+            <div class="answer-options">
+                {% if exercise.option_1 %}
+                    <label class="answer-option">
+                        <input type="radio" name="answer" value="1">
+                        {{ exercise.option_1 }}
+                    </label>
+                {% endif %}
+
+                {% if exercise.option_2 %}
+                    <label class="answer-option">
+                        <input type="radio" name="answer" value="2">
+                        {{ exercise.option_2 }}
+                    </label>
+                {% endif %}
+
+                {% if exercise.option_3 %}
+                    <label class="answer-option">
+                        <input type="radio" name="answer" value="3">
+                        {{ exercise.option_3 }}
+                    </label>
+                {% endif %}
+
+                {% if exercise.option_4 %}
+                    <label class="answer-option">
+                        <input type="radio" name="answer" value="4">
+                        {{ exercise.option_4 }}
+                    </label>
+                {% endif %}
+            </div>
+
+            <p class="exercise-field-error">
+                Пожалуйста, выберите ответ.
+            </p>
+
+            <button type="submit" class="btn exercise-submit">
+                Проверить
+            </button>
+        </form>
+
+    {% elif exercise.exercise_type == 'text_input' %}
+        <h2>{{ exercise.question }}</h2>
+
+        <form method="post" class="exercise-form" novalidate>
+            {% csrf_token %}
+
+            <input
+                type="text"
+                name="answer"
+                class="form-control big-answer-input"
+                placeholder="Введите ответ"
+                autocomplete="off"
+            >
+
+            <p class="exercise-field-error">
+                Пожалуйста, заполните поле.
+            </p>
+
+            <button type="submit" class="btn exercise-submit">
+                Проверить
+            </button>
+        </form>
+
+    {% elif exercise.exercise_type == 'translate' %}
+        <h2>Переведите фразу</h2>
+
+        <p class="exercise-source">
+            {{ exercise.source_text }}
+        </p>
+
+        <form method="post" class="exercise-form" novalidate>
+            {% csrf_token %}
+
+            <input
+                type="text"
+                name="answer"
+                class="form-control big-answer-input"
+                placeholder="Введите перевод"
+                autocomplete="off"
+            >
+
+            <p class="exercise-field-error">
+                Пожалуйста, заполните поле.
+            </p>
+
+            <button type="submit" class="btn exercise-submit">
+                Проверить
+            </button>
+        </form>
+
+    {% elif exercise.exercise_type == 'fill_gap' %}
+        <h2>{{ exercise.question }}</h2>
+
+        <p class="exercise-source">
+            {{ exercise.source_text }}
+        </p>
+
+        <form method="post" class="exercise-form" novalidate>
+            {% csrf_token %}
+
+            <input
+                type="text"
+                name="answer"
+                class="form-control big-answer-input"
+                placeholder="Введите пропущенное слово"
+                autocomplete="off"
+            >
+
+            <p class="exercise-field-error">
+                Пожалуйста, заполните поле.
+            </p>
+
+            <button type="submit" class="btn exercise-submit">
+                Проверить
+            </button>
+        </form>
+
+    {% elif exercise.exercise_type == 'order_words' %}
+        <h2>Соберите предложение</h2>
+
+        {% if exercise.question %}
+            <p>{{ exercise.question }}</p>
+        {% endif %}
+
+        <div class="word-bank">
+            {% for word in exercise.words_for_ordering.split %}
+                <span class="word-chip">{{ word }}</span>
+            {% endfor %}
+        </div>
+
+        <form method="post" class="exercise-form" novalidate>
+            {% csrf_token %}
+
+            <input
+                type="text"
+                name="answer"
+                class="form-control big-answer-input"
+                placeholder="Введите предложение полностью"
+                autocomplete="off"
+            >
+
+            <p class="exercise-field-error">
+                Пожалуйста, заполните поле.
+            </p>
+
+            <button type="submit" class="btn exercise-submit">
+                Проверить
+            </button>
+        </form>
+
+    {% else %}
+        <h2>{{ exercise.question }}</h2>
+
+        <form method="post" class="exercise-form" novalidate>
+            {% csrf_token %}
+
+            <input
+                type="text"
+                name="answer"
+                class="form-control big-answer-input"
+                placeholder="Введите ответ"
+            >
+
+            <p class="exercise-field-error">
+                Пожалуйста, заполните поле.
+            </p>
+
+            <button type="submit" class="btn exercise-submit">
+                Проверить
+            </button>
+        </form>
+    {% endif %}
+
+    </div>
+</section>
+
+<script>
+document.addEventListener("DOMContentLoaded", function () {
+    const forms = document.querySelectorAll(".exercise-form");
+
+    forms.forEach(function(form) {
+        const error = form.querySelector(".exercise-field-error");
+
+        form.addEventListener("submit", function(event) {
+            const textInput = form.querySelector("input[type='text']");
+            const radioInputs = form.querySelectorAll("input[type='radio']");
+            const checkedRadio = form.querySelector("input[type='radio']:checked");
+
+            let valid = true;
+
+            if (textInput && textInput.value.trim() === "") {
+                valid = false;
+            }
+
+            if (radioInputs.length > 0 && !checkedRadio) {
+                valid = false;
+            }
+
+            if (!valid) {
+                event.preventDefault();
+                error.classList.add("show");
+            }
+        });
+
+        form.addEventListener("input", function() {
+            error.classList.remove("show");
+        });
+
+        form.addEventListener("change", function() {
+            error.classList.remove("show");
+        });
+    });
+});
+</script>
+
+{% endblock %}

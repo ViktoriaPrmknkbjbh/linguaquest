@@ -1,0 +1,164 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>LinguaQuest</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="icon" href="{% static '/images/none.png'%}" type="image/png">
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+    <link rel="stylesheet" href="{% static 'css/header.css' %}">
+    <link rel="stylesheet" href="{% static 'css/forms.css' %}">
+    <link rel="stylesheet" href="{% static 'css/tables.css' %}">
+    <link rel="stylesheet" href="{% static 'css/profile.css' %}">
+    <link rel="stylesheet" href="{% static 'css/lessons.css' %}">
+    <link rel="stylesheet" href="{% static 'css/errors.css' %}">
+    <link rel="stylesheet" href="{% static 'css/footer.css' %}">
+    <link rel="stylesheet" href="{% static 'css/cours-adout.css' %}">
+    <link rel="stylesheet" href="{% static 'css/lesson_detail.css' %}">
+    <link rel="stylesheet" href="{% static 'css/exercise.css' %}">
+    <link rel="stylesheet" href="{% static 'css/access_lessons.css' %}">
+    <link rel="stylesheet" href="{% static 'css/rating.css' %}">
+     <link rel="stylesheet" href="{% static 'css/login.css' %}">
+    <link rel="stylesheet" href="{% static 'css/admin.css' %}">
+    <link rel="stylesheet" href="{% static 'css/index.css' %}">
+
+
+    {% block page_css %}{% endblock %}
+</head>
+<body>
+
+<header class="site-header">
+    <div class="site-header-inner">
+        <a href="{% url 'home' %}" class="site-logo">
+            <img class="site-logo-icon" src="{%static 'images/logo.png'%}" alt="">
+            <span>LinguaQuest</span>
+        </a>
+
+        <button class="burger-btn" type="button" id="burgerBtn">
+            <span></span>
+            <span></span>
+            <span></span>
+        </button>
+
+        <nav class="site-nav" id="siteNav">
+            <a href="{% url 'home' %}" class="{% if request.resolver_match.url_name == 'home' %}active{% endif %}">
+                Главная
+            </a>
+
+            <a href="{% url 'course_list' %}"
+               class="{% if request.resolver_match.url_name == 'course_list' or request.resolver_match.url_name == 'course_detail' or request.resolver_match.url_name == 'lesson_detail' %}active{% endif %}">
+                Курсы
+            </a>
+
+            <a href="{% url 'rating' %}" class="{% if request.resolver_match.url_name == 'rating' %}active{% endif %}">
+                Рейтинг
+            </a>
+
+            {% if user.is_authenticated and not user.is_staff %}
+            <a href="{% url 'profile' %}"
+               class="{% if request.resolver_match.url_name == 'profile' or request.resolver_match.url_name == 'profile_settings' %}active{% endif %}">
+                Профиль
+            </a>
+            {% endif %}
+
+            {% if user.is_authenticated and user.is_staff %}
+            <a href="{% url 'admin_dashboard' %}"
+               class="{% if request.resolver_match.url_name == 'admin_dashboard' %}active{% endif %}">
+                Панель
+            </a>
+            {% endif %}
+
+
+        </nav>
+
+        <div class="site-actions">
+            {% if user.is_authenticated %}
+            {% if not user.is_staff %}
+            <a href="{% url 'profile' %}" class="header-avatar-link">
+                {% if user.profile.avatar %}
+                <img src="{{ user.profile.avatar.url }}" alt="Профиль" class="header-avatar">
+                {% else %}
+                <span class="header-avatar-placeholder">
+                                {{ user.username|first|upper }}
+                            </span>
+                {% endif %}
+            </a>
+            {% else %}
+            <a href="{% url 'admin_dashboard' %}" class="header-avatar-link">
+                <span class="header-avatar-placeholder">A</span>
+            </a>
+            {% endif %}
+
+            <a href="{% url 'logout' %}" class="header-auth-link">
+                Выйти
+            </a>
+            {% else %}
+            <a href="{% url 'login' %}" class="header-auth-link">
+                Войти
+            </a>
+
+            <a href="{% url 'register' %}" class="header-auth-link header-auth-primary">
+                Регистрация
+            </a>
+            {% endif %}
+        </div>
+    </div>
+</header>
+
+<main class="main">
+    <div class="container">
+
+        {% if messages %}
+        <div class="messages">
+            {% for message in messages %}
+            <div class="message">
+                {{ message }}
+            </div>
+            {% endfor %}
+        </div>
+        {% endif %}
+
+        {% block content %}
+        {% endblock %}
+
+    </div>
+</main>
+
+<footer class="footer">
+    <div class="grid_footer">
+        <div>
+        <ul class="footer_content">
+            <li>Email:<a class="a_footer" href="mailto:v1ktopova@yandex.ru"> v1ktopova@yandex.ru</a></li>
+            <br>
+            <li>Телефон: <a class="a_footer" href="tel:+79380337759">+79380337759</a></li>
+        </ul>
+    </div>
+         <div class="container">
+        <p>© 2026 Все права защищен — LinguaQuest</p>
+    </div>
+    <div>
+        <ul class="footer_content">
+
+            <li><a href="https://vk.com/id568269266"><img class="footer-img-vk" src="{%static 'images/vk.png'%}" alt=""></a></li>
+        </ul>
+    </div>
+
+    </div>
+
+</footer>
+
+<script>
+    const burgerBtn = document.getElementById('burgerBtn');
+    const siteNav = document.getElementById('siteNav');
+
+    burgerBtn.addEventListener('click', function () {
+        burgerBtn.classList.toggle('active');
+        siteNav.classList.toggle('active');
+    });
+</script>
+
+</body>
+</html>

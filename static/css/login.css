@@ -1,0 +1,181 @@
+.auth-paper-section {
+    width: 100%;
+    padding: 35px 0 70px;
+}
+
+.auth-paper {
+    width: min(760px, 100%);
+    min-height: 520px;
+    margin: 0 auto;
+    padding: 95px 110px 80px;
+    text-align: center;
+    background-image: url("../images/lesson-paper-wide.png");
+    background-size: 100% 100%;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+.auth-paper h1 {
+    margin: 0 0 24px;
+    color: #321c06;
+    font-size: 42px;
+    font-weight: 900;
+}
+
+.auth-form {
+    width: min(420px, 100%);
+    margin: 0 auto;
+}
+
+.auth-form-group {
+    margin-bottom: 16px;
+    text-align: left;
+}
+
+.auth-form-group label {
+    display: block;
+    margin-bottom: 7px;
+    color: #321c06;
+    font-size: 16px;
+    font-weight: 900;
+}
+
+.auth-form-group input {
+    width: 100%;
+    min-height: 44px;
+    padding: 11px 15px;
+    border-radius: 14px;
+    border: 1px solid rgba(50, 28, 6, 0.35);
+    background: rgba(255, 231, 173, 0.34);
+    color: #321c06;
+    font-size: 16px;
+    font-weight: 700;
+    outline: none;
+}
+
+.auth-form-group input:focus {
+    border-color: #7c3fb0;
+    box-shadow: 0 0 0 4px rgba(124, 63, 176, 0.14);
+}
+
+.auth-error {
+    margin: 8px 0 12px;
+    color: #8b2e2e;
+    font-size: 14px;
+    font-weight: 800;
+}
+
+.auth-error ul {
+    margin: 0;
+    padding-left: 18px;
+}
+
+.auth-btn {
+    margin-top: 8px;
+    background: linear-gradient(135deg, #4b1d66, #7c3fb0, #a86be2);
+    color: #fff4ff;
+    border: 1px solid rgba(222, 178, 255, 0.42);
+}
+
+.auth-link {
+    margin: 20px 0 0;
+    color: #321c06;
+    font-size: 16px;
+    font-weight: 800;
+}
+
+.auth-link a {
+    color: #7c3fb0;
+    font-weight: 900;
+}
+
+.auth-link a:hover {
+    color: #a86be2;
+}
+
+@media (max-width: 560px) {
+    .auth-paper {
+        min-height: 460px;
+        padding: 78px 80px 64px;
+
+    }
+
+    .auth-paper h1 {
+        font-size: 32px;
+
+    }
+
+    .auth-form-group label,
+    .auth-link {
+        font-size: 14px;
+    }
+
+    .auth-form-group input {
+        min-height: 40px;
+        width: 300px;
+        font-size: 14px;
+    }
+
+    .auth-btn {
+        min-height: 36px;
+        padding: 8px 16px;
+        font-size: 13px;
+        width: auto;
+    }
+}
+.auth-field-error {
+    display: none;
+    margin: 7px 0 0;
+    color: #7c3fb0;
+    font-size: 13px;
+    font-weight: 900;
+}
+
+.auth-field-error.show {
+    display: block;
+}
+.register-paper-section {
+    width: 100%;
+    padding: 35px 0 70px;
+}
+
+.register-paper {
+    width: min(900px, 100%);
+    min-height: 680px;
+    margin: 0 auto;
+    padding: 95px 135px 85px;
+    text-align: center;
+    background-image: url("../images/paper-register.png");
+    background-size: 100% 100%;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+.register-paper h1 {
+    margin: 0 0 24px;
+    color: #321c06;
+    font-size: 42px;
+    font-weight: 900;
+}
+
+.register-form {
+    width: min(460px, 100%);
+}
+
+@media (max-width: 768px) {
+    .register-paper {
+        min-height: 640px;
+        padding: 90px 80px 75px;
+    }
+}
+
+@media (max-width: 560px) {
+    .register-paper {
+        min-height: 620px;
+        padding: 82px 70px 68px;
+    }
+
+    .register-paper h1 {
+        font-size: 32px;
+    }
+}

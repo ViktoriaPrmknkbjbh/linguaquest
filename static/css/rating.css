@@ -1,0 +1,134 @@
+.rating-page {
+    width: 100%;
+    padding: 20px 0 60px;
+}
+
+.rating-header {
+    max-width: 920px;
+    margin: 0 auto 30px;
+    text-align: center;
+}
+
+.rating-header h1 {
+    margin-bottom: 14px;
+    color: #d6b56d;
+    font-size: 44px;
+    font-weight: 900;
+}
+
+.rating-header p {
+    max-width: 720px;
+    margin: 0 auto;
+    color: #321c06;
+    font-size: 17px;
+    font-weight: 700;
+    line-height: 1.55;
+}
+
+.rating-list {
+    display: grid;
+    gap: 18px;
+    width: min(980px, 100%);
+    margin: 0 auto;
+}
+
+.rating-user-paper {
+    position: relative;
+    min-height: 94px;
+    padding: 28px 58px;
+    display: grid;
+    grid-template-columns: 110px 1fr 190px;
+    gap: 18px;
+    align-items: center;
+    background-image: url("../images/rating-paper.png");
+    background-size: 100% 100%;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+.rating-place {
+    color: #7c3fb0;
+    font-size: 25px;
+    font-weight: 900;
+}
+
+.rating-user-name {
+    color: #5a3822;
+    font-size: 24px;
+    font-weight: 900;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+}
+
+.rating-user-points {
+    color: #5a3822;
+    font-size: 20px;
+    font-weight: 900;
+    text-align: right;
+}
+
+.current-user-paper {
+    filter: drop-shadow(0 0 16px rgba(168, 107, 226, 0.45));
+}
+
+.current-user-paper .rating-place,
+.current-user-paper .rating-user-name,
+.current-user-paper .rating-user-points {
+    color: #7c3fb0;
+}
+
+.rating-empty-paper {
+    width: min(760px, 100%);
+    min-height: 140px;
+    margin: 0 auto;
+    padding: 54px 70px;
+    text-align: center;
+    background-image: url("../images/rating-paper.png");
+    background-size: 100% 100%;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+.rating-empty-paper p {
+    margin: 0;
+    color: #5a3822;
+    font-size: 20px;
+    font-weight: 900;
+}
+
+@media (max-width: 768px) {
+    .rating-header h1 {
+        font-size: 34px;
+    }
+
+    .rating-user-paper {
+        min-height: 130px;
+        padding: 36px 42px;
+        grid-template-columns: 1fr;
+        gap: 6px;
+        text-align: center;
+    }
+
+    .rating-user-points {
+        text-align: center;
+    }
+}
+
+@media (max-width: 480px) {
+    .rating-user-paper {
+        padding: 34px 28px;
+    }
+
+    .rating-place {
+        font-size: 21px;
+    }
+
+    .rating-user-name {
+        font-size: 20px;
+    }
+
+    .rating-user-points {
+        font-size: 17px;
+    }
+}

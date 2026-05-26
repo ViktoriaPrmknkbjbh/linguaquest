@@ -1,0 +1,65 @@
+.admin-table-wrapper,
+.rating-table-wrapper {
+    background: rgba(215, 208, 189, 0.96);
+    border: 1px solid rgba(241, 217, 154, 0.25);
+    border-radius: var(--radius-lg);
+    overflow-x: auto;
+    box-shadow: var(--shadow-soft);
+}
+
+.admin-table,
+.rating-table {
+    width: 100%;
+    border-collapse: collapse;
+    min-width: 760px;
+}
+
+.admin-table th,
+.admin-table td,
+.rating-table th,
+.rating-table td {
+    padding: 15px;
+    border-bottom: 1px solid rgba(53, 85, 69, 0.14);
+    text-align: left;
+}
+
+.admin-table th,
+.rating-table th {
+    background: rgba(53, 85, 69, 0.18);
+    color: var(--green-dark);
+    font-weight: 900;
+}
+
+.admin-table tr:last-child td,
+.rating-table tr:last-child td {
+    border-bottom: none;
+}
+
+.current-user-row {
+    background: rgba(95, 143, 115, 0.16);
+    font-weight: 900;
+}
+
+.small-link {
+    display: inline-block;
+    margin-right: 10px;
+    color: var(--green-dark);
+    text-decoration: none;
+    font-weight: 900;
+}
+
+.small-link:hover {
+    color: var(--green);
+    text-decoration: underline;
+}
+
+.danger-link {
+    color: var(--danger);
+}
+
+.action-row {
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap;
+    margin-top: 18px;
+}

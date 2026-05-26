@@ -1,0 +1,741 @@
+.course-scroll-section {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    padding: 0 20px 35px;
+    margin-bottom: 80px;
+}
+
+.course-scroll-card {
+    position: relative;
+    width: min(100%, 1250px);
+    min-height: 360px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.course-scroll-img {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 130%;
+    object-fit: fill;
+    pointer-events: none;
+    user-select: none;
+    z-index: 1;
+}
+
+.course-scroll-content {
+    position: relative;
+    z-index: 2;
+    width: 72%;
+    max-width: 900px;
+    padding: 35px 25px 25px;
+    bottom: -79px;
+    text-align: center;
+    color: #3f260b;
+}
+
+.course-scroll-title {
+    margin: 0 0 22px;
+    font-family: Georgia, "Times New Roman", serif;
+    font-size: clamp(30px, 4vw, 34px);
+    font-weight: 550;
+    line-height: 1.05;
+    color: #3a2208;
+    text-shadow: 0 2px 0 rgba(255, 236, 168, 0.65);
+}
+
+.course-scroll-description {
+    margin: 0 0 22px;
+    max-width: 780px;
+    font-size: clamp(15px, 1.3vw, 20px);
+    line-height: 1.55;
+    font-weight: 600;
+    color: #4a2c0d;
+}
+
+.course-scroll-info {
+    display: grid;
+    gap: 12px;
+    font-size: clamp(15px, 1.2vw, 19px);
+    font-weight: 600;
+    color: #4a2c0d;
+}
+
+.course-scroll-info p {
+    margin: 0;
+}
+
+.course-scroll-info span {
+    font-weight: 800;
+    color: #321c06;
+}
+
+.pyrpyr {
+    color: #6E2DA1 !important;
+    font-weight: 800;
+    text-shadow: 0 0 10px rgba(164, 90, 230, 0.45);
+}
+
+.h2-list-curses {
+    color: #d6b56d;
+}
+
+/* Карта уроков */
+
+.lesson-map {
+    position: relative;
+    width: min(100%, 1250px);
+    margin: 0 auto;
+    padding: 35px 20px 80px;
+    display: grid;
+    gap: 42px;
+}
+
+.lesson-map::before {
+    content: "";
+    position: absolute;
+    top: 55px;
+    bottom: 90px;
+    left: 50%;
+    width: 4px;
+    transform: translateX(-50%);
+    border-radius: 999px;
+    background: linear-gradient(
+        180deg,
+        rgba(215, 190, 125, 0.15),
+        rgba(215, 190, 125, 0.75),
+        rgba(215, 190, 125, 0.15)
+    );
+    box-shadow: 0 0 18px rgba(215, 190, 125, 0.35);
+}
+
+.lesson-node-wrapper {
+    position: relative;
+    width: 100%;
+    display: flex;
+}
+
+.lesson-node-left {
+    justify-content: flex-start;
+}
+
+.lesson-node-right {
+    justify-content: flex-end;
+}
+
+.lesson-node {
+    position: relative;
+    width: min(100%, 560px);
+    min-height: 210px;
+    padding: 62px 60px 42px 125px;
+    display: flex;
+    align-items: center;
+    background-image: url("../images/lesson-paper.png");
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: 100% 100%;
+    background-color: transparent;
+    border: none;
+    box-shadow: none;
+    outline: none;
+    overflow: visible;
+    color: #3f260b;
+}
+
+.lesson-node::before,
+.lesson-node::after {
+    content: none;
+    display: none;
+}
+
+.lesson-node-completed,
+.lesson-node-unlocked,
+.lesson-node-locked {
+    background-color: transparent;
+    border: none;
+    box-shadow: none;
+}
+
+.lesson-node-locked {
+    filter: grayscale(0.18) brightness(0.92);
+}
+
+.lesson-node-icon {
+    position: absolute;
+    left: 50px;
+    top: 48px;
+    z-index: 2;
+    width: 42px;
+    height: 42px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: none;
+    box-shadow: none;
+    border-radius: 0;
+    font-size: 0;
+    transform: none;
+    padding: 0;
+}
+
+.site-lesson-icon {
+    width: 80px;
+    height: auto;
+    display: block;
+}
+
+.lesson-node-content {
+    position: relative;
+    z-index: 2;
+    margin-left: 20px;
+    top:-20px;
+}
+
+.lesson-node-content h3 {
+    margin: 0 0 12px;
+    font-family: Georgia, "Times New Roman", serif;
+    font-size: clamp(22px, 2vw, 30px);
+    font-weight: 800;
+    line-height: 1.1;
+    color: #3f260b;
+}
+
+.lesson-node-content p {
+    margin: 0 0 10px;
+    font-size: 18px;
+    font-weight: 500;
+    line-height: 1.35;
+    color: #3f260b;
+}
+
+.lesson-node-content strong {
+    color: #3f260b;
+    font-weight: 800;
+}
+
+.status-closed {
+    margin: 12px 0 0;
+    font-size: 17px;
+    font-weight: 800;
+    color: #a94f4f;
+}
+
+/* Пустой блок уроков */
+
+.lesson-empty-paper {
+    position: relative;
+    width: min(100%, 760px);
+    min-height: 150px;
+    margin: 30px auto 70px;
+    padding: 42px 48px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-image: url("../images/comment-bg.png");
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: 100% 100%;
+    box-sizing: border-box;
+}
+
+.lesson-empty-paper-content {
+    position: relative;
+    z-index: 2;
+    text-align: center;
+}
+
+.lesson-empty-paper p {
+    margin: 0;
+    font-family: Georgia, "Times New Roman", serif;
+    font-size: 22px;
+    font-weight: 800;
+    color: #3f260b;
+    text-shadow: 0 1px 0 rgba(255, 238, 188, 0.55);
+}
+
+/* Блок доступа */
+
+.access-paper {
+    position: relative;
+    width: min(100%, 850px);
+    min-height: 180px;
+    margin: 35px auto 80px;
+    padding: 46px 58px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-image: url("../images/comment-bg.png");
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: 100% 100%;
+    background-color: transparent;
+    border: none;
+    box-shadow: none;
+    box-sizing: border-box;
+}
+
+.access-paper-content {
+    position: relative;
+    z-index: 2;
+    width: 100%;
+    color: #3f260b;
+    font-family: Georgia, "Times New Roman", serif;
+}
+
+.access-paper p,
+.access-paper strong {
+    color: #3f260b !important;
+    font-family: Georgia, "Times New Roman", serif;
+}
+
+.access-paper p {
+    margin: 0 0 14px;
+    font-size: 20px;
+    line-height: 1.45;
+    font-weight: 700;
+}
+
+.access-paper strong {
+    font-weight: 900;
+}
+
+.access-paper-main-text {
+    font-size: 24px !important;
+    font-weight: 900 !important;
+    margin-bottom: 18px !important;
+}
+
+.access-paper .btn {
+    margin-top: 12px;
+}
+
+/* Форма отзыва */
+
+.comment-paper-section {
+    width: min(100%, 1250px);
+    margin: 0 auto 70px;
+    padding: 20px 20px 40px;
+}
+
+.comment-paper-card {
+    position: relative;
+    width: 100%;
+    min-height: 430px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.comment-paper-img {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 115%;
+    object-fit: fill;
+    pointer-events: none;
+    user-select: none;
+    z-index: 1;
+}
+
+.comment-paper-content {
+    position: relative;
+    z-index: 2;
+    width: 82%;
+    max-width: 1050px;
+    padding: 55px 45px 45px;
+    color: #3f260b;
+}
+
+.comment-paper-title {
+    margin: 0 0 22px;
+    font-family: Georgia, "Times New Roman", serif;
+    font-size: clamp(22px, 3vw, 30px);
+    font-weight: 800;
+    color: #3f260b;
+}
+
+.comment-paper-form {
+    display: grid;
+    gap: 14px;
+}
+
+.comment-paper-textarea {
+    width: 100%;
+    min-height: 135px;
+    resize: vertical;
+    padding: 18px 20px;
+    border-radius: 14px;
+    border: 1px solid rgba(93, 61, 24, 0.28);
+    background: rgba(255, 244, 211, 0.58);
+    color: #3f260b;
+    font-size: 18px;
+    font-weight: 600;
+    line-height: 1.45;
+    outline: none;
+    box-shadow: inset 0 2px 10px rgba(94, 61, 25, 0.12);
+}
+
+.comment-paper-textarea::placeholder {
+    color: rgba(63, 38, 11, 0.55);
+}
+
+.comment-paper-textarea:focus {
+    border-color: rgba(110, 45, 161, 0.55);
+    box-shadow:
+        0 0 0 3px rgba(164, 90, 230, 0.14),
+        inset 0 2px 10px rgba(94, 61, 25, 0.12);
+}
+
+.comment-char-counter {
+    margin-top: -6px;
+    text-align: right;
+    font-size: 14px;
+    font-weight: 700;
+    color: rgba(63, 38, 11, 0.75);
+}
+
+.comment-paper-btn {
+    width: fit-content;
+    min-height: 52px;
+    margin-top: 12px;
+    padding: 12px 34px;
+    border: none;
+    border-radius: 999px;
+    background: linear-gradient(135deg, #6E2DA1, #A45AE6);
+    color: #fff5d2;
+    font-family: Georgia, "Times New Roman", serif;
+    font-size: 18px;
+    font-weight: 800;
+    cursor: pointer;
+    box-shadow: 0 0 22px rgba(164, 90, 230, 0.55);
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.comment-paper-btn:hover {
+    transform: translateY(-2px);
+    box-shadow:
+        0 0 26px rgba(164, 90, 230, 0.7),
+        0 12px 24px rgba(55, 20, 78, 0.25);
+}
+
+/* Список отзывов */
+
+.comments-list {
+    width: min(100%, 1250px);
+    margin: 0 auto 80px;
+    padding: 0 20px;
+    display: grid;
+    gap: 24px;
+}
+
+.comment-item {
+    position: relative;
+    width: 100%;
+    min-height: 180px;
+    padding: 38px 42px 34px;
+    background-image: url("../images/comment-bg.png");
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: 100% 100%;
+    box-sizing: border-box;
+}
+
+.comment-item-content {
+    position: relative;
+    z-index: 2;
+    color: #3f260b;
+}
+
+.comment-item h3 {
+    margin: 0 0 14px;
+    font-family: Georgia, "Times New Roman", serif;
+    font-size: 24px;
+    font-weight: 800;
+    color: #3f260b;
+}
+
+.comment-item p {
+    margin: 0 0 18px;
+    font-size: 18px;
+    line-height: 1.6;
+    color: #3f260b;
+    white-space: pre-wrap;
+    overflow-wrap: anywhere;
+    word-break: break-word;
+}
+
+.comment-item small {
+    display: block;
+    font-size: 15px;
+    font-weight: 700;
+    color: #3f260b;
+}
+
+.comment-empty {
+    min-height: 150px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.comment-empty .comment-item-content {
+    width: 100%;
+    text-align: center;
+}
+
+.comment-empty p {
+    margin: 0;
+    font-family: Georgia, "Times New Roman", serif;
+    font-size: 22px;
+    font-weight: 800;
+    color: #3f260b;
+    text-shadow: 0 1px 0 rgba(255, 238, 188, 0.55);
+}
+
+/* Адаптив */
+
+@media (max-width: 900px) {
+    .course-scroll-section {
+        padding: 35px 14px 25px;
+    }
+
+    .course-scroll-card {
+        min-height: 330px;
+    }
+
+    .course-scroll-content {
+        width: 76%;
+        padding: 30px 18px 20px;
+    }
+
+    .course-scroll-title {
+        margin-bottom: 16px;
+    }
+
+    .course-scroll-description {
+        margin-bottom: 16px;
+    }
+
+    .lesson-map {
+        padding: 25px 14px 60px;
+        gap: 28px;
+    }
+
+    .lesson-map::before {
+        display: none;
+    }
+
+    .lesson-node-left,
+    .lesson-node-right {
+        justify-content: center;
+    }
+
+    .lesson-node {
+        width: min(100%, 620px);
+        min-height: 215px;
+        padding: 62px 48px 42px 118px;
+    }
+
+    .lesson-node-icon {
+        left: 46px;
+        top: 48px;
+    }
+}
+
+@media (max-width: 800px) {
+    .comment-paper-section {
+        padding: 10px 14px 35px;
+    }
+
+    .comment-paper-card {
+        min-height: 470px;
+    }
+
+    .comment-paper-content {
+        width: 86%;
+        padding: 50px 28px 38px;
+    }
+
+    .comment-paper-textarea {
+        min-height: 145px;
+        font-size: 16px;
+    }
+
+    .comment-item {
+        padding: 32px 28px 28px;
+    }
+}
+
+@media (max-width: 700px) {
+    .access-paper {
+        width: 100%;
+        min-height: 190px;
+        margin: 28px auto 60px;
+        padding: 38px 32px;
+    }
+
+    .access-paper p {
+        font-size: 17px;
+        text-align: center;
+    }
+
+    .access-paper-main-text {
+        font-size: 21px !important;
+    }
+
+    .access-paper .btn {
+        margin-left: auto;
+        margin-right: auto;
+    }
+}
+
+@media (max-width: 600px) {
+    .course-scroll-card {
+        min-height: 390px;
+    }
+
+    .course-scroll-img {
+        object-fit: cover;
+    }
+
+    .course-scroll-content {
+        width: 78%;
+        padding: 35px 8px 20px;
+        text-align: center;
+    }
+
+    .course-scroll-title {
+        font-size: 32px;
+    }
+
+    .course-scroll-description {
+        font-size: 15px;
+        line-height: 1.45;
+    }
+
+    .course-scroll-info {
+        gap: 10px;
+        font-size: 15px;
+    }
+
+    .lesson-node {
+        min-height: 255px;
+        padding: 92px 34px 38px;
+        display: block;
+        text-align: center;
+    }
+
+    .lesson-node-icon {
+        left: 38px;
+        top: 38px;
+        width: 38px;
+        height: 38px;
+    }
+
+    .lesson-node-content {
+        margin-left: 0;
+    }
+
+    .lesson-node-content h3 {
+        font-size: 23px;
+    }
+
+    .lesson-node-content p {
+        font-size: 16px;
+    }
+
+    .site-lesson-icon {
+        width: 72px;
+    }
+
+    .lesson-empty-paper {
+        width: 100%;
+        min-height: 135px;
+        margin: 25px auto 55px;
+        padding: 32px 28px;
+    }
+
+    .lesson-empty-paper p {
+        font-size: 18px;
+    }
+}
+
+@media (max-width: 520px) {
+    .comment-paper-section {
+        padding: 10px 10px 35px;
+        margin-bottom: 55px;
+    }
+
+    .comment-paper-card {
+        min-height: 500px;
+    }
+
+    .comment-paper-content {
+        width: 88%;
+        padding: 48px 18px 35px;
+        text-align: center;
+    }
+
+    .comment-paper-title {
+        font-size: 20px;
+    }
+
+    .comment-paper-textarea {
+        min-height: 150px;
+        padding: 15px;
+    }
+
+    .comment-paper-btn {
+        width: 100%;
+        justify-content: center;
+        font-size: 16px;
+        padding: 11px 24px;
+    }
+
+    .comment-item {
+        min-height: 160px;
+        padding: 28px 22px 24px;
+    }
+
+    .comment-item h3 {
+        font-size: 22px;
+    }
+
+    .comment-item p {
+        font-size: 16px;
+    }
+}
+.lesson-node-title-1{
+    font-weight: 30px !important;
+}
+.pagination {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    margin: 35px 0 10px;
+    flex-wrap: wrap;
+}
+
+.pagination-link {
+    min-width: 42px;
+    height: 42px;
+    padding: 0 14px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 999px;
+    background: rgba(21, 14, 8, 0.45);
+    border: 1px solid rgba(214, 181, 109, 0.28);
+    color: #f5ecd4;
+    text-decoration: none;
+    font-weight: 900;
+}
+
+.pagination-link:hover,
+.pagination-link.active {
+    background: linear-gradient(135deg, #4b1d66, #8d4ed0);
+    color: #ffffff;
+}

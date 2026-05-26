@@ -1,0 +1,72 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+{% load static %}
+
+<section class="lesson-paper-section">
+    <div class="lesson-paper-card">
+        <img src="{% static 'images/comment-paper.png' %}" alt="Пергамент урока" class="lesson-paper-img">
+
+        <div class="lesson-paper-content">
+            <p class="lesson-back-link">
+                <a href="{% url 'course_detail' course.id %}">← Вернуться к курсу</a>
+            </p>
+
+            <h1>Урок {{ lesson.order }}. {{ lesson.title }}</h1>
+
+            <p>
+                <strong>Курс:</strong> {{ course.title }}
+            </p>
+
+            {% if result %}
+                <p>
+                    <strong>Ваш лучший результат:</strong> {{ result.best_score }}%
+                </p>
+            {% endif %}
+
+            <p>
+                <strong>Количество упражнений:</strong> {{ exercises_count }}
+            </p>
+        </div>
+    </div>
+</section>
+
+<hr>
+
+<section class="lesson-material-section">
+    <div class="lesson-material-paper">
+        <h2 >Материал урока</h2>
+
+        <div class="lesson-material-content">
+            {{ lesson.content|linebreaks }}
+        </div>
+    </div>
+</section>
+
+<hr>
+
+{% if exercises_count > 0 %}
+<section class="lesson-practice-section">
+    <div class="lesson-practice-paper">
+        <h2>Готовы перейти к практике?</h2>
+
+        <p>
+            После нажатия кнопки вы начнёте выполнять упражнения.
+            В конце система посчитает результат.
+        </p>
+
+        <a href="{% url 'start_lesson_exercises' course.id lesson.id %}" class="btn">
+            Начать упражнения
+        </a>
+    </div>
+</section>
+{% else %}
+<section class="lesson-practice-section">
+    <div class="lesson-practice-paper">
+        <p>В этом уроке пока нет упражнений.</p>
+    </div>
+</section>
+{% endif %}
+
+{% endblock %}

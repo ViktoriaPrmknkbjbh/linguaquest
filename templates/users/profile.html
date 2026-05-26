@@ -1,0 +1,213 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<section class="profile-page">
+    <div class="profile-hero-paper">
+        <div class="profile-avatar-wrap">
+            {% if user.profile.avatar %}
+                <img src="{{ user.profile.avatar.url }}" alt="Аватар" class="profile-avatar">
+            {% else %}
+                <div class="profile-avatar-placeholder">
+                    {{ user.username|first|upper }}
+                </div>
+            {% endif %}
+        </div>
+
+        <h1>Личный кабинет</h1>
+
+        <p><strong>Логин:</strong> {{ user.username }}</p>
+        <p><strong>Email:</strong> {{ user.email|default:"Не указан" }}</p>
+
+        <a href="{% url 'profile_settings' %}" class="btn profile-main-btn">
+            Настройки профиля
+        </a>
+    </div>
+
+    <div class="profile-level-paper">
+        <div>
+            <h2>Уровень {{ level }}</h2>
+            <p>{{ current_level_points }} / {{ next_level_points }} XP до следующего уровня</p>
+        </div>
+
+        <div class="profile-level-orb">
+            {{ level }}
+        </div>
+
+        <div class="profile-progress-line">
+            <div class="profile-progress-fill" style="width: {{ level_progress_percent }}%;"></div>
+        </div>
+
+        <div class="profile-streak">
+            <h3>{{ streak_days }} дней подряд</h3>
+            <p>Серия обучения</p>
+        </div>
+    </div>
+
+    <div class="profile-title-paper">
+        <h2>Моя статистика</h2>
+    </div>
+
+    <div class="profile-stat-grid">
+        <article class="profile-stat-card">
+            <h3>Баллы</h3>
+
+            {% if user.profile %}
+                <p>{{ user.profile.total_points }} баллов</p>
+            {% else %}
+                <p>0 баллов</p>
+            {% endif %}
+        </article>
+
+        <article class="profile-stat-card">
+            <h3>Достижения</h3>
+
+            {% if user_achievements %}
+                <p>{{ user_achievements|length }} получено</p>
+            {% else %}
+                <p>Пока нет достижений.</p>
+            {% endif %}
+        </article>
+
+        <article class="profile-stat-card">
+            <h3>Рейтинг</h3>
+            <p>Посмотрите своё место среди других пользователей.</p>
+
+            <a href="{% url 'rating' %}" class="btn profile-small-btn">
+                Перейти
+            </a>
+        </article>
+    </div>
+
+    <div class="profile-title-paper">
+        <h2>Мои награды</h2>
+    </div>
+
+    {% if user_achievements %}
+        <div class="profile-achievement-grid">
+            {% for user_achievement in user_achievements %}
+                <article class="profile-achievement-card">
+                    {% if user_achievement.achievement.sticker %}
+                        <img
+                            src="{{ user_achievement.achievement.sticker.url }}"
+                            alt="{{ user_achievement.achievement.title }}"
+                            class="achievement-sticker"
+                        >
+                    {% else %}
+                        <div class="achievement-placeholder">★</div>
+                    {% endif %}
+
+                    <h3>{{ user_achievement.achievement.title }}</h3>
+                    <p>{{ user_achievement.achievement.description }}</p>
+                    <small>{{ user_achievement.received_at }}</small>
+                </article>
+            {% endfor %}
+        </div>
+    {% else %}
+        <div class="profile-empty-paper">
+            <p>Пока нет наград. Пройдите первый урок, чтобы получить достижение.</p>
+        </div>
+    {% endif %}
+
+    <div class="profile-title-paper">
+        <h2>Мои начатые курсы</h2>
+    </div>
+
+    {% if courses_progress %}
+        <div class="profile-course-list">
+            {% for item in courses_progress %}
+                <article class="profile-course-card">
+                    <h3>{{ item.course.title }}</h3>
+
+                    <p>
+                        Пройдено уроков:
+                        <strong>{{ item.completed_lessons }}</strong>
+                        из
+                        <strong>{{ item.total_lessons }}</strong>
+                    </p>
+
+                    <div class="profile-progress-line">
+                        <div class="profile-progress-fill" style="width: {{ item.progress_percent }}%;"></div>
+                    </div>
+
+                    <p>
+                        <strong>{{ item.progress_percent }}%</strong> прохождения
+                    </p>
+
+                    <a href="{% url 'course_detail' item.course.id %}" class="btn profile-main-btn">
+                        Перейти к курсу
+                    </a>
+                </article>
+            {% endfor %}
+        </div>
+    {% else %}
+        <div class="profile-empty-paper">
+            <p>Вы пока не начали проходить курсы.</p>
+
+            <a href="{% url 'course_list' %}" class="btn profile-main-btn">
+                Перейти к курсам
+            </a>
+        </div>
+    {% endif %}
+
+    <div class="profile-title-paper">
+        <h2>Мои заявки на курсы</h2>
+    </div>
+
+    {% if access_requests %}
+        <div class="profile-request-list">
+            {% for request_item in access_requests %}
+                <article class="profile-request-card">
+                    <h3>{{ request_item.course.title }}</h3>
+
+                    <p>
+                        <strong>Статус:</strong>
+                        {% if request_item.status == 'pending' %}
+                            <span class="status-pending">На рассмотрении</span>
+                        {% elif request_item.status == 'approved' %}
+                            <span class="status-open">Одобрено</span>
+                        {% elif request_item.status == 'rejected' %}
+                            <span class="status-closed">Отклонено</span>
+                        {% endif %}
+                    </p>
+
+                    {% if request_item.admin_comment %}
+                        <p>
+                            <strong>Комментарий администратора:</strong>
+                            {{ request_item.admin_comment }}
+                        </p>
+                    {% endif %}
+
+                    {% if request_item.status == 'rejected' %}
+                        <a href="{% url 'request_course_access' request_item.course.id %}" class="btn profile-main-btn">
+                            Отправить заявку повторно
+                        </a>
+                    {% endif %}
+
+                    {% if request_item.status == 'approved' %}
+                        <a href="{% url 'course_detail' request_item.course.id %}" class="btn profile-main-btn">
+                            Перейти к курсу
+                        </a>
+                    {% endif %}
+                </article>
+            {% endfor %}
+        </div>
+    {% else %}
+        <div class="profile-empty-paper">
+            <p>Вы пока не отправляли заявки на закрытые курсы.</p>
+        </div>
+    {% endif %}
+</section>
+
+<script>
+    document.querySelectorAll('.profile-progress-fill').forEach(function (el) {
+        const width = el.style.width;
+        el.style.width = '0%';
+
+        setTimeout(function () {
+            el.style.width = width;
+        }, 200);
+    });
+</script>
+
+{% endblock %}

@@ -1,0 +1,42 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<section class="delete-exercise-paper-section">
+    <div class="delete-exercise-paper">
+        <h1>Удаление упражнения</h1>
+
+        <div class="delete-exercise-info">
+            <p>
+                Вы действительно хотите удалить упражнение из урока
+                <strong>{{ lesson.title }}</strong>?
+            </p>
+
+            <p>
+                <strong>Тип:</strong> {{ exercise.get_exercise_type_display }}
+            </p>
+
+            <p>
+                <strong>Задание:</strong> {{ exercise.question }}
+            </p>
+
+            <p class="delete-exercise-warning">
+                Это действие нельзя отменить.
+            </p>
+        </div>
+
+        <form method="post" class="delete-exercise-actions">
+            {% csrf_token %}
+
+            <button type="submit" class="btn delete-exercise-danger-btn">
+                Да, удалить
+            </button>
+
+            <a href="{% url 'admin_lesson_exercises' course.id lesson.id %}" class="btn delete-exercise-cancel-btn">
+                Отмена
+            </a>
+        </form>
+    </div>
+</section>
+
+{% endblock %}

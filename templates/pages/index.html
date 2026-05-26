@@ -1,0 +1,126 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+
+<section class="home-page">
+    <section class="home-hero-paper">
+        <div class="home-hero-content">
+            <span class="home-kicker">LinguaQuest</span>
+
+            <h1>Интерактивное изучение английского языка</h1>
+
+            <p>
+                Проходите курсы, открывайте новые уроки, выполняйте упражнения,
+                получайте баллы и соревнуйтесь с другими учениками в рейтинге.
+            </p>
+
+            <div class="home-hero-buttons">
+                <a href="{% url 'course_list' %}" class="btn home-main-btn">
+                    Посмотреть курсы
+                </a>
+
+                {% if not user.is_authenticated %}
+                    <a href="{% url 'register' %}" class="btn home-outline-btn">
+                        Зарегистрироваться
+                    </a>
+                {% endif %}
+            </div>
+        </div>
+    </section>
+
+    <section class="home-features">
+        <article class="home-feature-card">
+            <div class="home-feature-icon"><img src="{% static 'images/index-book.png' %}" alt="" class="index-img"></div>
+            <h3>Курсы</h3>
+            <p>Материалы по уровням английского языка и направлениям обучения.</p>
+        </article>
+
+        <article class="home-feature-card">
+            <div class="home-feature-icon"><img src="{% static 'images/index-lvl.png' %}" alt="" class="index-img"></div>
+            <h3>Уроки</h3>
+            <p>Теория, упражнения и проверка знаний после каждого материала.</p>
+        </article>
+
+        <article class="home-feature-card">
+            <div class="home-feature-icon"><img src="{% static 'images/index-cub.png' %}" alt="" class="index-img"></div>
+            <h3>Прогресс</h3>
+            <p>Баллы, достижения, рейтинг и сохранение лучших результатов.</p>
+        </article>
+    </section>
+
+    <section class="home-scroll-section">
+        <div class="home-title-paper">
+            <h2>Курсы для новичков</h2>
+            <p>Начните с базовых уровней A1, чтобы уверенно перейти к следующим темам.</p>
+        </div>
+
+        <div class="home-course-scroll">
+    {% for course in beginner_courses %}
+        <article class="home-course-card">
+            <span class="">
+                {{ course.get_level_display }}
+            </span>
+
+            <h3>{{ course.title }}</h3>
+
+            <p>
+                {{ course.description|truncatechars:95 }}
+            </p>
+
+            <a href="{% url 'course_detail' course.id %}" class="home-course-link">
+                Перейти
+            </a>
+        </article>
+    {% empty %}
+        <article class="home-course-card">
+            <h3>Курсы не найдены</h3>
+            <p>Добавьте курс уровня A1 в панели администратора.</p>
+        </article>
+    {% endfor %}
+</div>
+    </section>
+
+    <section class="home-carousel-section">
+        <div class="home-title-paper">
+            <h2>Как проходит обучение</h2>
+        </div>
+
+        <div class="home-carousel">
+            <div class="home-carousel-track">
+                <article class="home-carousel-card">
+                    <h3>1. Выберите курс</h3>
+                    <p>Откройте библиотеку курсов и выберите подходящий уровень.</p>
+                </article>
+
+                <article class="home-carousel-card">
+                    <h3>2. Изучите урок</h3>
+                    <p>Прочитайте материал на пергаменте и закрепите новую тему.</p>
+                </article>
+
+                <article class="home-carousel-card">
+                    <h3>3. Выполните упражнения</h3>
+                    <p>Проверьте знания через задания разных типов.</p>
+                </article>
+
+                <article class="home-carousel-card">
+                    <h3>4. Получите результат</h3>
+                    <p>Система начислит баллы и сохранит лучший результат.</p>
+                </article>
+            </div>
+        </div>
+    </section>
+
+    <section class="home-bottom-paper">
+        <h2>Готовы начать путешествие?</h2>
+        <p>
+            LinguaQuest превращает обучение английскому языку в понятный,
+            красивый и мотивирующий процесс.
+        </p>
+
+        <a href="{% url 'course_list' %}" class="btn home-main-btn">
+            Начать обучение
+        </a>
+    </section>
+</section>
+
+{% endblock %}

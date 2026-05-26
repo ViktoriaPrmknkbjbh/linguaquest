@@ -1,0 +1,12 @@
+.error-page {
+    text-align: center;
+    background: rgba(215, 208, 189, 0.96);
+    padding: 55px;
+    border-radius: var(--radius-xl);
+    box-shadow: var(--shadow);
+}
+
+.error-page h1 {
+    font-size: 90px;
+    color: var(--green-dark);
+}

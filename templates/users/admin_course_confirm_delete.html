@@ -1,0 +1,35 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<section class="delete-course-paper-section">
+    <div class="delete-course-paper">
+        <h1>Удаление курса</h1>
+
+        <div class="delete-course-info">
+            <p>
+                Вы действительно хотите удалить курс
+                <strong>{{ course.title }}</strong>?
+            </p>
+
+            <p class="delete-course-warning">
+                Вместе с курсом будут удалены все его уроки, упражнения,
+                комментарии, заявки и связанные данные.
+            </p>
+        </div>
+
+        <form method="post" class="delete-course-actions">
+            {% csrf_token %}
+
+            <button type="submit" class="btn delete-course-danger-btn">
+                Да, удалить
+            </button>
+
+            <a href="{% url 'admin_dashboard' %}" class="btn delete-course-cancel-btn">
+                Отмена
+            </a>
+        </form>
+    </div>
+</section>
+
+{% endblock %}

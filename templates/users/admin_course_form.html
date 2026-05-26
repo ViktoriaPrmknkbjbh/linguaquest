@@ -1,0 +1,42 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<section class="admin-course-form-section">
+    <div class="admin-course-form-paper">
+        <h1>{{ page_title }}</h1>
+
+        <form method="post" enctype="multipart/form-data" class="admin-course-form">
+            {% csrf_token %}
+
+            {% for field in form %}
+                <div class="admin-course-form-group">
+                    <label>{{ field.label }}</label>
+                    {{ field }}
+
+                    {% if field.help_text %}
+                        <small>{{ field.help_text }}</small>
+                    {% endif %}
+
+                    {% if field.errors %}
+                        <div class="admin-course-form-error">
+                            {{ field.errors }}
+                        </div>
+                    {% endif %}
+                </div>
+            {% endfor %}
+
+            <div class="admin-course-form-actions">
+                <button type="submit" class="btn admin-course-form-btn">
+                    {{ button_text }}
+                </button>
+
+                <a href="{% url 'admin_dashboard' %}" class="btn admin-course-form-cancel">
+                    Отмена
+                </a>
+            </div>
+        </form>
+    </div>
+</section>
+
+{% endblock %}

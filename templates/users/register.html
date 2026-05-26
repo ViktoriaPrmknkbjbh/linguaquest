@@ -1,0 +1,86 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block page_css %}
+<link rel="stylesheet" href="{% static 'css/auth.css' %}">
+{% endblock %}
+
+{% block content %}
+
+<section class="register-paper-section">
+    <div class="register-paper">
+        <h1>Регистрация</h1>
+
+        <form method="post" class="auth-form register-form" novalidate>
+            {% csrf_token %}
+
+            {% for field in form %}
+                <div class="auth-form-group">
+                    <label>{{ field.label }}</label>
+                    {{ field }}
+
+                    {% if field.errors %}
+                        <div class="auth-error show">
+                            {{ field.errors }}
+                        </div>
+                    {% endif %}
+
+                    <p class="auth-field-error">Пожалуйста, заполните поле.</p>
+                </div>
+            {% endfor %}
+
+            <button type="submit" class="btn auth-btn">
+                Зарегистрироваться
+            </button>
+        </form>
+
+        <p class="auth-link">
+            Уже есть аккаунт?
+            <a href="{% url 'login' %}">Войти</a>
+        </p>
+    </div>
+</section>
+
+<script>
+document.addEventListener("DOMContentLoaded", function () {
+    const form = document.querySelector(".auth-form");
+
+    if (form) {
+        form.addEventListener("submit", function (event) {
+            let valid = true;
+            const fields = form.querySelectorAll("input");
+
+            fields.forEach(function (field) {
+                const group = field.closest(".auth-form-group");
+                const error = group.querySelector(".auth-field-error");
+
+                if (field.value.trim() === "") {
+                    valid = false;
+                    error.classList.add("show");
+                } else {
+                    error.classList.remove("show");
+                }
+            });
+
+            if (!valid) {
+                event.preventDefault();
+            }
+        });
+
+        form.addEventListener("input", function (event) {
+            const field = event.target;
+
+            if (field.tagName === "INPUT") {
+                const group = field.closest(".auth-form-group");
+                const error = group.querySelector(".auth-field-error");
+
+                if (field.value.trim() !== "") {
+                    error.classList.remove("show");
+                }
+            }
+        });
+    }
+});
+</script>
+
+{% endblock %}

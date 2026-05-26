@@ -1,0 +1,48 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<section class="reject-request-section">
+    <div class="reject-request-paper">
+        <h1>Отклонение заявки</h1>
+
+        <div class="reject-request-info">
+            <p>
+                <strong>Пользователь:</strong> {{ access_request.user.username }}
+            </p>
+
+            <p>
+                <strong>Курс:</strong> {{ access_request.course.title }}
+            </p>
+        </div>
+
+        <form method="post" class="reject-request-form">
+            {% csrf_token %}
+
+            {% for field in form %}
+                <div class="reject-request-group">
+                    <label>{{ field.label }}</label>
+                    {{ field }}
+
+                    {% if field.errors %}
+                        <div class="reject-request-error">
+                            {{ field.errors }}
+                        </div>
+                    {% endif %}
+                </div>
+            {% endfor %}
+
+            <div class="reject-request-actions">
+                <button type="submit" class="btn reject-request-danger-btn">
+                    Отклонить заявку
+                </button>
+
+                <a href="{% url 'admin_dashboard' %}" class="btn reject-request-cancel-btn">
+                    Отмена
+                </a>
+            </div>
+        </form>
+    </div>
+</section>
+
+{% endblock %}

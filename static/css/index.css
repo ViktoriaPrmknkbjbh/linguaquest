@@ -11,7 +11,7 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    background: url("../images/lesson-paper-wide.png") center / 100% 100% no-repeat;
+    background: url("../images/lesson-paper-wide.webp") center / 100% 100% no-repeat;
 }
 
 .home-hero-content {
@@ -90,7 +90,7 @@
     min-height: 230px;
     padding: 58px 42px 48px;
     text-align: center;
-    background: url("../images/lesson-paper-exercise.png") center / 100% 100% no-repeat;
+    background: url("../images/lesson-paper-exercise.webp") center / 100% 100% no-repeat;
 }
 
 .home-feature-icon {
@@ -137,7 +137,7 @@
     margin: 0 auto 18px;
     padding: 38px 70px;
     text-align: center;
-    background: url("../images/rating-paper.png") center / 100% 100% no-repeat;
+    background: url("../images/rating-paper.webp") center / 100% 100% no-repeat;
 }
 
 .home-title-paper h2 {
@@ -157,6 +157,8 @@
     overflow-x: auto;
     padding: 8px 6px 18px;
     scroll-snap-type: x mandatory;
+    scrollbar-width: thin;
+    scrollbar-color: #7c3fb0 rgba(255, 236, 187, 0.18);
 }
 
 .home-course-scroll::-webkit-scrollbar {
@@ -173,219 +175,10 @@
     border-radius: 999px;
 }
 
-.home-course-card {
-    flex: 0 0 285px;
-    min-height: 245px;
-    padding: 60px 42px 50px;
-    text-align: center;
-    scroll-snap-align: start;
-    background: url("../images/lesson-paper-exercise.png") center / 100% 100% no-repeat;
+.home-course-scroll::-webkit-scrollbar-thumb:hover {
+    background: linear-gradient(135deg, #8f55c7, #6E2DA1);
 }
 
-.home-course-level {
-    display: inline-flex;
-    width: 52px;
-    height: 52px;
-    margin-bottom: 10px;
-    align-items: center;
-    justify-content: center;
-    color: #fff;
-    font-size: 18px;
-    font-weight: 900;
-    border-radius: 50%;
-    background: linear-gradient(135deg, #7c3fb0, #5b248e);
-    box-shadow: 0 8px 18px rgba(91, 36, 142, 0.28);
-}
-
-.home-course-card h3 {
-    font-size: 22px;
-}
-
-.home-course-card p {
-    min-height: 62px;
-    margin: 0 0 14px;
-    font-size: 14px;
-}
-
-.home-course-link {
-    color: #6E2DA1;
-    font-weight: 900;
-    text-decoration: underline;
-}
-
-.home-carousel {
-    width: 100%;
-    overflow: hidden;
-}
-
-.home-carousel-track {
-    display: flex;
-    gap: 18px;
-    animation: homeCarousel 18s linear infinite;
-}
-
-.home-carousel:hover .home-carousel-track {
-    animation-play-state: paused;
-}
-
-.home-carousel-card {
-    flex: 0 0 330px;
-    min-height: 210px;
-    padding: 58px 44px 48px;
-    text-align: center;
-    background: url("../images/comment-bg.png") center / 100% 100% no-repeat;
-}
-
-.home-carousel-card h3 {
-    font-size: 23px;
-}
-
-.home-carousel-card p {
-    margin: 0;
-    font-size: 14px;
-}
-
-@keyframes homeCarousel {
-    0% {
-        transform: translateX(0);
-    }
-
-    100% {
-        transform: translateX(-696px);
-    }
-}
-
-.home-bottom-paper {
-    width: min(940px, 100%);
-    min-height: 350px;
-    margin: 0 auto;
-    padding: 86px 110px 76px;
-    text-align: center;
-    background: url("../images/comment-paper.png") center / 100% 100% no-repeat;
-}
-
-.home-bottom-paper h2 {
-    margin: 0 0 14px;
-    font-size: 34px;
-}
-
-.home-bottom-paper p {
-    max-width: 610px;
-    margin: 0 auto 22px;
-    font-size: 16px;
-}
-
-@media (max-width: 900px) {
-    .home-hero-paper {
-        min-height: 490px;
-        padding: 96px 76px 86px;
-    }
-
-    .home-hero-paper h1 {
-        font-size: 37px;
-    }
-
-    .home-features {
-        grid-template-columns: 1fr;
-    }
-
-    .home-carousel-track {
-        animation: none;
-        overflow-x: auto;
-        padding-bottom: 16px;
-    }
-}
-
-@media (max-width: 560px) {
-    .home-page {
-        padding-top: 18px;
-    }
-
-    .home-hero-paper {
-        min-height: 440px;
-        padding: 78px 34px 70px;
-    }
-
-    .home-kicker {
-        font-size: 14px;
-    }
-
-    .home-hero-paper h1 {
-        font-size: 27px;
-    }
-
-    .home-hero-paper p {
-        font-size: 14px;
-        line-height: 1.35;
-    }
-
-    .home-hero-buttons .btn,
-    .home-main-btn,
-    .home-outline-btn {
-        min-height: 34px;
-        padding: 8px 13px;
-        font-size: 12px;
-    }
-
-    .home-feature-card {
-        min-height: 205px;
-        padding: 52px 32px 46px;
-    }
-
-    .home-feature-card h3 {
-        font-size: 21px;
-    }
-
-    .home-feature-card p {
-        font-size: 13px;
-    }
-
-    .home-title-paper {
-        min-height: 120px;
-        padding: 32px 34px;
-    }
-
-    .home-title-paper h2 {
-        font-size: 23px;
-    }
-
-    .home-title-paper p {
-        font-size: 12px;
-    }
-
-    .home-course-card {
-        flex-basis: 250px;
-        min-height: 225px;
-        padding: 54px 34px 46px;
-    }
-
-    .home-course-card h3 {
-        font-size: 19px;
-    }
-
-    .home-course-card p {
-        font-size: 12px;
-    }
-
-    .home-carousel-card {
-        flex-basis: 270px;
-        min-height: 190px;
-        padding: 52px 34px 46px;
-    }
-
-    .home-bottom-paper {
-        min-height: 310px;
-        padding: 76px 34px 66px;
-    }
-
-    .home-bottom-paper h2 {
-        font-size: 25px;
-    }
-
-    .home-bottom-paper p {
-        font-size: 13px;
-    }
-}
 .home-course-card {
     position: relative;
     flex: 0 0 310px;
@@ -393,7 +186,7 @@
     padding: 58px 42px 48px;
     text-align: center;
     scroll-snap-align: start;
-    background: url("../images/lesson-paper.png") center / 100% 100% no-repeat;
+    background: url("../images/lesson-paper.webp") center / 100% 100% no-repeat;
     transition: transform 0.25s ease, filter 0.25s ease;
 }
 
@@ -461,7 +254,176 @@
     background: linear-gradient(135deg, #8f55c7, #6E2DA1);
 }
 
+.home-carousel {
+    width: 100%;
+    overflow: hidden;
+}
+
+.home-carousel-track {
+    display: flex;
+    gap: 18px;
+    animation: homeCarousel 18s linear infinite;
+    scrollbar-width: thin;
+    scrollbar-color: #7c3fb0 rgba(255, 236, 187, 0.18);
+}
+
+.home-carousel-track::-webkit-scrollbar {
+    height: 8px;
+}
+
+.home-carousel-track::-webkit-scrollbar-track {
+    background: rgba(255, 236, 187, 0.18);
+    border-radius: 999px;
+}
+
+.home-carousel-track::-webkit-scrollbar-thumb {
+    background: linear-gradient(135deg, #7c3fb0, #5b248e);
+    border-radius: 999px;
+}
+
+.home-carousel-track::-webkit-scrollbar-thumb:hover {
+    background: linear-gradient(135deg, #8f55c7, #6E2DA1);
+}
+
+.home-carousel:hover .home-carousel-track {
+    animation-play-state: paused;
+}
+
+.home-carousel-card {
+    flex: 0 0 330px;
+    min-height: 210px;
+    padding: 58px 44px 48px;
+    text-align: center;
+    background: url("../images/comment-bg.webp") center / 100% 100% no-repeat;
+}
+
+.home-carousel-card h3 {
+    font-size: 23px;
+}
+
+.home-carousel-card p {
+    margin: 0;
+    font-size: 14px;
+}
+
+@keyframes homeCarousel {
+    0% {
+        transform: translateX(0);
+    }
+
+    100% {
+        transform: translateX(-696px);
+    }
+}
+
+.home-bottom-paper {
+    width: min(940px, 100%);
+    min-height: 350px;
+    margin: 0 auto;
+    padding: 86px 110px 76px;
+    text-align: center;
+    background: url("../images/comment-paper.webp") center / 100% 100% no-repeat;
+}
+
+.home-bottom-paper h2 {
+    margin: 0 0 14px;
+    font-size: 34px;
+}
+
+.home-bottom-paper p {
+    max-width: 610px;
+    margin: 0 auto 22px;
+    font-size: 16px;
+}
+
+.index-img {
+    width: 100px;
+}
+
+@media (max-width: 900px) {
+    .home-hero-paper {
+        min-height: 490px;
+        padding: 96px 76px 86px;
+    }
+
+    .home-hero-paper h1 {
+        font-size: 37px;
+    }
+
+ .home-main-btn,
+ {
+        width:300px;
+    }
+
+    .home-features {
+        grid-template-columns: 1fr;
+    }
+
+    .home-carousel-track {
+        animation: none;
+        overflow-x: auto;
+        padding-bottom: 18px;
+    }
+}
+
 @media (max-width: 560px) {
+    .home-page {
+        padding-top: 18px;
+    }
+
+    .home-hero-paper {
+        min-height: 440px;
+        padding: 78px 34px 70px;
+    }
+
+    .home-kicker {
+        font-size: 14px;
+    }
+
+    .home-hero-paper h1 {
+        font-size: 20px;
+    }
+
+    .home-hero-paper p {
+        font-size: 14px;
+        line-height: 1.35;
+    }
+
+    .home-hero-buttons .btn,
+    .home-main-btn,
+    .home-outline-btn {
+        min-height: 34px;
+        padding: 8px 13px;
+        font-size: 12px;
+        width:200px;
+    }
+
+    .home-feature-card {
+        min-height: 205px;
+        padding: 52px 32px 46px;
+    }
+
+    .home-feature-card h3 {
+        font-size: 21px;
+    }
+
+    .home-feature-card p {
+        font-size: 13px;
+    }
+
+    .home-title-paper {
+        min-height: 120px;
+        padding: 32px 34px;
+    }
+
+    .home-title-paper h2 {
+        font-size: 23px;
+    }
+
+    .home-title-paper p {
+        font-size: 12px;
+    }
+
     .home-course-card {
         flex-basis: 260px;
         min-height: 250px;
@@ -483,6 +445,44 @@
         min-width: 62px;
         font-size: 12px;
     }
+
+    .home-carousel-card {
+        flex-basis: 270px;
+        min-height: 190px;
+        padding: 52px 34px 46px;
+    }
+
+    .home-bottom-paper {
+        min-height: 310px;
+        padding: 76px 34px 66px;
+    }
+
+    .home-bottom-paper h2 {
+        font-size: 25px;
+    }
+
+    .home-bottom-paper p {
+        font-size: 13px;
+    }
 }
-.index-img{
-width:100px}
+html,
+body {
+    min-height: 100%;
+    margin: 0;
+}
+
+body {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+.main {
+    flex: 1 0 auto;
+    width: 100%;
+}
+
+.footer {
+    margin-top: auto;
+    flex-shrink: 0;
+}

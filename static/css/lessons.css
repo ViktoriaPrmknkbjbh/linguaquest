@@ -69,7 +69,7 @@
     display: flex;
     align-items: center;
 
-    background-image: url("../images/lesson-paper.png");
+    background-image: url("../images/lesson-paper.webp");
     background-repeat: no-repeat;
     background-position: center;
     background-size: 100% 100%;
@@ -83,7 +83,7 @@
     color: #25352d;
 }
 
-/* Убираем старые декоративные слои карточки */
+/* C тарые декоративные слои карточки */
 
 .lesson-node::before,
 .lesson-node::after {
@@ -365,7 +365,7 @@ box-shadow: 0 0 22px rgba(164, 90, 230, 0.55);
     min-height: 720px;
     margin: 0 auto;
     padding: 86px 115px 84px;
-    background-image: url("../images/lesson-paper-exercise.png");
+    background-image: url("../images/lesson-paper-exercise.webp");
     background-size: 100% 100%;
     background-repeat: no-repeat;
     background-position: center;
@@ -556,7 +556,7 @@ box-shadow: 0 0 22px rgba(164, 90, 230, 0.55);
     margin: 0 auto;
     padding: 95px 135px 85px;
     text-align: center;
-    background-image: url("../images/paper-register.png");
+    background-image: url("../images/paper-register.webp");
     background-size: 100% 100%;
     background-repeat: no-repeat;
     background-position: center;
@@ -665,7 +665,7 @@ box-shadow: 0 0 22px rgba(164, 90, 230, 0.55);
     margin: 0 auto 28px;
     padding: 82px 120px 78px;
     text-align: center;
-    background-image: url("../images/comment-paper.png");
+    background-image: url("../images/comment-paper.webp");
     background-size: 100% 100%;
     background-repeat: no-repeat;
     background-position: center;
@@ -732,7 +732,7 @@ box-shadow: 0 0 22px rgba(164, 90, 230, 0.55);
     grid-template-columns: 1fr auto;
     align-items: center;
     gap: 24px;
-    background-image: url("../images/rating-paper.png");
+    background-image: url("../images/rating-paper.webp");
     background-size: 100% 100%;
     background-repeat: no-repeat;
     background-position: center;
@@ -881,7 +881,7 @@ box-shadow: 0 0 22px rgba(164, 90, 230, 0.55);
     min-height: 680px;
     margin: 0 auto;
     padding: 86px 115px 84px;
-    background-image: url("../images/lesson-paper-exercise.png");
+    background-image: url("../images/lesson-paper-exercise.webp");
     background-size: 100% 100%;
     background-repeat: no-repeat;
     background-position: center;

@@ -1,8 +1,7 @@
 {% extends 'base.html' %}
+{% load static %}
 
 {% block content %}
-
-{% load static %}
 
 <section class="lesson-paper-section">
     <div class="lesson-paper-card">
@@ -35,12 +34,32 @@
 <hr>
 
 <section class="lesson-material-section">
-    <div class="lesson-material-paper">
-        <h2 >Материал урока</h2>
+    <div class="lesson-material-paper lesson-material-fixed-paper">
+        <h2>Материал урока</h2>
 
-        <div class="lesson-material-content">
-            {{ lesson.content|linebreaks }}
+        {{ lesson.content|json_script:"lessonContentData" }}
+
+        <div class="lesson-material-content" id="lessonMaterialContent"></div>
+
+        <div class="lesson-material-pagination" id="lessonMaterialPagination">
+            <button type="button" class="lesson-page-btn" id="lessonPrevBtn">
+                ← Назад
+            </button>
+
+            <span class="lesson-page-info" id="lessonPageInfo">
+                Страница 1 из 1
+            </span>
+
+            <button type="button" class="lesson-page-btn" id="lessonNextBtn">
+                Вперёд →
+            </button>
         </div>
+
+        <noscript>
+            <div class="lesson-material-content">
+                {{ lesson.content|linebreaks }}
+            </div>
+        </noscript>
     </div>
 </section>
 
@@ -68,5 +87,112 @@
     </div>
 </section>
 {% endif %}
+
+<script>
+    document.addEventListener('DOMContentLoaded', function () {
+        const contentData = document.getElementById('lessonContentData');
+        const contentBox = document.getElementById('lessonMaterialContent');
+        const pagination = document.getElementById('lessonMaterialPagination');
+        const prevBtn = document.getElementById('lessonPrevBtn');
+        const nextBtn = document.getElementById('lessonNextBtn');
+        const pageInfo = document.getElementById('lessonPageInfo');
+
+        if (!contentData || !contentBox || !pagination || !prevBtn || !nextBtn || !pageInfo) {
+            return;
+        }
+
+        const rawText = JSON.parse(contentData.textContent || '""');
+
+        const lines = rawText
+            .split(/\r?\n/)
+            .map(function (line) {
+                return line.trim();
+            })
+            .filter(function (line) {
+                return line.length > 0;
+            });
+
+        const isMobile = window.matchMedia('(max-width: 560px)').matches;
+        const isTablet = window.matchMedia('(max-width: 900px)').matches;
+
+        let linesPerPage = 7;
+
+if (isTablet) {
+    linesPerPage = 6;
+}
+
+if (isMobile) {
+    linesPerPage = 5;
+}
+
+        const pages = [];
+
+        for (let i = 0; i < lines.length; i += linesPerPage) {
+            pages.push(lines.slice(i, i + linesPerPage));
+        }
+
+        let currentPage = 0;
+
+        function createMaterialLine(text) {
+            const paragraph = document.createElement('p');
+            paragraph.textContent = text;
+
+            if (text.endsWith(':') || (text.length <= 38 && !text.includes('—'))) {
+                paragraph.classList.add('lesson-material-heading-line');
+            }
+
+            return paragraph;
+        }
+
+        function renderPage() {
+            contentBox.innerHTML = '';
+
+            if (pages.length === 0) {
+                const emptyText = document.createElement('p');
+                emptyText.textContent = 'Материал урока пока не добавлен.';
+                contentBox.appendChild(emptyText);
+
+                pagination.style.display = 'none';
+                return;
+            }
+
+            const page = document.createElement('div');
+            page.className = 'lesson-material-page';
+
+            pages[currentPage].forEach(function (line) {
+                page.appendChild(createMaterialLine(line));
+            });
+
+            contentBox.appendChild(page);
+
+            pageInfo.textContent = 'Страница ' + (currentPage + 1) + ' из ' + pages.length;
+
+            prevBtn.disabled = currentPage === 0;
+            nextBtn.disabled = currentPage === pages.length - 1;
+
+            if (pages.length <= 1) {
+                pagination.style.display = 'none';
+            } else {
+                pagination.style.display = 'flex';
+            }
+        }
+
+        prevBtn.addEventListener('click', function () {
+            if (currentPage > 0) {
+                currentPage -= 1;
+                renderPage();
+            }
+        });
+
+        nextBtn.addEventListener('click', function () {
+            if (currentPage < pages.length - 1) {
+                currentPage += 1;
+                renderPage();
+            }
+        });
+
+        renderPage();
+    });
+</script>
 
 {% endblock %}

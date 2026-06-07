@@ -10,15 +10,11 @@ SECRET_KEY = os.environ.get('SECRET_KEY', 'django-insecure-local-key')
 
 DEBUG = os.environ.get('DEBUG', 'True') == 'True'
 
-ALLOWED_HOSTS = os.environ.get(
-    'ALLOWED_HOSTS',
-    '127.0.0.1,localhost'
-).split(',')
+ALLOWED_HOSTS = ['*']
 
-CSRF_TRUSTED_ORIGINS = os.environ.get(
-    'CSRF_TRUSTED_ORIGINS',
-    ''
-).split(',') if os.environ.get('CSRF_TRUSTED_ORIGINS') else []
+CSRF_TRUSTED_ORIGINS = [
+    'https://raggedly-stupendous-ribbonfish.cloudpub.ru',
+]
 
 
 INSTALLED_APPS = [
@@ -93,8 +89,12 @@ if DATABASE_URL:
 else:
     DATABASES = {
         'default': {
-            'ENGINE': 'django.db.backends.sqlite3',
-            'NAME': BASE_DIR / 'db.sqlite3',
+            'ENGINE': 'django.db.backends.postgresql',
+            'NAME': 'english_learning_db',
+            'USER': 'english_user',
+            'PASSWORD': 'English12345!',
+            'HOST': 'localhost',
+            'PORT': '5432',
         }
     }
 

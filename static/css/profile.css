@@ -160,7 +160,7 @@
     margin: 0 auto 26px;
     padding: 76px 110px 72px;
     text-align: center;
-    background: url("../images/comment-paper.png") center / 100% 100% no-repeat;
+    background: url("../images/comment-paper.webp") center / 100% 100% no-repeat;
 }
 
 .profile-avatar-wrap {
@@ -249,7 +249,7 @@
     margin: 0 auto 28px;
     padding: 70px 95px 62px;
     text-align: center;
-    background: url("../images/comment-bg.png") center / 100% 100% no-repeat;
+    background: url("../images/comment-bg.webp") center / 100% 100% no-repeat;
 }
 
 .profile-level-paper h2 {
@@ -308,7 +308,7 @@
     margin: 30px auto 18px;
     padding: 35px 60px;
     text-align: center;
-    background: url("../images/rating-paper.png") center / 100% 100% no-repeat;
+    background: url("../images/rating-paper.webp") center / 100% 100% no-repeat;
 }
 
 .profile-title-paper h2 {
@@ -328,7 +328,7 @@
     min-height: 220px;
     padding: 56px 42px 46px;
     text-align: center;
-    background: url("../images/lesson-paper-exercise.png") center / 100% 100% no-repeat;
+    background: url("../images/lesson-paper-exercise.webp") center / 100% 100% no-repeat;
 }
 
 .profile-stat-card h3 {
@@ -355,7 +355,7 @@
     min-height: 260px;
     padding: 58px 38px 48px;
     text-align: center;
-    background: url("../images/lesson-paper-exercise.png") center / 100% 100% no-repeat;
+    background: url("../images/lesson-paper-exercise.webp") center / 100% 100% no-repeat;
 }
 
 .achievement-sticker,
@@ -410,7 +410,7 @@
     min-height: 230px;
     padding: 58px 78px 54px;
     text-align: center;
-    background: url("../images/rating-paper.png") center / 100% 100% no-repeat;
+    background: url("../images/rating-paper.webp") center / 100% 100% no-repeat;
 }
 
 .profile-course-card h3,
@@ -522,7 +522,7 @@
     min-height: 680px;
     margin: 0 auto;
     padding: 88px 115px 84px;
-    background-image: url("../images/lesson-paper-exercise.png");
+    background-image: url("../images/lesson-paper-exercise.webp");
     background-size: 100% 100%;
     background-repeat: no-repeat;
     background-position: center;
@@ -705,7 +705,7 @@
     margin: 0 auto;
     padding: 92px 130px 82px;
     text-align: center;
-    background-image: url("../images/paper-register.png");
+    background-image: url("../images/paper-register.webp");
     background-size: 100% 100%;
     background-repeat: no-repeat;
     background-position: center;

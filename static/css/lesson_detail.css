@@ -20,18 +20,18 @@
 .lesson-paper-content {
     position: absolute;
     inset: 12% 10% 12%;
+    top: 20px;
     display: flex;
     flex-direction: column;
     justify-content: center;
     text-align: left;
-    top:20px;
 }
 
 .lesson-paper-content h1 {
+    margin: 0 0 22px;
     color: #5a3822;
     font-size: 30px;
     line-height: 1.15;
-    margin: 0 0 22px;
     overflow-wrap: anywhere;
 }
 
@@ -41,10 +41,10 @@
 }
 
 .lesson-paper-content p {
+    margin: 7px 0;
     font-size: 18px;
     font-weight: 700;
     line-height: 1.45;
-    margin: 7px 0;
 }
 
 .lesson-back-link {
@@ -61,6 +61,8 @@
     color: #a86be2 !important;
 }
 
+/* Материал урока */
+
 .lesson-material-section {
     width: 100%;
     padding: 30px 0 60px;
@@ -69,38 +71,170 @@
 .lesson-material-paper {
     width: 100%;
     min-height: 420px;
-    height: auto;
     padding: 95px 120px 90px;
-    background-image: url("../images/lesson-paper-wide.png");
+    background-image: url("../images/lesson-paper-wide.webp");
     background-size: 100% 100%;
     background-repeat: no-repeat;
     background-position: center;
 }
 
-.lesson-material-paper h2 {
-    margin: 0 0 24px;
-    text-align: center;
-    color: #5a3822;
-    font-size: 30px;
+.lesson-material-fixed-paper {
+    position: relative;
+    width: min(1000px, 100%);
+    height: 700px;
+    min-height: 700px;
+    margin: 0 auto;
+    padding: 72px 125px 112px;
+    overflow: hidden;
+    box-sizing: border-box;
+}
+
+.lesson-material-fixed-paper h2 {
+    margin: 40px 0 14px;
+    color: #5b2d0b;
+    font-size: 35px;
     font-weight: 900;
+    line-height: 1.1;
+    text-align: center;
 }
 
 .lesson-material-content {
-    max-width: 900px;
+    width: 100%;
+    max-width: 660px;
+    height: 390px;
     margin: 0 auto;
+    display: flex;
+    align-items: flex-start;
+    justify-content: center;
     color: #5a3822;
-    font-size: 19px;
-    font-weight: 700;
-    line-height: 1.75;
     text-align: center;
     overflow-wrap: anywhere;
     word-break: break-word;
 }
 
-.lesson-material-content p {
-    margin: 0 0 16px;
-    color: #5a3822;
+.lesson-material-page {
+    width: 100%;
+    height: 390px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
 }
+
+.lesson-material-page p {
+    width: 100%;
+    margin: 0 0 9px;
+    color: #5b2d0b;
+    font-size: 20px;
+    font-weight: 900;
+    line-height: 1.28;
+    text-align: center;
+}
+
+.lesson-material-heading-line {
+    margin-top: 10px !important;
+    margin-bottom: 10px !important;
+    font-size: 25px !important;
+    font-weight: 900 !important;
+}
+
+/* Кнопки пагинации на пергаменте */
+
+.lesson-material-pagination {
+    position: absolute;
+    left: 125px;
+    right: 125px;
+    bottom: 166px;
+    z-index: 10;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 16px;
+}
+
+.lesson-page-btn {
+    width: fit-content;
+    min-width: 120px;
+    min-height: 42px;
+    margin-top: 0;
+    padding: 10px 18px;
+    border: 1px solid rgba(222, 178, 255, 0.42);
+    border-radius: 999px;
+    color: #fff4ff;
+    background:
+        linear-gradient(
+            135deg,
+            #4b1d66 0%,
+            #7c3fb0 52%,
+            #a86be2 100%
+        );
+    box-shadow:
+        0 8px 16px rgba(67, 24, 92, 0.34),
+        0 0 18px rgba(159, 83, 216, 0.22),
+        inset 0 1px 0 rgba(255, 255, 255, 0.28);
+    text-decoration: none;
+    font-size: 15px;
+    font-weight: 900;
+    cursor: pointer;
+    transition: 0.2s ease;
+}
+
+.lesson-page-btn:hover:not(:disabled) {
+    color: #ffffff;
+    transform: translateY(-2px);
+    background:
+        linear-gradient(
+            135deg,
+            #5d267d 0%,
+            #8a4bc1 52%,
+            #b97cf0 100%
+        );
+    box-shadow:
+        0 10px 18px rgba(67, 24, 92, 0.42),
+        0 0 22px rgba(159, 83, 216, 0.3),
+        inset 0 1px 0 rgba(255, 255, 255, 0.34);
+}
+
+.lesson-page-btn:active:not(:disabled) {
+    transform: translateY(2px);
+    box-shadow:
+        0 5px 12px rgba(67, 24, 92, 0.32),
+        0 0 14px rgba(159, 83, 216, 0.2),
+        inset 0 1px 0 rgba(255, 255, 255, 0.22);
+}
+
+.lesson-page-btn:disabled {
+    color: #fff4ff;
+    cursor: default;
+    opacity: 0.9;
+    background:
+        linear-gradient(
+            135deg,
+            #4b1d66 0%,
+            #7c3fb0 52%,
+            #a86be2 100%
+        );
+    box-shadow:
+        0 8px 16px rgba(67, 24, 92, 0.34),
+        0 0 18px rgba(159, 83, 216, 0.22),
+        inset 0 1px 0 rgba(255, 255, 255, 0.28);
+}
+
+.lesson-page-info {
+    min-width: 150px;
+    padding: 9px 16px;
+    color: #5b2d0b;
+    font-size: 15px;
+    font-weight: 900;
+    text-align: center;
+    border-radius: 999px;
+    background: rgba(255, 236, 187, 0.72);
+    box-shadow:
+        inset 0 0 0 1px rgba(91, 45, 11, 0.18),
+        0 8px 18px rgba(91, 45, 11, 0.12);
+}
+
+/* Блок перехода к упражнениям */
 
 .lesson-practice-section {
     width: 100%;
@@ -113,7 +247,7 @@
     margin: 0 auto;
     padding: 40px 90px;
     text-align: center;
-    background-image: url("../images/comment-paper.png");
+    background-image: url("../images/comment-paper.webp");
     background-size: 100% 100%;
     background-repeat: no-repeat;
     background-position: center;
@@ -127,12 +261,86 @@
 }
 
 .lesson-practice-paper p {
-    margin: 0 auto 22px;
     max-width: 560px;
+    margin: 0 auto 22px;
     color: #5a3822;
     font-size: 17px;
     font-weight: 700;
     line-height: 1.5;
+}
+
+.lesson-practice-paper .btn {
+    width: fit-content;
+    margin: 0 auto;
+    padding: 10px 18px;
+    border: 1px solid rgba(222, 178, 255, 0.42);
+    border-radius: 999px;
+    color: #fff4ff !important;
+    background:
+        linear-gradient(
+            135deg,
+            #4b1d66 0%,
+            #7c3fb0 52%,
+            #a86be2 100%
+        );
+    box-shadow:
+        0 8px 16px rgba(67, 24, 92, 0.34),
+        0 0 18px rgba(159, 83, 216, 0.22),
+        inset 0 1px 0 rgba(255, 255, 255, 0.28);
+    text-decoration: none;
+    font-weight: 900;
+    transition: 0.2s ease;
+}
+
+.lesson-practice-paper .btn:hover {
+    color: #ffffff !important;
+    transform: translateY(-2px);
+    background:
+        linear-gradient(
+            135deg,
+            #5d267d 0%,
+            #8a4bc1 52%,
+            #b97cf0 100%
+        );
+}
+
+/* Адаптив */
+
+@media (max-width: 900px) {
+    .lesson-material-fixed-paper {
+        width: min(860px, 100%);
+        height: 690px;
+        min-height: 690px;
+        padding: 68px 92px 108px;
+    }
+
+    .lesson-material-fixed-paper h2 {
+        font-size: 34px;
+    }
+
+    .lesson-material-content {
+        height: 390px;
+        max-width: 620px;
+    }
+
+    .lesson-material-page {
+        height: 390px;
+    }
+
+    .lesson-material-page p {
+        font-size: 19px;
+        line-height: 1.26;
+    }
+
+    .lesson-material-heading-line {
+        font-size: 23px !important;
+    }
+
+    .lesson-material-pagination {
+        left: 92px;
+        right: 92px;
+        bottom: 162px;
+    }
 }
 
 @media (max-width: 768px) {
@@ -149,8 +357,8 @@
     }
 
     .lesson-paper-content h1 {
-        font-size: 24px;
         margin-bottom: 14px;
+        font-size: 24px;
     }
 
     .lesson-paper-content p {
@@ -158,18 +366,12 @@
         line-height: 1.35;
     }
 
-    .lesson-material-paper {
-        min-height: 360px;
-        padding: 90px 56px 70px;
-    }
-
-    .lesson-material-paper h2 {
-        font-size: 30px;
-    }
-
-    .lesson-material-content {
-        font-size: 16px;
-        line-height: 1.55;
+    .lesson-material-pagination {
+        left: 28px;
+        right: 28px;
+        bottom: 152px;
+        gap: 8px;
+        justify-content: center;
     }
 }
 
@@ -187,8 +389,8 @@
     }
 
     .lesson-paper-content h1 {
-        font-size: 22px;
         margin-bottom: 12px;
+        font-size: 22px;
     }
 
     .lesson-paper-content p {
@@ -196,8 +398,61 @@
         line-height: 1.3;
     }
 
+    .lesson-material-fixed-paper {
+        width: 100%;
+        height: 640px;
+        min-height: 640px;
+        padding: 58px 36px 102px;
+    }
+
+    .lesson-material-fixed-paper h2 {
+        margin: 28px 0 12px;
+        font-size: 26px;
+    }
+
+    .lesson-material-content {
+        height: 350px;
+        max-width: 100%;
+    }
+
+    .lesson-material-page {
+        height: 350px;
+    }
+
+    .lesson-material-page p {
+        margin-bottom: 7px;
+        font-size: 15px;
+        line-height: 1.25;
+    }
+
+    .lesson-material-heading-line {
+        margin-top: 8px !important;
+        margin-bottom: 8px !important;
+        font-size: 18px !important;
+    }
+
+    .lesson-material-pagination {
+        left: 28px;
+        right: 28px;
+        bottom: 152px;
+        gap: 8px;
+    }
+
+    .lesson-page-btn {
+        min-width: 84px;
+        min-height: 34px;
+        padding: 8px 10px;
+        font-size: 12px;
+    }
+
+    .lesson-page-info {
+        min-width: auto;
+        padding: 7px 9px;
+        font-size: 11px;
+    }
+
     .lesson-practice-paper {
-        min-height: 230px;
+        min-height: 300px;
         padding: 56px 34px;
     }
 
@@ -211,31 +466,16 @@
     }
 
     .lesson-practice-paper .btn {
+        width: auto;
         min-height: 34px;
         padding: 7px 13px;
         font-size: 12px;
-        width: auto;
-    }
-}
-
-@media (max-width: 480px) {
-    .lesson-material-paper {
-        min-height: 320px;
-        padding: 68px 32px 58px;
-    }
-
-    .lesson-material-paper h2 {
-        font-size: 25px;
-    }
-
-    .lesson-material-content {
-        font-size: 14px;
-        line-height: 1.45;
     }
 }
 .progress-line {
     width: 100%;
     height: 12px;
+    margin-top: 14px;
     background: rgba(75, 29, 102, 0.22);
     border: 1px solid rgba(222, 178, 255, 0.28);
     border-radius: 999px;
@@ -249,6 +489,7 @@
     border-radius: 999px;
     box-shadow: 0 0 16px rgba(168, 107, 226, 0.45);
 }
+
 .exercise-paper-section {
     width: 100%;
     padding: 30px 0 60px;
@@ -256,27 +497,39 @@
 
 .exercise-paper-card {
     width: min(920px, 100%);
-    min-height: 420px;
+    min-height: 430px;
     margin: 0 auto;
     padding: 90px 105px 80px;
-    background-image: url("../images/lesson-paper-exercise.png");
+    background-image: url("../images/lesson-paper-exercise.webp");
     background-size: 100% 100%;
     background-repeat: no-repeat;
     background-position: center;
 }
 
+.exercise-paper-card h1,
 .exercise-paper-card h2 {
     margin: 0 0 22px;
     text-align: center;
     color: #5a3822;
     font-size: 32px;
     font-weight: 900;
+    line-height: 1.2;
 }
 
 .exercise-paper-card p,
 .exercise-paper-card label,
 .exercise-paper-card strong {
     color: #5a3822;
+}
+
+.exercise-paper-card p {
+    font-size: 17px;
+    font-weight: 800;
+    line-height: 1.45;
+}
+
+.exercise-form {
+    width: 100%;
 }
 
 .exercise-source {
@@ -302,7 +555,7 @@
 .answer-option {
     display: flex;
     align-items: center;
-    gap: 10px;
+    gap: 12px;
     min-height: 48px;
     padding: 12px 16px;
     border-radius: 16px;
@@ -318,10 +571,12 @@
 .answer-option:hover {
     background: rgba(124, 63, 176, 0.14);
     border-color: rgba(124, 63, 176, 0.38);
+    transform: translateY(-1px);
 }
 
 .answer-option input {
     accent-color: #7c3fb0;
+    flex-shrink: 0;
 }
 
 .big-answer-input {
@@ -347,13 +602,63 @@
     color: rgba(90, 56, 34, 0.58);
 }
 
+.exercise-field-error {
+    display: none;
+    max-width: 680px;
+    margin: 12px auto 0;
+    color: #8a1f1f;
+    font-size: 14px;
+    font-weight: 900;
+    text-align: center;
+}
+
+.exercise-field-error.show {
+    display: block;
+}
+
 .exercise-submit {
     display: flex;
-    margin: 24px auto 0;
+    align-items: center;
+    justify-content: center;
     width: fit-content;
-    background: linear-gradient(135deg, #4b1d66, #7c3fb0, #a86be2);
+    min-height: 40px;
+    margin: 24px auto 0;
+    padding: 10px 18px;
     border: 1px solid rgba(222, 178, 255, 0.42);
-    color: #fff4ff;
+    border-radius: 999px;
+    color: #fff4ff !important;
+    background:
+        linear-gradient(
+            135deg,
+            #4b1d66 0%,
+            #7c3fb0 52%,
+            #a86be2 100%
+        );
+    box-shadow:
+        0 8px 16px rgba(67, 24, 92, 0.34),
+        0 0 18px rgba(159, 83, 216, 0.22),
+        inset 0 1px 0 rgba(255, 255, 255, 0.28);
+    text-decoration: none;
+    font-size: 15px;
+    font-weight: 900;
+    cursor: pointer;
+    transition: 0.2s ease;
+}
+
+.exercise-submit:hover {
+    color: #ffffff !important;
+    transform: translateY(-2px);
+    background:
+        linear-gradient(
+            135deg,
+            #5d267d 0%,
+            #8a4bc1 52%,
+            #b97cf0 100%
+        );
+    box-shadow:
+        0 10px 18px rgba(67, 24, 92, 0.42),
+        0 0 22px rgba(159, 83, 216, 0.3),
+        inset 0 1px 0 rgba(255, 255, 255, 0.34);
 }
 
 .word-bank {
@@ -374,37 +679,130 @@
     font-weight: 900;
 }
 
+.exercise-feedback {
+    width: min(760px, 100%);
+    margin: 24px auto 0;
+    padding: 18px 22px;
+    border-radius: 18px;
+    text-align: center;
+    font-size: 17px;
+    font-weight: 900;
+}
+
+.exercise-feedback.success {
+    color: #204d2d;
+    background: rgba(92, 181, 112, 0.22);
+    border: 1px solid rgba(92, 181, 112, 0.35);
+}
+
+.exercise-feedback.error {
+    color: #6b1f1f;
+    background: rgba(185, 74, 72, 0.18);
+    border: 1px solid rgba(185, 74, 72, 0.34);
+}
+
+.exercise-actions {
+    display: flex;
+    justify-content: center;
+    gap: 14px;
+    flex-wrap: wrap;
+    margin-top: 24px;
+}
+
+.exercise-actions .btn,
+.exercise-paper-card .btn {
+    width: fit-content;
+    padding: 10px 18px;
+    border: 1px solid rgba(222, 178, 255, 0.42);
+    border-radius: 999px;
+    color: #fff4ff !important;
+    background:
+        linear-gradient(
+            135deg,
+            #4b1d66 0%,
+            #7c3fb0 52%,
+            #a86be2 100%
+        );
+    box-shadow:
+        0 8px 16px rgba(67, 24, 92, 0.34),
+        0 0 18px rgba(159, 83, 216, 0.22),
+        inset 0 1px 0 rgba(255, 255, 255, 0.28);
+    text-decoration: none;
+    font-weight: 900;
+    transition: 0.2s ease;
+}
+
+.exercise-actions .btn:hover,
+.exercise-paper-card .btn:hover {
+    color: #ffffff !important;
+    transform: translateY(-2px);
+    background:
+        linear-gradient(
+            135deg,
+            #5d267d 0%,
+            #8a4bc1 52%,
+            #b97cf0 100%
+        );
+}
+
 @media (max-width: 768px) {
     .exercise-paper-card {
-        min-height: 360px;
+        min-height: 380px;
         padding: 78px 56px 66px;
     }
 
+    .exercise-paper-card h1,
     .exercise-paper-card h2 {
         font-size: 26px;
+    }
+
+    .exercise-source {
+        font-size: 16px;
+    }
+
+    .answer-option {
+        font-size: 15px;
     }
 }
 
 @media (max-width: 480px) {
+    .exercise-paper-section {
+        padding: 20px 0 45px;
+    }
+
     .exercise-paper-card {
-        min-height: 320px;
+        min-height: 340px;
         padding: 66px 30px 56px;
     }
 
+    .exercise-paper-card h1,
     .exercise-paper-card h2 {
         font-size: 22px;
     }
 
+    .exercise-paper-card p,
     .exercise-source,
     .answer-option,
     .big-answer-input {
         font-size: 14px;
     }
 
-    .exercise-submit {
+    .answer-option {
+        min-height: 42px;
+        padding: 10px 12px;
+    }
+
+    .exercise-submit,
+    .exercise-actions .btn,
+    .exercise-paper-card .btn {
         min-height: 34px;
         padding: 7px 13px;
         font-size: 12px;
         width: auto;
+    }
+
+    .word-chip {
+        padding: 8px 12px;
+        font-size: 13px;
     }
 }

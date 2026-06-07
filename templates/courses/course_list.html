@@ -154,6 +154,7 @@
 
     </div>
 </div>
+</div>
 {% else %}
 <div class="book-container">
     <div class="book-line empty-book-line">
@@ -165,7 +166,39 @@
     <div class="line"></div>
 
     <div class="book-line decor-book-line">
-        <div class="decor-shelf-content"></div>
+        <div class="decor-shelf-content">
+            <img src="{% static 'images/globys.png' %}" alt="" class="glob-img">
+        <img src="{% static 'images/peper.png' %}" alt="" class="peper">
+
+        <div class="decor-info-panel">
+            <div class="decor-feature-card">
+                <div class="decor-feature-icon"> <img src="{% static 'images/blok1.png' %}" alt="" class="blok-img"></div>
+                <div>
+                    <h3>Увлекательное обучение</h3>
+                    <p>Интерактивные уроки и игровой подход.</p>
+                </div>
+            </div>
+
+            <div class="decor-feature-card">
+                <div class="decor-feature-icon"><img src="{% static 'images/blok2.png' %}" alt="" class="blok-img"></div>
+                <div>
+                    <h3>Отслеживание прогресса</h3>
+                    <p>Следите за своими успехами и достижениями.</p>
+                </div>
+            </div>
+
+            <div class="decor-feature-card">
+                <div class="decor-feature-icon"><img src="{% static 'images/blok3.png' %}" alt="" class="blok-img"></div>
+                <div>
+                    <h3>Достижения и награды</h3>
+                    <p>Получайте награды и поднимайтесь в рейтинге.</p>
+                </div>
+            </div>
+        </div>
+
+
+        </div>
+
     </div>
 </div>
 {% endif %}

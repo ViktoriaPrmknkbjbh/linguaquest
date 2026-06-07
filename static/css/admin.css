@@ -9,7 +9,7 @@
     margin: 0 auto;
     padding: 95px 135px 85px;
     text-align: center;
-    background-image: url("../images/paper-register.png");
+    background-image: url("../images/paper-register.webp");
     background-size: 100% 100%;
     background-repeat: no-repeat;
     background-position: center;
@@ -132,7 +132,7 @@
     margin: 0 auto 26px;
     padding: 78px 110px 66px;
     text-align: center;
-    background-image: url("../images/comment-bg.png");
+    background-image: url("../images/comment-bg.webp");
     background-size: 100% 100%;
     background-repeat: no-repeat;
     background-position: center;
@@ -176,7 +176,7 @@
     min-height: 280px;
     padding: 72px 92px 70px;
     text-align: center;
-    background-image: url("../images/comment-bg.png");
+    background-image: url("../images/comment-bg.webp");
     background-size: 100% 100%;
     background-repeat: no-repeat;
     background-position: center;
@@ -295,7 +295,7 @@
     margin: 0 auto;
     padding: 95px 135px 85px;
     text-align: center;
-    background-image: url("../images/paper-register.png");
+    background-image: url("../images/paper-register.webp");
     background-size: 100% 100%;
     background-repeat: no-repeat;
     background-position: center;
@@ -403,7 +403,7 @@
     min-height: 680px;
     margin: 0 auto;
     padding: 92px 125px 88px;
-    background-image: url("../images/lesson-paper-wide1.png");
+    background-image: url("../images/lesson-paper-wide1.webp");
     background-size: 100% 100%;
     background-repeat: no-repeat;
     background-position: center;
@@ -590,7 +590,7 @@
     margin: 0 auto 28px;
     padding: 82px 120px 78px;
     text-align: center;
-    background-image: url("../images/comment-paper.png");
+    background-image: url("../images/comment-paper.webp");
     background-size: 100% 100%;
     background-repeat: no-repeat;
     background-position: center;
@@ -655,7 +655,7 @@
     grid-template-columns: 1fr auto;
     align-items: center;
     gap: 24px;
-    background-image: url("../images/rating-paper.png");
+    background-image: url("../images/rating-paper.webp");
     background-size: 100% 100%;
     background-repeat: no-repeat;
     background-position: center;
@@ -812,7 +812,7 @@
     margin: 0 auto 28px;
     padding: 90px 120px 78px;
     text-align: center;
-    background: url("../images/comment-paper.png") center / 100% 100% no-repeat;
+    background: url("../images/comment-paper.webp") center / 100% 100% no-repeat;
 }
 
 .admin-panel-hero h1,
@@ -851,7 +851,7 @@
     min-height: 220px;
     padding: 58px 44px 48px;
     text-align: center;
-    background: url("../images/lesson-paper-exercise.png") center / 100% 100% no-repeat;
+    background: url("../images/lesson-paper-exercise.webp") center / 100% 100% no-repeat;
 }
 
 .admin-panel-action-card h3,
@@ -888,7 +888,7 @@
     margin: 30px auto 18px;
     padding: 38px 70px;
     text-align: center;
-    background: url("../images/rating-paper.png") center / 100% 100% no-repeat;
+    background: url("../images/rating-paper.webp") center / 100% 100% no-repeat;
 }
 
 .admin-panel-title-paper h2 {
@@ -909,7 +909,7 @@
 .admin-empty-paper {
     width: 100%;
     min-height: 210px;
-    background: url("../images/rating-paper.png") center / 100% 100% no-repeat;
+    background: url("../images/rating-paper.webp") center / 100% 100% no-repeat;
 }
 
 .admin-course-card {
@@ -1101,7 +1101,7 @@
     margin: 0 auto;
     padding: 95px 135px 85px;
     text-align: center;
-    background-image: url("../images/paper-register.png");
+    background-image: url("../images/paper-register.webp");
     background-size: 100% 100%;
     background-repeat: no-repeat;
     background-position: center;
@@ -1199,3 +1199,4 @@
         font-size: 12px;
     }
 }
+

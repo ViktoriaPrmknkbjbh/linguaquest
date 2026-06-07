@@ -1,0 +1,1262 @@
+[
+{
+  "model": "auth.user",
+  "fields": {
+    "password": "pbkdf2_sha256$1200000$nyk6FBLInTIE2z9CgMWzEi$qEB5vVZgUIk3FO+B4z2plbMLPSIK2YAGvMM1oViHpjg=",
+    "last_login": "2026-05-26T07:35:42.213Z",
+    "is_superuser": true,
+    "username": "Admin",
+    "first_name": "",
+    "last_name": "",
+    "email": "",
+    "is_staff": true,
+    "is_active": true,
+    "date_joined": "2026-04-29T18:09:38.530Z",
+    "groups": [],
+    "user_permissions": []
+  }
+},
+{
+  "model": "auth.user",
+  "fields": {
+    "password": "pbkdf2_sha256$1200000$0ApNFOqJpGJRKSsImevKSx$dl+9/gIAx35fykR8RhpP9IsgDDtppOIJvxFhPJbVUkw=",
+    "last_login": "2026-05-26T03:46:48.363Z",
+    "is_superuser": false,
+    "username": "vika",
+    "first_name": "ВИКТОРИЯ",
+    "last_name": "Попов",
+    "email": "vika03popova@gmail.com",
+    "is_staff": false,
+    "is_active": true,
+    "date_joined": "2026-04-29T18:12:51.645Z",
+    "groups": [],
+    "user_permissions": []
+  }
+},
+{
+  "model": "auth.user",
+  "fields": {
+    "password": "pbkdf2_sha256$1200000$oWRR0e0hlbwxenNdHQ8mLP$9O3JumvG2PDAStF65tpk1V41w3d17YL9KT70Clrgrsk=",
+    "last_login": "2026-05-25T13:49:47.725Z",
+    "is_superuser": false,
+    "username": "vika1",
+    "first_name": "",
+    "last_name": "",
+    "email": "vika03popova@gmail.com",
+    "is_staff": false,
+    "is_active": true,
+    "date_joined": "2026-04-30T11:19:25.096Z",
+    "groups": [],
+    "user_permissions": []
+  }
+},
+{
+  "model": "auth.user",
+  "fields": {
+    "password": "pbkdf2_sha256$1200000$5zexYCU8dJOipe7hEzslHk$7up94wF59SmpYlOVXY38PtwcercQRD3EMbVByAbpPcU=",
+    "last_login": "2026-05-24T13:23:58.780Z",
+    "is_superuser": false,
+    "username": "ууу",
+    "first_name": "",
+    "last_name": "",
+    "email": "vika03popova@gmail.com",
+    "is_staff": false,
+    "is_active": true,
+    "date_joined": "2026-05-02T16:47:44.032Z",
+    "groups": [],
+    "user_permissions": []
+  }
+},
+{
+  "model": "auth.user",
+  "fields": {
+    "password": "pbkdf2_sha256$1200000$vXKEA8MFacd1rIzHJM2AeK$5TAOgjo6ASoN7N6EvjkOa1L6fDrPHjlcnj6axNVtsMg=",
+    "last_login": "2026-05-02T16:49:09.699Z",
+    "is_superuser": false,
+    "username": "уууё",
+    "first_name": "",
+    "last_name": "",
+    "email": "vika03popova@gmail.com",
+    "is_staff": false,
+    "is_active": true,
+    "date_joined": "2026-05-02T16:49:08.714Z",
+    "groups": [],
+    "user_permissions": []
+  }
+},
+{
+  "model": "auth.user",
+  "fields": {
+    "password": "pbkdf2_sha256$1200000$I3PGyC9U9I6Jn0D7GRZz6v$+z+gb1SleqVmxvJx7fXWPRmG9qLzrG0niQsjQePGR4A=",
+    "last_login": "2026-05-24T12:10:50.549Z",
+    "is_superuser": false,
+    "username": "wer",
+    "first_name": "",
+    "last_name": "",
+    "email": "vika03popova@gmail.com",
+    "is_staff": false,
+    "is_active": true,
+    "date_joined": "2026-05-06T18:02:06.811Z",
+    "groups": [],
+    "user_permissions": []
+  }
+},
+{
+  "model": "auth.user",
+  "fields": {
+    "password": "pbkdf2_sha256$1200000$TCYP5g69y917sgXYtea2su$L1VWK+p0oqXR+oJQXDtfUkLuBe8S/j17nEf+W1uBI3Q=",
+    "last_login": "2026-05-26T06:39:45.113Z",
+    "is_superuser": false,
+    "username": "VikaPopova",
+    "first_name": "",
+    "last_name": "",
+    "email": "vika03popova@gmail.com",
+    "is_staff": false,
+    "is_active": true,
+    "date_joined": "2026-05-26T06:39:43.144Z",
+    "groups": [],
+    "user_permissions": []
+  }
+},
+{
+  "model": "auth.user",
+  "fields": {
+    "password": "pbkdf2_sha256$1200000$Y1zuY72C2WgC2bxzUqv3h5$iFV2fDnqohiIgp+0T/S0TGXHNAyYm06EIiXxJHUdMLU=",
+    "last_login": "2026-05-26T06:42:58.047Z",
+    "is_superuser": false,
+    "username": "alina",
+    "first_name": "",
+    "last_name": "",
+    "email": "alinabystrova52@gmail.com",
+    "is_staff": false,
+    "is_active": true,
+    "date_joined": "2026-05-26T06:42:56.237Z",
+    "groups": [],
+    "user_permissions": []
+  }
+},
+{
+  "model": "auth.user",
+  "fields": {
+    "password": "pbkdf2_sha256$1200000$5YedZG8ojBVHS0mW7Ksu0X$kcYsf+AAjGyLzCTys2OYseLMg5nxnWGP4Qrrla50ejs=",
+    "last_login": "2026-05-26T06:43:35.943Z",
+    "is_superuser": false,
+    "username": "alina123",
+    "first_name": "",
+    "last_name": "",
+    "email": "alinabystrova52@gmail.com",
+    "is_staff": false,
+    "is_active": true,
+    "date_joined": "2026-05-26T06:43:34.098Z",
+    "groups": [],
+    "user_permissions": []
+  }
+},
+{
+  "model": "auth.user",
+  "fields": {
+    "password": "pbkdf2_sha256$1200000$LK03uTGGPfeqEXamJj5iJ1$zfW1289TpaXGkc6z7FpAhMP57dZD8rfHmrJLp2lEV5c=",
+    "last_login": "2026-05-26T07:34:20.588Z",
+    "is_superuser": false,
+    "username": "VikaPo",
+    "first_name": "",
+    "last_name": "",
+    "email": "asdasd@asdasd.fdas",
+    "is_staff": false,
+    "is_active": true,
+    "date_joined": "2026-05-26T07:34:19.989Z",
+    "groups": [],
+    "user_permissions": []
+  }
+},
+{
+  "model": "sessions.session",
+  "pk": "6498kk3birbd3rdiyck6p5twhp34jtbs",
+  "fields": {
+    "session_data": ".eJxVjEEOwiAQRe_C2pABQcCl-56BDMwgVUOT0q6MdzckXej2v_f-W0Tctxr3zmucSVyFEqffLWF-chuAHtjui8xL29Y5yaHIg3Y5LcSv2-H-HVTsddQQfLAqWPLh7InQFZ2NDZ5AMSTtgb25GM0A1kByVBB0AWtTVqY4FJ8vxE83Qw:1wRmKE:zD7youQY1bqFVZppLH5YxJs5yae8cSf-Xjpr83vnPUA",
+    "expire_date": "2026-06-09T07:35:42.229Z"
+  }
+},
+{
+  "model": "sessions.session",
+  "pk": "6hsqu3tg0cx9v38focj56wpb328oq1fv",
+  "fields": {
+    "session_data": ".eJxVjEEOwiAQRe_C2pABQcCl-56BDMwgVUOT0q6MdzckXej2v_f-W0Tctxr3zmucSVyFEqffLWF-chuAHtjui8xL29Y5yaHIg3Y5LcSv2-H-HVTsddQQfLAqWPLh7InQFZ2NDZ5AMSTtgb25GM0A1kByVBB0AWtTVqY4FJ8vxE83Qw:1wRlQw:B7-jkL3DiEmzsIwLq_uykV_mmJV-Qh6R7jUe15k34qI",
+    "expire_date": "2026-06-09T06:38:34.999Z"
+  }
+},
+{
+  "model": "sessions.session",
+  "pk": "6yl6yqfh8srgai5voeizijlbv5n0sezx",
+  "fields": {
+    "session_data": ".eJxVjEEOwiAQRe_C2hCmgGFcuvcMZBgGqRqalHbVeHdt0oVu_3vvbyrSutS4dpnjmNVFgTr9bon4KW0H-UHtPmme2jKPSe-KPmjXtynL63q4fweVev3WJghLOYsQArJnCYELG-cHBEsGigXCYg1RJmcA0FkwiDYN4p0voN4f-vg3wA:1wKhLy:MFRUSzpdetbOc77BNMad5FXjF29ORZjmjKxnTSp-gtI",
+    "expire_date": "2026-05-20T18:52:14.537Z"
+  }
+},
+{
+  "model": "sessions.session",
+  "pk": "dh87yjjd180h0y5ooyzyakn5z11l9lys",
+  "fields": {
+    "session_data": ".eJxVjDsOwjAQBe_iGln-rH-U9DmDZa83OIAcKU4qxN1JpBTQzsx7bxbTtta4dVriVNiVeXb5ZTnhk9ohyiO1-8xxbusyZX4k_LSdD3Oh1-1s_w5q6nVfU_DCeItOqpK9VKANaZIjECDkYCW60QppQwYSxhWhLRkNqRiFtHP2-QLI3jcX:1wRlVC:mbVOU7qe9WtvZv8avDNPe5gxmuQLcKOlD0IK79wKqNU",
+    "expire_date": "2026-06-09T06:42:58.048Z"
+  }
+},
+{
+  "model": "sessions.session",
+  "pk": "fqwb4awfm9dxo1aeiscnnfod9puqr2b8",
+  "fields": {
+    "session_data": ".eJxVjMsOwiAQRf-FtSGV8hhcuu83kBkYpGogKe3K-O_apAvd3nPOfYmA21rC1nkJcxIXYcXpdyOMD647SHestyZjq-syk9wVedAup5b4eT3cv4OCvXxrNSrKQI5ZRzCetctIwJwNOrRMI7uzRshaWVAaEL3nlMkNVhkaEov3BwwION4:1wKhNH:Jq8rxQ1AssnkLQ99Sc2xgTYZXWwkQKBDayPwh2-AlVY",
+    "expire_date": "2026-05-20T18:53:35.088Z"
+  }
+},
+{
+  "model": "sessions.session",
+  "pk": "g0im0glnwysksxior2wwqtkosomouj4w",
+  "fields": {
+    "session_data": ".eJxVjEEOwiAQRe_C2hCmgGFcuvcMZBgGqRqalHbVeHdt0oVu_3vvbyrSutS4dpnjmNVFgTr9bon4KW0H-UHtPmme2jKPSe-KPmjXtynL63q4fweVev3WJghLOYsQArJnCYELG-cHBEsGigXCYg1RJmcA0FkwiDYN4p0voN4f-vg3wA:1wKhLx:muM5M223u-qGWtzgolboNPpF8YVdQZkh0yYscOCIG3o",
+    "expire_date": "2026-05-20T18:52:13.132Z"
+  }
+},
+{
+  "model": "sessions.session",
+  "pk": "gzdde6qwx47w5emhk1os81gkvjctmkoq",
+  "fields": {
+    "session_data": ".eJxVjMsOwiAQRf-FtSGV8hhcuu83kBkYpGogKe3K-O_apAvd3nPOfYmA21rC1nkJcxIXYcXpdyOMD647SHestyZjq-syk9wVedAup5b4eT3cv4OCvXxrNSrKQI5ZRzCetctIwJwNOrRMI7uzRshaWVAaEL3nlMkNVhkaEov3BwwION4:1wKgkA:ITA2xQW8SyQLh-Qs4a1JggyxYbSoGTgCrRRRFcVN2g4",
+    "expire_date": "2026-05-20T18:13:10.231Z"
+  }
+},
+{
+  "model": "sessions.session",
+  "pk": "ipb4wtog9m4iazra2012okkv2h9r44yd",
+  "fields": {
+    "session_data": ".eJxVjEEOwiAQRe_C2pABQcCl-56BDMwgVUOT0q6MdzckXej2v_f-W0Tctxr3zmucSVyFEqffLWF-chuAHtjui8xL29Y5yaHIg3Y5LcSv2-H-HVTsddQQfLAqWPLh7InQFZ2NDZ5AMSTtgb25GM0A1kByVBB0AWtTVqY4FJ8vxE83Qw:1wRlb2:3ThHRXrTknaVLjO7VRnxz3cCHL9LKjhwVEBQwcbyFUA",
+    "expire_date": "2026-06-09T06:49:00.239Z"
+  }
+},
+{
+  "model": "sessions.session",
+  "pk": "jnxy7yo5o070gvi01zwvmzzi22pbem3a",
+  "fields": {
+    "session_data": ".eJxVjsGqwjAQRf9l1lIS02rTpXu_QCRMJ5PXPksCmRQF8d9tsQvdzjnnMk9wOJfBzcLZjR460LD7vvVIN44r8P8Y_1JFKZY89tWqVBuV6pw8T6fN_RkYUIalVi0ThwMzWm2pIW5bCqTqZm-1QaWD0WiDUYgea6W1rY1W1pp-z03dhPWriUVSdEeHUe6cBbonUMqZqThKcyzQqR18IHvHD840Ci_e5brUKGUroYvzNL1eb6mxVgM:1wQkjX:Pip8WgFuA4dp5zqtJiuoUqsvFj_8ix9j9vImAlrIv30",
+    "expire_date": "2026-06-06T11:41:35.122Z"
+  }
+},
+{
+  "model": "sessions.session",
+  "pk": "msj8bgd5z9f9hugw9eh9qrbzxv06izrp",
+  "fields": {
+    "session_data": ".eJxVjEEOwiAQRe_C2hCmgGFcuvcMZBgGqRqalHbVeHdt0oVu_3vvbyrSutS4dpnjmNVFgTr9bon4KW0H-UHtPmme2jKPSe-KPmjXtynL63q4fweVev3WJghLOYsQArJnCYELG-cHBEsGigXCYg1RJmcA0FkwiDYN4p0voN4f-vg3wA:1wPh9O:E3jIw3mwHqMH0kpVoEKtYJ4OPyL5n0mZleqiDt5MjEg",
+    "expire_date": "2026-06-03T13:39:54.035Z"
+  }
+},
+{
+  "model": "sessions.session",
+  "pk": "p9oofs682e963jtgl0kz5mbn2r9m9mg4",
+  "fields": {
+    "session_data": ".eJxVjEEOwiAQRe_C2hCmgGFcuvcMZBgGqRqalHbVeHdt0oVu_3vvbyrSutS4dpnjmNVFgTr9bon4KW0H-UHtPmme2jKPSe-KPmjXtynL63q4fweVev3WJghLOYsQArJnCYELG-cHBEsGigXCYg1RJmcA0FkwiDYN4p0voN4f-vg3wA:1wKhLv:kjcySUb2ooVSW4dksHCHAdk72woHezxP6-DkZ5CbaHI",
+    "expire_date": "2026-05-20T18:52:11.636Z"
+  }
+},
+{
+  "model": "sessions.session",
+  "pk": "pre9sy6ix34wuff6f1ndrg3q99b6r3zm",
+  "fields": {
+    "session_data": ".eJxVjMsOwiAQRf-FtSHIG5fu-w1kGBipGkhKuzL-uzbpQrf3nHNfLMK21riNssQ5swsL7PS7JcBHaTvId2i3zrG3dZkT3xV-0MGnnsvzerh_BxVG_dY2G5FlpgABBCZMgRQVAkgYlNQyGHJei4RA0jon3ZmcVsZ7VNp5Zdn7AxScOB4:1wRlVn:ufBGXKNB4TP8L9wStbkfLPAwqvCNISxBsd0BWEKWFjk",
+    "expire_date": "2026-06-09T06:43:35.962Z"
+  }
+},
+{
+  "model": "sessions.session",
+  "pk": "ulbkb2bcjdz6xgg7aeipkevi3xell0j4",
+  "fields": {
+    "session_data": ".eJxVjMsOwiAQRf-FtSGV8hhcuu83kBkYpGogKe3K-O_apAvd3nPOfYmA21rC1nkJcxIXYcXpdyOMD647SHestyZjq-syk9wVedAup5b4eT3cv4OCvXxrNSrKQI5ZRzCetctIwJwNOrRMI7uzRshaWVAaEL3nlMkNVhkaEov3BwwION4:1wKhNF:OkdC8AUeu_jcpmwWCSu1WzOe1kCSeDMRiS-4d1gHFj4",
+    "expire_date": "2026-05-20T18:53:33.782Z"
+  }
+},
+{
+  "model": "sessions.session",
+  "pk": "wy2vcx2r69qysr0fn71prgn9got8lvb9",
+  "fields": {
+    "session_data": ".eJxVjDsOgzAQRO_iOrIw-JsyPWewdr3rmCQyEoYqyt0DEkWi6ea9mbeIsK0lbo2XOJG4il5cfjuE9OR6AHpAvc8yzXVdJpSHIk_a5DgTv26n-3dQoJV9jblPORvbdRxS5oGUh8E6QrJa2-A8MKJB5YCDAY_I1gNZpQOx2SM-XxPGOTg:1wK0RB:Ft-gwGzeGppGOgaBoVPnxYW6Ukj9IJPHbWEYQ54QUrI",
+    "expire_date": "2026-05-18T21:02:45.988Z"
+  }
+},
+{
+  "model": "users.userprofile",
+  "pk": 1,
+  "fields": {
+    "user": [
+      "vika1"
+    ],
+    "total_points": 142,
+    "avatar": "",
+    "streak_days": 2,
+    "last_activity_date": "2026-05-25",
+    "created_at": "2026-04-30T11:19:26.837Z"
+  }
+},
+{
+  "model": "users.userprofile",
+  "pk": 2,
+  "fields": {
+    "user": [
+      "ууу"
+    ],
+    "total_points": 20,
+    "avatar": "",
+    "streak_days": 1,
+    "last_activity_date": "2026-05-24",
+    "created_at": "2026-05-02T16:47:45.044Z"
+  }
+},
+{
+  "model": "users.userprofile",
+  "pk": 3,
+  "fields": {
+    "user": [
+      "уууё"
+    ],
+    "total_points": 10,
+    "avatar": "",
+    "streak_days": 0,
+    "last_activity_date": null,
+    "created_at": "2026-05-02T16:49:09.682Z"
+  }
+},
+{
+  "model": "users.userprofile",
+  "pk": 4,
+  "fields": {
+    "user": [
+      "vika"
+    ],
+    "total_points": 132,
+    "avatar": "avatars/Снимок_экрана_115.png",
+    "streak_days": 1,
+    "last_activity_date": "2026-05-24",
+    "created_at": "2026-05-04T19:50:31.095Z"
+  }
+},
+{
+  "model": "users.userprofile",
+  "pk": 5,
+  "fields": {
+    "user": [
+      "wer"
+    ],
+    "total_points": 132,
+    "avatar": "",
+    "streak_days": 1,
+    "last_activity_date": "2026-05-15",
+    "created_at": "2026-05-06T18:02:08.658Z"
+  }
+},
+{
+  "model": "users.userprofile",
+  "pk": 6,
+  "fields": {
+    "user": [
+      "Admin"
+    ],
+    "total_points": 0,
+    "avatar": "",
+    "streak_days": 1,
+    "last_activity_date": "2026-05-26",
+    "created_at": "2026-05-24T06:03:08.594Z"
+  }
+},
+{
+  "model": "users.userprofile",
+  "pk": 7,
+  "fields": {
+    "user": [
+      "VikaPopova"
+    ],
+    "total_points": 0,
+    "avatar": "",
+    "streak_days": 0,
+    "last_activity_date": null,
+    "created_at": "2026-05-26T06:39:45.089Z"
+  }
+},
+{
+  "model": "users.userprofile",
+  "pk": 8,
+  "fields": {
+    "user": [
+      "alina"
+    ],
+    "total_points": 0,
+    "avatar": "",
+    "streak_days": 0,
+    "last_activity_date": null,
+    "created_at": "2026-05-26T06:42:58.016Z"
+  }
+},
+{
+  "model": "users.userprofile",
+  "pk": 9,
+  "fields": {
+    "user": [
+      "alina123"
+    ],
+    "total_points": 0,
+    "avatar": "",
+    "streak_days": 0,
+    "last_activity_date": null,
+    "created_at": "2026-05-26T06:43:35.922Z"
+  }
+},
+{
+  "model": "users.userprofile",
+  "pk": 10,
+  "fields": {
+    "user": [
+      "VikaPo"
+    ],
+    "total_points": 10,
+    "avatar": "",
+    "streak_days": 1,
+    "last_activity_date": "2026-05-26",
+    "created_at": "2026-05-26T07:34:20.567Z"
+  }
+},
+{
+  "model": "courses.course",
+  "pk": 20,
+  "fields": {
+    "title": "English A1: Start Your Journey",
+    "description": "Курс предназначен для пользователей, которые только начинают изучать английский язык. В рамках курса обучающийся знакомится с базовой лексикой, простыми фразами для знакомства, глаголом to be, личными местоимениями и простыми предложениями. Курс помогает сформировать начальную языковую базу для дальнейшего изучения английского языка.",
+    "level": "A1",
+    "category": "general",
+    "is_public": true,
+    "image": "",
+    "created_at": "2026-05-26T03:27:39.422Z"
+  }
+},
+{
+  "model": "courses.course",
+  "pk": 21,
+  "fields": {
+    "title": "Advanced English for IT",
+    "description": "Курс предназначен для пользователей, которые хотят изучать профессиональный английский язык в сфере информационных технологий. В курсе рассматриваются термины, связанные с разработкой программного обеспечения, базами данных, командной работой, Git, документацией и описанием технических задач.",
+    "level": "C1",
+    "category": "it",
+    "is_public": false,
+    "image": "",
+    "created_at": "2026-05-26T03:42:37.983Z"
+  }
+},
+{
+  "model": "courses.lesson",
+  "pk": 15,
+  "fields": {
+    "course": 20,
+    "title": "Greetings and Introductions",
+    "content": "Основные приветствия:\r\nHello — Привет / Здравствуйте\r\nHi — Привет\r\nGood morning — Доброе утро\r\nGood afternoon — Добрый день\r\nGood evening — Добрый вечер\r\nGoodbye — До свидания\r\nSee you — Увидимся\r\nДля знакомства можно использовать следующие выражения:\r\nMy name is Anna. — Меня зовут Анна.\r\nI am a student. — Я студент.\r\nNice to meet you. — Приятно познакомиться.\r\nHow are you? — Как дела?\r\nI am fine, thank you. — У меня всё хорошо, спасибо.\r\nA: Hello! My name is Kate.\r\nB: Hi, Kate! My name is Alex.\r\nA: Nice to meet you.\r\nB: Nice to meet you too.",
+    "order": 1,
+    "points_reward": 10,
+    "created_at": "2026-05-26T03:28:32.127Z"
+  }
+},
+{
+  "model": "courses.lesson",
+  "pk": 16,
+  "fields": {
+    "course": 20,
+    "title": "Verb “to be”",
+    "content": "Глагол to be является одним из самых важных глаголов в английском языке. Он переводится как «быть», «являться», «находиться».\r\nФормы глагола to be:\r\n\r\nI am — я есть / я являюсь\r\nYou are — ты есть / вы есть\r\nHe is — он есть\r\nShe is — она есть\r\nIt is — это есть\r\nWe are — мы есть\r\nThey are — они есть\r\n\r\nПримеры:\r\n\r\nI am a student. — Я студент.\r\nShe is a teacher. — Она учитель.\r\nThey are friends. — Они друзья.\r\nWe are happy. — Мы счастливы.\r\n\r\nКраткие формы:\r\n\r\nI am = I'm\r\nYou are = You're\r\nHe is = He's\r\nShe is = She's\r\nThey are = They're",
+    "order": 2,
+    "points_reward": 20,
+    "created_at": "2026-05-26T03:32:09.879Z"
+  }
+},
+{
+  "model": "courses.lesson",
+  "pk": 17,
+  "fields": {
+    "course": 20,
+    "title": "Simple Sentences",
+    "content": "Простое английское предложение обычно строится по порядку:\r\n\r\nПодлежащее + глагол + дополнение\r\n\r\nПримеры:\r\n\r\nI like English. — Я люблю английский.\r\nYou speak English. — Ты говоришь по-английски.\r\nWe study every day. — Мы учимся каждый день.\r\nThey read books. — Они читают книги.\r\n\r\nДля отрицания в простом настоящем времени используются do not и does not.\r\n\r\nI do not like coffee. — Я не люблю кофе.\r\nHe does not speak French. — Он не говорит по-французски.\r\n\r\nКраткие формы:\r\n\r\ndo not = don't\r\ndoes not = doesn't",
+    "order": 3,
+    "points_reward": 10,
+    "created_at": "2026-05-26T03:40:11.625Z"
+  }
+},
+{
+  "model": "courses.lesson",
+  "pk": 18,
+  "fields": {
+    "course": 21,
+    "title": "Software Development Vocabulary",
+    "content": "В IT-сфере часто используются специальные термины, связанные с разработкой программного обеспечения.\r\n\r\nОсновная лексика:\r\n\r\nsoftware — программное обеспечение\r\napplication — приложение\r\nfeature — функция / возможность\r\nbug — ошибка\r\nfix — исправление\r\nrelease — выпуск версии\r\nrequirement — требование\r\nframework — фреймворк\r\ndatabase — база данных\r\nserver — сервер\r\nclient — клиент\r\n\r\nПримеры:\r\n\r\nThe application has a new feature. — В приложении появилась новая функция.\r\nThe developer fixed a bug. — Разработчик исправил ошибку.\r\nThe server stores user data. — Сервер хранит данные пользователей.\r\nThe team discussed the requirements. — Команда обсудила требования.",
+    "order": 1,
+    "points_reward": 10,
+    "created_at": "2026-05-26T03:43:02.486Z"
+  }
+},
+{
+  "model": "courses.exercise",
+  "pk": 11,
+  "fields": {
+    "lesson": 15,
+    "exercise_type": "choice",
+    "question": "ак переводится фраза “Good morning”?",
+    "source_text": "",
+    "option_1": "Доброе утро",
+    "option_2": "Добрый вечер",
+    "option_3": "До свидания",
+    "option_4": "Спасибо",
+    "correct_option": 1,
+    "correct_answer": "",
+    "words_for_ordering": "",
+    "explanation": "ood morning используется утром и переводится как «Доброе утро».",
+    "order": 1
+  }
+},
+{
+  "model": "courses.exercise",
+  "pk": 12,
+  "fields": {
+    "lesson": 15,
+    "exercise_type": "translate",
+    "question": "Переведите фразу на английский язык: Меня зовут Анна.",
+    "source_text": "Anna . name My is",
+    "option_1": "",
+    "option_2": "",
+    "option_3": "",
+    "option_4": "",
+    "correct_option": null,
+    "correct_answer": "My name is Anna.",
+    "words_for_ordering": "",
+    "explanation": "Для представления используется конструкция My name is ....",
+    "order": 2
+  }
+},
+{
+  "model": "courses.exercise",
+  "pk": 15,
+  "fields": {
+    "lesson": 15,
+    "exercise_type": "fill_gap",
+    "question": "Заполните пропуск: She ___ a teacher.",
+    "source_text": "",
+    "option_1": "",
+    "option_2": "",
+    "option_3": "",
+    "option_4": "",
+    "correct_option": null,
+    "correct_answer": "is",
+    "words_for_ordering": "",
+    "explanation": "С местоимением she используется форма is.",
+    "order": 3
+  }
+},
+{
+  "model": "courses.exercise",
+  "pk": 17,
+  "fields": {
+    "lesson": 16,
+    "exercise_type": "choice",
+    "question": "Выберите правильный вариант: I ___ a student.",
+    "source_text": "",
+    "option_1": "is",
+    "option_2": "are",
+    "option_3": "am",
+    "option_4": "be",
+    "correct_option": 3,
+    "correct_answer": "",
+    "words_for_ordering": "",
+    "explanation": "С местоимением I используется форма am.",
+    "order": 1
+  }
+},
+{
+  "model": "courses.exercise",
+  "pk": 18,
+  "fields": {
+    "lesson": 16,
+    "exercise_type": "fill_gap",
+    "question": "Заполните пропуск: She ___ a teacher.",
+    "source_text": "",
+    "option_1": "",
+    "option_2": "",
+    "option_3": "",
+    "option_4": "",
+    "correct_option": null,
+    "correct_answer": "is",
+    "words_for_ordering": "",
+    "explanation": "С местоимением she используется форма is.",
+    "order": 2
+  }
+},
+{
+  "model": "courses.exercise",
+  "pk": 19,
+  "fields": {
+    "lesson": 16,
+    "exercise_type": "order_words",
+    "question": "Соберите предложение из слов.",
+    "source_text": "",
+    "option_1": "",
+    "option_2": "",
+    "option_3": "",
+    "option_4": "",
+    "correct_option": null,
+    "correct_answer": "They are friends.",
+    "words_for_ordering": "are / They / friends",
+    "explanation": "В английском предложении сначала ставится подлежащее, затем глагол.",
+    "order": 3
+  }
+},
+{
+  "model": "courses.exercise",
+  "pk": 20,
+  "fields": {
+    "lesson": 17,
+    "exercise_type": "choice",
+    "question": "Как переводится предложение “I like English”?",
+    "source_text": "",
+    "option_1": "Я изучаю математику",
+    "option_2": "Я люблю английский",
+    "option_3": "Я говорю по-французски",
+    "option_4": "Я читаю книгу",
+    "correct_option": 2,
+    "correct_answer": "",
+    "words_for_ordering": "",
+    "explanation": "like переводится как «любить» или «нравиться».",
+    "order": 1
+  }
+},
+{
+  "model": "courses.exercise",
+  "pk": 21,
+  "fields": {
+    "lesson": 17,
+    "exercise_type": "translate",
+    "question": "Переведите на английский язык: Мы учимся каждый день.",
+    "source_text": "",
+    "option_1": "",
+    "option_2": "",
+    "option_3": "",
+    "option_4": "",
+    "correct_option": null,
+    "correct_answer": "We study every day.",
+    "words_for_ordering": "",
+    "explanation": "",
+    "order": 2
+  }
+},
+{
+  "model": "courses.exercise",
+  "pk": 22,
+  "fields": {
+    "lesson": 17,
+    "exercise_type": "fill_gap",
+    "question": "Заполните пропуск: He ___ not speak French.",
+    "source_text": "",
+    "option_1": "",
+    "option_2": "",
+    "option_3": "",
+    "option_4": "",
+    "correct_option": null,
+    "correct_answer": "does",
+    "words_for_ordering": "",
+    "explanation": "С местоимением he используется вспомогательный глагол does.",
+    "order": 3
+  }
+},
+{
+  "model": "courses.exercise",
+  "pk": 23,
+  "fields": {
+    "lesson": 18,
+    "exercise_type": "choice",
+    "question": "Как переводится слово “requirement”?",
+    "source_text": "",
+    "option_1": "Ошибка",
+    "option_2": "Требование",
+    "option_3": "Приложение",
+    "option_4": "Сервер",
+    "correct_option": 2,
+    "correct_answer": "",
+    "words_for_ordering": "",
+    "explanation": "Requirement переводится как «требование».",
+    "order": 1
+  }
+},
+{
+  "model": "courses.lessonresult",
+  "pk": 14,
+  "fields": {
+    "user": [
+      "VikaPo"
+    ],
+    "lesson": 15,
+    "best_score": 66,
+    "points_earned": 10,
+    "completed_at": "2026-05-26T07:35:22.173Z"
+  }
+},
+{
+  "model": "achievements.achievement",
+  "pk": 1,
+  "fields": {
+    "title": "Название: Первый шаг",
+    "description": "Получено за первый пройденный урок.",
+    "sticker": "",
+    "code": "first_lesson"
+  }
+},
+{
+  "model": "achievements.achievement",
+  "pk": 2,
+  "fields": {
+    "title": "Отличный результат",
+    "description": "Получено за урок, пройденный на 100%.",
+    "sticker": "",
+    "code": "perfect_lesson"
+  }
+},
+{
+  "model": "achievements.achievement",
+  "pk": 3,
+  "fields": {
+    "title": "Без ошибок",
+    "description": "Получено за 5 уроков со 100% результатом.",
+    "sticker": "",
+    "code": "five_perfect_lessons"
+  }
+},
+{
+  "model": "achievements.userachievement",
+  "pk": 1,
+  "fields": {
+    "user": [
+      "vika"
+    ],
+    "achievement": 1,
+    "received_at": "2026-05-02T16:35:49.426Z"
+  }
+},
+{
+  "model": "achievements.userachievement",
+  "pk": 2,
+  "fields": {
+    "user": [
+      "ууу"
+    ],
+    "achievement": 1,
+    "received_at": "2026-05-02T16:48:24.141Z"
+  }
+},
+{
+  "model": "achievements.userachievement",
+  "pk": 3,
+  "fields": {
+    "user": [
+      "уууё"
+    ],
+    "achievement": 1,
+    "received_at": "2026-05-02T17:38:54.939Z"
+  }
+},
+{
+  "model": "achievements.userachievement",
+  "pk": 4,
+  "fields": {
+    "user": [
+      "vika1"
+    ],
+    "achievement": 1,
+    "received_at": "2026-05-04T20:22:50.020Z"
+  }
+},
+{
+  "model": "achievements.userachievement",
+  "pk": 5,
+  "fields": {
+    "user": [
+      "wer"
+    ],
+    "achievement": 1,
+    "received_at": "2026-05-06T18:02:32.349Z"
+  }
+},
+{
+  "model": "achievements.userachievement",
+  "pk": 6,
+  "fields": {
+    "user": [
+      "wer"
+    ],
+    "achievement": 2,
+    "received_at": "2026-05-06T18:02:32.361Z"
+  }
+},
+{
+  "model": "achievements.userachievement",
+  "pk": 7,
+  "fields": {
+    "user": [
+      "vika"
+    ],
+    "achievement": 2,
+    "received_at": "2026-05-18T14:41:39.855Z"
+  }
+},
+{
+  "model": "achievements.userachievement",
+  "pk": 8,
+  "fields": {
+    "user": [
+      "vika1"
+    ],
+    "achievement": 2,
+    "received_at": "2026-05-24T07:10:04.470Z"
+  }
+},
+{
+  "model": "achievements.userachievement",
+  "pk": 9,
+  "fields": {
+    "user": [
+      "VikaPo"
+    ],
+    "achievement": 1,
+    "received_at": "2026-05-26T07:35:22.184Z"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 1,
+  "fields": {
+    "action_time": "2026-04-30T10:22:34.709Z",
+    "user": [
+      "Admin"
+    ],
+    "content_type": [
+      "courses",
+      "course"
+    ],
+    "object_id": "1",
+    "object_repr": "5y4",
+    "action_flag": 1,
+    "change_message": "[{\"added\": {}}, {\"added\": {\"name\": \"\\u0423\\u0440\\u043e\\u043a\", \"object\": \"5y4 \\u2014 tj\"}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 2,
+  "fields": {
+    "action_time": "2026-04-30T10:23:19.383Z",
+    "user": [
+      "Admin"
+    ],
+    "content_type": [
+      "courses",
+      "course"
+    ],
+    "object_id": "1",
+    "object_repr": "5y4",
+    "action_flag": 3,
+    "change_message": ""
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 3,
+  "fields": {
+    "action_time": "2026-04-30T10:52:11.431Z",
+    "user": [
+      "Admin"
+    ],
+    "content_type": [
+      "courses",
+      "course"
+    ],
+    "object_id": "2",
+    "object_repr": "wfwq",
+    "action_flag": 1,
+    "change_message": "[{\"added\": {}}, {\"added\": {\"name\": \"\\u0423\\u0440\\u043e\\u043a\", \"object\": \"wfwq \\u2014 qwerty\"}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 4,
+  "fields": {
+    "action_time": "2026-04-30T11:09:19.623Z",
+    "user": [
+      "Admin"
+    ],
+    "content_type": [
+      "courses",
+      "course"
+    ],
+    "object_id": "3",
+    "object_repr": "poiuhyg",
+    "action_flag": 1,
+    "change_message": "[{\"added\": {}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 5,
+  "fields": {
+    "action_time": "2026-04-30T12:59:25.129Z",
+    "user": [
+      "Admin"
+    ],
+    "content_type": [
+      "courses",
+      "exercise"
+    ],
+    "object_id": "1",
+    "object_repr": "qwerty — Выбор одного ответа",
+    "action_flag": 1,
+    "change_message": "[{\"added\": {}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 6,
+  "fields": {
+    "action_time": "2026-04-30T13:41:30.116Z",
+    "user": [
+      "Admin"
+    ],
+    "content_type": [
+      "achievements",
+      "achievement"
+    ],
+    "object_id": "1",
+    "object_repr": "Название: Первый шаг",
+    "action_flag": 1,
+    "change_message": "[{\"added\": {}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 7,
+  "fields": {
+    "action_time": "2026-04-30T13:42:11.838Z",
+    "user": [
+      "Admin"
+    ],
+    "content_type": [
+      "achievements",
+      "achievement"
+    ],
+    "object_id": "2",
+    "object_repr": "Отличный результат",
+    "action_flag": 1,
+    "change_message": "[{\"added\": {}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 8,
+  "fields": {
+    "action_time": "2026-04-30T13:42:46.247Z",
+    "user": [
+      "Admin"
+    ],
+    "content_type": [
+      "achievements",
+      "achievement"
+    ],
+    "object_id": "3",
+    "object_repr": "Без ошибок",
+    "action_flag": 1,
+    "change_message": "[{\"added\": {}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 9,
+  "fields": {
+    "action_time": "2026-05-02T16:35:09.261Z",
+    "user": [
+      "Admin"
+    ],
+    "content_type": [
+      "courses",
+      "exercise"
+    ],
+    "object_id": "2",
+    "object_repr": "qwerty — Выбор одного ответа",
+    "action_flag": 1,
+    "change_message": "[{\"added\": {}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 10,
+  "fields": {
+    "action_time": "2026-05-04T21:02:31.025Z",
+    "user": [
+      "Admin"
+    ],
+    "content_type": [
+      "courses",
+      "exercise"
+    ],
+    "object_id": "3",
+    "object_repr": "1 — Выбор одного ответа",
+    "action_flag": 1,
+    "change_message": "[{\"added\": {}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 11,
+  "fields": {
+    "action_time": "2026-05-06T17:52:14.889Z",
+    "user": [
+      "Admin"
+    ],
+    "content_type": [
+      "courses",
+      "course"
+    ],
+    "object_id": "4",
+    "object_repr": "jetheh",
+    "action_flag": 3,
+    "change_message": ""
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 12,
+  "fields": {
+    "action_time": "2026-05-06T17:52:14.889Z",
+    "user": [
+      "Admin"
+    ],
+    "content_type": [
+      "courses",
+      "course"
+    ],
+    "object_id": "3",
+    "object_repr": "poiuhyg",
+    "action_flag": 3,
+    "change_message": ""
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 13,
+  "fields": {
+    "action_time": "2026-05-06T17:52:14.889Z",
+    "user": [
+      "Admin"
+    ],
+    "content_type": [
+      "courses",
+      "course"
+    ],
+    "object_id": "2",
+    "object_repr": "wfwq",
+    "action_flag": 3,
+    "change_message": ""
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 14,
+  "fields": {
+    "action_time": "2026-05-06T17:52:29.193Z",
+    "user": [
+      "Admin"
+    ],
+    "content_type": [
+      "courses",
+      "exercise"
+    ],
+    "object_id": "2",
+    "object_repr": "qwerty — Выбор одного ответа",
+    "action_flag": 3,
+    "change_message": ""
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 15,
+  "fields": {
+    "action_time": "2026-05-06T17:52:29.193Z",
+    "user": [
+      "Admin"
+    ],
+    "content_type": [
+      "courses",
+      "exercise"
+    ],
+    "object_id": "1",
+    "object_repr": "qwerty — Выбор одного ответа",
+    "action_flag": 3,
+    "change_message": ""
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 16,
+  "fields": {
+    "action_time": "2026-05-06T17:52:29.195Z",
+    "user": [
+      "Admin"
+    ],
+    "content_type": [
+      "courses",
+      "exercise"
+    ],
+    "object_id": "3",
+    "object_repr": "1 — Выбор одного ответа",
+    "action_flag": 3,
+    "change_message": ""
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 17,
+  "fields": {
+    "action_time": "2026-05-06T17:52:37.391Z",
+    "user": [
+      "Admin"
+    ],
+    "content_type": [
+      "courses",
+      "lesson"
+    ],
+    "object_id": "2",
+    "object_repr": "wfwq — qwerty",
+    "action_flag": 3,
+    "change_message": ""
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 18,
+  "fields": {
+    "action_time": "2026-05-06T17:52:37.391Z",
+    "user": [
+      "Admin"
+    ],
+    "content_type": [
+      "courses",
+      "lesson"
+    ],
+    "object_id": "4",
+    "object_repr": "wfwq — 1",
+    "action_flag": 3,
+    "change_message": ""
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 19,
+  "fields": {
+    "action_time": "2026-05-06T17:52:37.391Z",
+    "user": [
+      "Admin"
+    ],
+    "content_type": [
+      "courses",
+      "lesson"
+    ],
+    "object_id": "5",
+    "object_repr": "wfwq — 2",
+    "action_flag": 3,
+    "change_message": ""
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 20,
+  "fields": {
+    "action_time": "2026-05-06T18:00:44.472Z",
+    "user": [
+      "Admin"
+    ],
+    "content_type": [
+      "courses",
+      "exercise"
+    ],
+    "object_id": "4",
+    "object_repr": "iqudiah — Выбор одного ответа",
+    "action_flag": 1,
+    "change_message": "[{\"added\": {}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 21,
+  "fields": {
+    "action_time": "2026-05-06T18:01:32.249Z",
+    "user": [
+      "Admin"
+    ],
+    "content_type": [
+      "courses",
+      "exercise"
+    ],
+    "object_id": "5",
+    "object_repr": "lkjh — Выбор одного ответа",
+    "action_flag": 1,
+    "change_message": "[{\"added\": {}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 22,
+  "fields": {
+    "action_time": "2026-05-06T18:12:28.674Z",
+    "user": [
+      "Admin"
+    ],
+    "content_type": [
+      "courses",
+      "lesson"
+    ],
+    "object_id": "9",
+    "object_repr": "opdsjvhdk — 111",
+    "action_flag": 1,
+    "change_message": "[{\"added\": {}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 23,
+  "fields": {
+    "action_time": "2026-05-06T18:12:54.306Z",
+    "user": [
+      "Admin"
+    ],
+    "content_type": [
+      "courses",
+      "exercise"
+    ],
+    "object_id": "6",
+    "object_repr": "111 — Выбор одного ответа",
+    "action_flag": 1,
+    "change_message": "[{\"added\": {}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 24,
+  "fields": {
+    "action_time": "2026-05-06T18:53:18.555Z",
+    "user": [
+      "Admin"
+    ],
+    "content_type": [
+      "courses",
+      "lesson"
+    ],
+    "object_id": "10",
+    "object_repr": "opdsjvhdk — 32",
+    "action_flag": 1,
+    "change_message": "[{\"added\": {}}, {\"added\": {\"name\": \"\\u0423\\u043f\\u0440\\u0430\\u0436\\u043d\\u0435\\u043d\\u0438\\u0435\", \"object\": \"32 \\u2014 \\u0412\\u044b\\u0431\\u043e\\u0440 \\u043e\\u0434\\u043d\\u043e\\u0433\\u043e \\u043e\\u0442\\u0432\\u0435\\u0442\\u0430\"}}]"
+  }
+}
+]

@@ -13,3 +13,6 @@ media/
 
 .idea/
 .vscode/
+data_backup.json
+optimize_images.py
+physical_model.dot

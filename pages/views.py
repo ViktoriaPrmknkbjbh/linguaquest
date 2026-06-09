@@ -5,7 +5,8 @@ from courses.models import Course
 
 def home_view(request):
     beginner_courses = Course.objects.filter(
-        level="A1"
+        level="A1",
+        is_deleted=False
     ).order_by("title")
 
     return render(request, "pages/index.html", {

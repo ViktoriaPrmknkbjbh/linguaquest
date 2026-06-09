@@ -1,10 +1,28 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Title</title>
-</head>
-<body>
+{% extends 'base.html' %}
 
-</body>
-</html>
+{% block content %}
+
+<section class="error-page-section">
+    <div class="error-paper">
+        <div class="error-code">500</div>
+
+        <h1>Ошибка сервера</h1>
+
+        <p>
+            Что-то пошло не так на стороне сервера.
+            Попробуйте обновить страницу или вернуться позже.
+        </p>
+
+        <div class="error-actions">
+            <a href="{% url 'home' %}" class="btn error-main-btn">
+                На главную
+            </a>
+
+            <a href="{% url 'course_list' %}" class="btn error-outline-btn">
+                К курсам
+            </a>
+        </div>
+    </div>
+</section>
+
+{% endblock %}

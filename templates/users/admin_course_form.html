@@ -6,12 +6,13 @@
     <div class="admin-course-form-paper">
         <h1>{{ page_title }}</h1>
 
-        <form method="post" enctype="multipart/form-data" class="admin-course-form">
+        <form method="post" enctype="multipart/form-data" class="admin-course-form" novalidate>
             {% csrf_token %}
 
             {% for field in form %}
                 <div class="admin-course-form-group">
-                    <label>{{ field.label }}</label>
+                    <label for="{{ field.id_for_label }}">{{ field.label }}</label>
+
                     {{ field }}
 
                     {% if field.help_text %}
@@ -20,7 +21,9 @@
 
                     {% if field.errors %}
                         <div class="admin-course-form-error">
-                            {{ field.errors }}
+                            {% for error in field.errors %}
+                                <p>{{ error }}</p>
+                            {% endfor %}
                         </div>
                     {% endif %}
                 </div>

@@ -10,12 +10,13 @@
             <strong>Курс:</strong> {{ course.title }}
         </p>
 
-        <form method="post" class="admin-lesson-form">
+        <form method="post" class="admin-lesson-form" novalidate>
             {% csrf_token %}
 
             {% for field in form %}
                 <div class="admin-lesson-form-group">
-                    <label>{{ field.label }}</label>
+                    <label for="{{ field.id_for_label }}">{{ field.label }}</label>
+
                     {{ field }}
 
                     {% if field.help_text %}
@@ -24,7 +25,9 @@
 
                     {% if field.errors %}
                         <div class="admin-lesson-form-error">
-                            {{ field.errors }}
+                            {% for error in field.errors %}
+                                <p>{{ error }}</p>
+                            {% endfor %}
                         </div>
                     {% endif %}
                 </div>

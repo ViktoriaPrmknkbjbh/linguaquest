@@ -11,6 +11,18 @@ from django.core.paginator import Paginator
 
 
 def user_has_course_access(user, course):
+    if course.is_deleted:
+        if not user.is_authenticated:
+            return False
+
+        if user.is_staff:
+            return True
+
+        return LessonResult.objects.filter(
+            user=user,
+            lesson__course=course
+        ).exists()
+
     if course.is_public:
         return True
 
@@ -83,7 +95,7 @@ def check_exercise_answer(exercise, user_answer):
     return normalize_answer(user_answer) == normalize_answer(exercise.correct_answer)
 
 def course_list_view(request):
-    courses = Course.objects.all()
+    courses = Course.objects.filter(is_deleted=False)
 
     search_query = request.GET.get('q', '')
     selected_level = request.GET.get('level', '')
@@ -117,6 +129,9 @@ from courses.models import Course
 def course_detail_view(request, course_id):
     course = get_object_or_404(Course, id=course_id)
 
+    if course.is_deleted and not user_has_course_access(request.user, course):
+        raise PermissionDenied
+
     has_access = user_has_course_access(request.user, course)
     access_request = None
 
@@ -134,6 +149,9 @@ def course_detail_view(request, course_id):
 
     if request.method == 'POST':
         if not request.user.is_authenticated or request.user.is_staff:
+            raise PermissionDenied
+
+        if course.is_deleted:
             raise PermissionDenied
 
         comment_form = CourseCommentForm(request.POST)
@@ -476,7 +494,11 @@ def request_course_access_view(request, course_id):
     if request.user.is_staff:
         raise PermissionDenied
 
-    course = get_object_or_404(Course, id=course_id)
+    course = get_object_or_404(
+        Course,
+        id=course_id,
+        is_deleted=False
+    )
 
     if course.is_public:
         return render(request, 'courses/access_not_required.html', {

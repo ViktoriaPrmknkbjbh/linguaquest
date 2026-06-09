@@ -1,0 +1,38 @@
+@font-face {
+    font-family: "Cinzel";
+    src: url("../fonts/cinzel_regular.ttf") format("truetype");
+    font-weight: 400;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: "Cinzel";
+    src: url("../fonts/cinzel_bold.ttf") format("truetype");
+    font-weight: 700;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: "Marcellus";
+    src: url("../fonts/Marcellus-Regular.ttf") format("truetype");
+    font-weight: 400;
+    font-style: normal;
+    font-display: swap;
+}
+
+body {
+    font-family: "Marcellus", serif;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+.logo,
+.navbar-brand {
+    font-family: "Cinzel", serif;
+}

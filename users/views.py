@@ -3,9 +3,10 @@ from django.contrib.auth import login, logout
 from django.contrib.auth.decorators import login_required
 from django.core.exceptions import PermissionDenied
 from django.shortcuts import render, redirect, get_object_or_404
-from courses.models import LessonResult
-from courses.models import Course, Lesson, Exercise, CourseComment, CourseAccessRequest, LessonResult
+
+from achievements.models import UserAchievement
 from courses.forms import CourseForm, LessonForm, ExerciseForm
+from courses.models import Course, Lesson, Exercise, CourseComment, CourseAccessRequest, LessonResult
 
 from .forms import (
     UserRegisterForm,
@@ -15,9 +16,6 @@ from .forms import (
     RejectAccessRequestForm
 )
 from .models import UserProfile
-from courses.models import Course, Lesson, CourseAccessRequest
-from courses.forms import CourseForm, LessonForm
-from achievements.models import UserAchievement
 
 
 def register_view(request):
@@ -87,48 +85,69 @@ def profile_view(request):
     if request.user.is_staff:
         raise PermissionDenied
 
-    public_courses = Course.objects.filter(is_public=True)
+    profile, created = UserProfile.objects.get_or_create(user=request.user)
+
+    public_courses = Course.objects.filter(
+        is_public=True,
+        is_deleted=False
+    )
 
     approved_course_ids = CourseAccessRequest.objects.filter(
         user=request.user,
-        status='approved'
+        status='approved',
+        course__is_deleted=False
     ).values_list('course_id', flat=True)
 
     approved_private_courses = Course.objects.filter(
         id__in=approved_course_ids,
-        is_public=False
+        is_public=False,
+        is_deleted=False
     )
 
+    started_courses = Course.objects.filter(
+        lessons__results__user=request.user
+    ).distinct()
+
     access_requests = CourseAccessRequest.objects.filter(
-        user=request.user
+        user=request.user,
+        course__is_deleted=False
     ).select_related('course').order_by('-updated_at')
 
     user_achievements = UserAchievement.objects.filter(
         user=request.user
     ).select_related('achievement').order_by('-received_at')
 
-    available_courses = []
+    available_courses_dict = {}
 
     for course in public_courses:
-        available_courses.append(course)
+        available_courses_dict[course.id] = course
 
     for course in approved_private_courses:
-        available_courses.append(course)
+        available_courses_dict[course.id] = course
+
+    for course in started_courses:
+        available_courses_dict[course.id] = course
+
+    available_courses = list(available_courses_dict.values())
 
     courses_progress = []
-    courses_progress = [
-        item for item in courses_progress
-        if item["completed_lessons"] > 0 or item["progress_percent"] > 0
-    ]
 
     for course in available_courses:
+        started_lessons = LessonResult.objects.filter(
+            user=request.user,
+            lesson__course=course
+        ).values('lesson_id').distinct().count()
+
+        if started_lessons == 0:
+            continue
+
         total_lessons = course.lessons.count()
 
         completed_lessons = LessonResult.objects.filter(
             user=request.user,
             lesson__course=course,
             best_score__gte=50
-        ).count()
+        ).values('lesson_id').distinct().count()
 
         if total_lessons > 0:
             progress_percent = int((completed_lessons / total_lessons) * 100)
@@ -141,13 +160,25 @@ def profile_view(request):
             'completed_lessons': completed_lessons,
             'progress_percent': progress_percent
         })
-    total_points = request.user.profile.total_points if hasattr(request.user, 'profile') else 0
 
-    level = total_points // 100 + 1
-    current_level_points = total_points % 100
+    total_points = profile.total_points
+
+    level = 1
+    current_level_points = total_points
     next_level_points = 100
-    level_progress_percent = current_level_points
-    streak_days = request.user.profile.streak_days
+
+    while current_level_points >= next_level_points:
+        current_level_points -= next_level_points
+        level += 1
+        next_level_points = int(next_level_points * 2.5)
+
+    if next_level_points > 0:
+        level_progress_percent = int((current_level_points / next_level_points) * 100)
+    else:
+        level_progress_percent = 0
+
+    streak_days = profile.streak_days or 0
+
     return render(request, 'users/profile.html', {
         'public_courses': public_courses,
         'approved_private_courses': approved_private_courses,
@@ -161,6 +192,7 @@ def profile_view(request):
         'level_progress_percent': level_progress_percent,
         'streak_days': streak_days,
     })
+
 
 def rating_view(request):
     profiles = UserProfile.objects.filter(
@@ -177,18 +209,23 @@ def admin_dashboard_view(request):
     if not request.user.is_staff:
         raise PermissionDenied
 
-    courses = Course.objects.all().order_by('-created_at')
+    courses = Course.objects.filter(
+        is_deleted=False
+    ).order_by('-created_at')
 
     pending_requests = CourseAccessRequest.objects.filter(
-        status='pending'
+        status='pending',
+        course__is_deleted=False
     ).select_related('user', 'course').order_by('-created_at')
 
     approved_requests = CourseAccessRequest.objects.filter(
-        status='approved'
+        status='approved',
+        course__is_deleted=False
     ).select_related('user', 'course').order_by('-updated_at')[:10]
 
     rejected_requests = CourseAccessRequest.objects.filter(
-        status='rejected'
+        status='rejected',
+        course__is_deleted=False
     ).select_related('user', 'course').order_by('-updated_at')[:10]
 
     return render(request, 'users/admin_dashboard.html', {
@@ -226,7 +263,11 @@ def admin_course_update_view(request, course_id):
     if not request.user.is_staff:
         raise PermissionDenied
 
-    course = get_object_or_404(Course, id=course_id)
+    course = get_object_or_404(
+        Course,
+        id=course_id,
+        is_deleted=False
+    )
 
     if request.method == 'POST':
         form = CourseForm(request.POST, request.FILES, instance=course)
@@ -250,15 +291,29 @@ def admin_course_delete_view(request, course_id):
     if not request.user.is_staff:
         raise PermissionDenied
 
-    course = get_object_or_404(Course, id=course_id)
+    course = get_object_or_404(
+        Course,
+        id=course_id,
+        is_deleted=False
+    )
 
     if request.method == 'POST':
-        course.delete()
-        messages.success(request, 'Курс успешно удалён.')
+        course.soft_delete()
+
+        messages.success(
+            request,
+            'Курс скрыт из общего списка. У пользователей, которые уже начали прохождение, он останется в личном кабинете.'
+        )
+
         return redirect('admin_dashboard')
 
+    started_users_count = LessonResult.objects.filter(
+        lesson__course=course
+    ).values('user_id').distinct().count()
+
     return render(request, 'users/admin_course_confirm_delete.html', {
-        'course': course
+        'course': course,
+        'started_users_count': started_users_count
     })
 
 
@@ -267,7 +322,12 @@ def admin_course_lessons_view(request, course_id):
     if not request.user.is_staff:
         raise PermissionDenied
 
-    course = get_object_or_404(Course, id=course_id)
+    course = get_object_or_404(
+        Course,
+        id=course_id,
+        is_deleted=False
+    )
+
     lessons = course.lessons.all()
 
     return render(request, 'users/admin_course_lessons.html', {
@@ -281,7 +341,11 @@ def admin_lesson_create_view(request, course_id):
     if not request.user.is_staff:
         raise PermissionDenied
 
-    course = get_object_or_404(Course, id=course_id)
+    course = get_object_or_404(
+        Course,
+        id=course_id,
+        is_deleted=False
+    )
 
     if request.method == 'POST':
         form = LessonForm(request.POST)
@@ -309,8 +373,17 @@ def admin_lesson_update_view(request, course_id, lesson_id):
     if not request.user.is_staff:
         raise PermissionDenied
 
-    course = get_object_or_404(Course, id=course_id)
-    lesson = get_object_or_404(Lesson, id=lesson_id, course=course)
+    course = get_object_or_404(
+        Course,
+        id=course_id,
+        is_deleted=False
+    )
+
+    lesson = get_object_or_404(
+        Lesson,
+        id=lesson_id,
+        course=course
+    )
 
     if request.method == 'POST':
         form = LessonForm(request.POST, instance=lesson)
@@ -336,8 +409,17 @@ def admin_lesson_delete_view(request, course_id, lesson_id):
     if not request.user.is_staff:
         raise PermissionDenied
 
-    course = get_object_or_404(Course, id=course_id)
-    lesson = get_object_or_404(Lesson, id=lesson_id, course=course)
+    course = get_object_or_404(
+        Course,
+        id=course_id,
+        is_deleted=False
+    )
+
+    lesson = get_object_or_404(
+        Lesson,
+        id=lesson_id,
+        course=course
+    )
 
     if request.method == 'POST':
         lesson.delete()
@@ -355,8 +437,17 @@ def admin_lesson_exercises_view(request, course_id, lesson_id):
     if not request.user.is_staff:
         raise PermissionDenied
 
-    course = get_object_or_404(Course, id=course_id)
-    lesson = get_object_or_404(Lesson, id=lesson_id, course=course)
+    course = get_object_or_404(
+        Course,
+        id=course_id,
+        is_deleted=False
+    )
+
+    lesson = get_object_or_404(
+        Lesson,
+        id=lesson_id,
+        course=course
+    )
 
     exercises = lesson.exercises.all()
 
@@ -372,8 +463,17 @@ def admin_exercise_create_view(request, course_id, lesson_id):
     if not request.user.is_staff:
         raise PermissionDenied
 
-    course = get_object_or_404(Course, id=course_id)
-    lesson = get_object_or_404(Lesson, id=lesson_id, course=course)
+    course = get_object_or_404(
+        Course,
+        id=course_id,
+        is_deleted=False
+    )
+
+    lesson = get_object_or_404(
+        Lesson,
+        id=lesson_id,
+        course=course
+    )
 
     if request.method == 'POST':
         form = ExerciseForm(request.POST)
@@ -406,9 +506,23 @@ def admin_exercise_update_view(request, course_id, lesson_id, exercise_id):
     if not request.user.is_staff:
         raise PermissionDenied
 
-    course = get_object_or_404(Course, id=course_id)
-    lesson = get_object_or_404(Lesson, id=lesson_id, course=course)
-    exercise = get_object_or_404(Exercise, id=exercise_id, lesson=lesson)
+    course = get_object_or_404(
+        Course,
+        id=course_id,
+        is_deleted=False
+    )
+
+    lesson = get_object_or_404(
+        Lesson,
+        id=lesson_id,
+        course=course
+    )
+
+    exercise = get_object_or_404(
+        Exercise,
+        id=exercise_id,
+        lesson=lesson
+    )
 
     if request.method == 'POST':
         form = ExerciseForm(request.POST, instance=exercise)
@@ -439,9 +553,23 @@ def admin_exercise_delete_view(request, course_id, lesson_id, exercise_id):
     if not request.user.is_staff:
         raise PermissionDenied
 
-    course = get_object_or_404(Course, id=course_id)
-    lesson = get_object_or_404(Lesson, id=lesson_id, course=course)
-    exercise = get_object_or_404(Exercise, id=exercise_id, lesson=lesson)
+    course = get_object_or_404(
+        Course,
+        id=course_id,
+        is_deleted=False
+    )
+
+    lesson = get_object_or_404(
+        Lesson,
+        id=lesson_id,
+        course=course
+    )
+
+    exercise = get_object_or_404(
+        Exercise,
+        id=exercise_id,
+        lesson=lesson
+    )
 
     if request.method == 'POST':
         exercise.delete()
@@ -464,7 +592,11 @@ def approve_access_request_view(request, request_id):
     if not request.user.is_staff:
         raise PermissionDenied
 
-    access_request = get_object_or_404(CourseAccessRequest, id=request_id)
+    access_request = get_object_or_404(
+        CourseAccessRequest,
+        id=request_id,
+        course__is_deleted=False
+    )
 
     if request.method == 'POST':
         access_request.status = 'approved'
@@ -484,7 +616,11 @@ def reject_access_request_view(request, request_id):
     if not request.user.is_staff:
         raise PermissionDenied
 
-    access_request = get_object_or_404(CourseAccessRequest, id=request_id)
+    access_request = get_object_or_404(
+        CourseAccessRequest,
+        id=request_id,
+        course__is_deleted=False
+    )
 
     if request.method == 'POST':
         form = RejectAccessRequestForm(request.POST)
@@ -514,7 +650,9 @@ def admin_comments_view(request):
     if not request.user.is_staff:
         raise PermissionDenied
 
-    comments = CourseComment.objects.select_related(
+    comments = CourseComment.objects.filter(
+        course__is_deleted=False
+    ).select_related(
         'user',
         'course'
     ).order_by('-created_at')
@@ -529,7 +667,11 @@ def admin_comment_delete_view(request, comment_id):
     if not request.user.is_staff:
         raise PermissionDenied
 
-    comment = get_object_or_404(CourseComment, id=comment_id)
+    comment = get_object_or_404(
+        CourseComment,
+        id=comment_id,
+        course__is_deleted=False
+    )
 
     if request.method == 'POST':
         comment.delete()
@@ -539,6 +681,7 @@ def admin_comment_delete_view(request, comment_id):
     return render(request, 'users/admin_comment_confirm_delete.html', {
         'comment': comment
     })
+
 
 @login_required
 def profile_settings_view(request):

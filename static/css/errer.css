@@ -1,0 +1,222 @@
+.error-page-section {
+    width: 100%;
+    padding: 45px 0 90px;
+}
+
+.error-paper {
+    width: min(900px, 100%);
+    min-height: 540px;
+    margin: 0 auto;
+    padding: 90px 120px 82px;
+    text-align: center;
+    background-image: url("../images/paper-register.webp");
+    background-size: 100% 100%;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+.error-code {
+    margin-bottom: 8px;
+    color: #6E2DA1;
+    font-size: 76px;
+    font-weight: 900;
+    line-height: 1;
+}
+
+.error-paper h1 {
+    margin: 0 0 18px;
+    color: #321c06;
+    font-size: 40px;
+    font-weight: 900;
+}
+
+.error-paper p {
+    max-width: 560px;
+    margin: 0 auto 26px;
+    color: #321c06;
+    font-size: 17px;
+    font-weight: 800;
+    line-height: 1.5;
+}
+
+.error-actions {
+    display: flex;
+    justify-content: center;
+    gap: 14px;
+    flex-wrap: wrap;
+}
+
+.error-main-btn {
+    min-width: 140px;
+    background: linear-gradient(135deg, #7c3fb0, #5b248e);
+    color: #fff !important;
+    border: none;
+}
+
+.error-main-btn:hover {
+    background: linear-gradient(135deg, #8f55c7, #6E2DA1);
+    color: #fff !important;
+}
+
+.error-outline-btn {
+    min-width: 120px;
+    color: #6E2DA1 !important;
+    border: 2px solid #6E2DA1;
+    background: rgba(255, 245, 218, 0.35);
+}
+
+.error-outline-btn:hover {
+    color: #fff !important;
+    background: #6E2DA1;
+}
+
+@media (max-width: 768px) {
+    .error-paper {
+        min-height: 500px;
+        padding: 82px 74px 72px;
+    }
+
+    .error-code {
+        font-size: 62px;
+    }
+
+    .error-paper h1 {
+        font-size: 32px;
+    }
+}
+
+@media (max-width: 520px) {
+    .error-paper {
+        min-height: 470px;
+        padding: 74px 34px 64px;
+    }
+
+    .error-code {
+        font-size: 52px;
+    }
+
+    .error-paper h1 {
+        font-size: 25px;
+    }
+
+    .error-paper p {
+        font-size: 14px;
+        line-height: 1.35;
+    }
+
+    .error-actions .btn {
+        min-height: 34px;
+        padding: 8px 14px;
+        font-size: 12px;
+    }
+}
+.cookie-modal {
+    position: fixed;
+    left: 0;
+    right: 0;
+    bottom: 22px;
+    z-index: 9999;
+    display: none;
+    justify-content: center;
+    padding: 0 18px;
+}
+
+.cookie-modal-show {
+    display: flex;
+}
+
+.cookie-modal-paper {
+    width: min(720px, 100%);
+    min-height: 170px;
+    padding: 44px 62px 38px;
+    display: grid;
+    grid-template-columns: auto 1fr auto;
+    align-items: center;
+    gap: 18px;
+    background-image: url("../images/rating-paper.webp");
+    background-size: 100% 100%;
+    background-repeat: no-repeat;
+    background-position: center;
+    filter: drop-shadow(0 16px 22px rgba(15, 8, 22, 0.35));
+}
+
+.cookie-modal-check {
+    width: 46px;
+    height: 46px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #ffffff;
+    font-size: 26px;
+    font-weight: 900;
+    border-radius: 50%;
+    background: linear-gradient(135deg, #2f8f4e, #1d6f39);
+    box-shadow: 0 8px 18px rgba(29, 111, 57, 0.3);
+}
+
+.cookie-modal-content h3 {
+    margin: 0 0 7px;
+    color: #321c06;
+    font-size: 22px;
+    font-weight: 900;
+}
+
+.cookie-modal-content p {
+    margin: 0;
+    color: #321c06;
+    font-size: 14px;
+    font-weight: 800;
+    line-height: 1.45;
+}
+
+.cookie-modal-btn {
+    min-height: 38px;
+    padding: 9px 18px;
+    color: #fff;
+    font-size: 13px;
+    font-weight: 900;
+    border: none;
+    border-radius: 999px;
+    cursor: pointer;
+    background: linear-gradient(135deg, #7c3fb0, #5b248e);
+}
+
+.cookie-modal-btn:hover {
+    background: linear-gradient(135deg, #8f55c7, #6E2DA1);
+}
+
+@media (max-width: 650px) {
+    .cookie-modal {
+        bottom: 12px;
+    }
+
+    .cookie-modal-paper {
+        min-height: 210px;
+        grid-template-columns: 1fr;
+        text-align: center;
+        padding: 48px 38px 42px;
+    }
+
+    .cookie-modal-check {
+        margin: 0 auto;
+        width: 40px;
+        height: 40px;
+        font-size: 22px;
+    }
+
+    .cookie-modal-content h3 {
+        font-size: 19px;
+    }
+
+    .cookie-modal-content p {
+        font-size: 12px;
+    }
+
+    .cookie-modal-btn {
+        width: fit-content;
+        margin: 0 auto;
+        min-height: 34px;
+        padding: 8px 15px;
+        font-size: 12px;
+    }
+}

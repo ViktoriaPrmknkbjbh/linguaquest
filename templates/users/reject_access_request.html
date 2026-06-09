@@ -16,17 +16,28 @@
             </p>
         </div>
 
-        <form method="post" class="reject-request-form">
+        <form method="post" class="reject-request-form" novalidate>
             {% csrf_token %}
+
+            {% if form.non_field_errors %}
+                <div class="reject-request-error reject-request-main-error">
+                    {% for error in form.non_field_errors %}
+                        <p>{{ error }}</p>
+                    {% endfor %}
+                </div>
+            {% endif %}
 
             {% for field in form %}
                 <div class="reject-request-group">
-                    <label>{{ field.label }}</label>
+                    <label for="{{ field.id_for_label }}">{{ field.label }}</label>
+
                     {{ field }}
 
                     {% if field.errors %}
                         <div class="reject-request-error">
-                            {{ field.errors }}
+                            {% for error in field.errors %}
+                                <p>{{ error }}</p>
+                            {% endfor %}
                         </div>
                     {% endif %}
                 </div>

@@ -586,7 +586,7 @@
 
 .admin-lessons-header-paper {
     width: min(930px, 100%);
-    min-height: 430px;
+    min-height: 520px;
     margin: 0 auto 28px;
     padding: 82px 120px 78px;
     text-align: center;
@@ -633,6 +633,7 @@
     background: linear-gradient(135deg, #7c3fb0, #5b248e);
     color: #fff !important;
     border: none;
+    margin-bottom:140px !important;
 }
 
 .admin-lessons-add-btn:hover {
@@ -737,7 +738,7 @@
 
 @media (max-width: 820px) {
     .admin-lessons-header-paper {
-        min-height: 390px;
+        min-height: 590px;
         padding: 76px 70px 68px;
     }
 
@@ -759,7 +760,7 @@
 
 @media (max-width: 520px) {
     .admin-lessons-header-paper {
-        min-height: 365px;
+        min-height: 565px;
         padding: 70px 32px 62px;
     }
 
@@ -1199,4 +1200,83 @@
         font-size: 12px;
     }
 }
+.admin-course-form-error {
+    margin-top: 8px;
+}
 
+.admin-course-form-error p {
+    margin: 0;
+    color: #9b1f1f!important;
+    font-family: Georgia, 'Times New Roman', serif;
+    font-size: 16px;
+    font-weight: 800;
+}
+
+.admin-course-form-error p::before {
+    content: "•";
+    margin-right: 8px;
+}
+.admin-lesson-form-error {
+    margin-top: 8px;
+}
+
+.admin-lesson-form-error p {
+    margin: 0;
+    color: #9b1f1f;
+    font-family: Georgia, 'Times New Roman', serif;
+    font-size: 16px;
+    font-weight: 800;
+}
+
+.admin-lesson-form-error p::before {
+    content: "•";
+    margin-right: 8px;
+}
+.admin-exercise-form-error {
+    margin-top: 8px;
+}
+
+.admin-exercise-form-error p {
+    margin: 0;
+    color: #9b1f1f;
+    font-family: Georgia, 'Times New Roman', serif;
+    font-size: 16px;
+    font-weight: 800;
+}
+
+.admin-exercise-form-error p::before {
+    content: "•";
+    margin-right: 8px;
+}
+
+.admin-exercise-form-main-error {
+    margin-bottom: 18px;
+    padding: 14px 16px;
+    border-radius: 16px;
+    background: rgba(155, 31, 31, 0.12);
+    border: 2px solid rgba(155, 31, 31, 0.3);
+}
+.reject-request-error {
+    margin-top: 8px;
+}
+
+.reject-request-error p {
+    margin: 0;
+    color: #9b1f1f;
+    font-family: Georgia, 'Times New Roman', serif;
+    font-size: 16px;
+    font-weight: 800;
+}
+
+.reject-request-error p::before {
+    content: "•";
+    margin-right: 8px;
+}
+
+.reject-request-main-error {
+    margin-bottom: 18px;
+    padding: 14px 16px;
+    border-radius: 16px;
+    background: rgba(155, 31, 31, 0.12);
+    border: 2px solid rgba(155, 31, 31, 0.3);
+}

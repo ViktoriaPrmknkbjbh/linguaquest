@@ -1,8 +1,8 @@
-from django.db import models
 
 # Create your models here.
 from django.db import models
 from django.contrib.auth.models import User
+from django.utils import timezone
 
 
 class Course(models.Model):
@@ -20,7 +20,16 @@ class Course(models.Model):
         ('business', 'Бизнес английский'),
         ('travel', 'Английский для путешествий'),
     ]
+    is_deleted = models.BooleanField(
+        default=False,
+        verbose_name='Курс скрыт'
+    )
 
+    deleted_at = models.DateTimeField(
+        blank=True,
+        null=True,
+        verbose_name='Дата скрытия курса'
+    )
     title = models.CharField(
         max_length=255,
         verbose_name='Название курса'
@@ -59,9 +68,32 @@ class Course(models.Model):
         auto_now_add=True,
         verbose_name='Дата создания'
     )
+    def soft_delete(self):
+        self.is_deleted = True
+        self.is_public = False
+        self.deleted_at = timezone.now()
+        self.save(update_fields=['is_deleted', 'is_public', 'deleted_at'])
 
+    def restore(self):
+        self.is_deleted = False
+        self.deleted_at = None
+        self.save(update_fields=['is_deleted', 'deleted_at'])
+
+    def user_started_course(self, user):
+        if not user.is_authenticated:
+            return False
+
+        return self.lessons.filter(
+            results__user=user
+        ).exists()
     def __str__(self):
         return self.title
+
+    def soft_delete(self):
+        self.is_deleted = True
+        self.is_public = False
+        self.deleted_at = timezone.now()
+        self.save(update_fields=['is_deleted', 'is_public', 'deleted_at'])
 
     class Meta:
         verbose_name = 'Курс'

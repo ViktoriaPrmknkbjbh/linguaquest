@@ -16,12 +16,21 @@
             </p>
         </div>
 
-        <form method="post" class="admin-exercise-form">
+        <form method="post" class="admin-exercise-form" novalidate>
             {% csrf_token %}
+
+            {% if form.non_field_errors %}
+                <div class="admin-exercise-form-error admin-exercise-form-main-error">
+                    {% for error in form.non_field_errors %}
+                        <p>{{ error }}</p>
+                    {% endfor %}
+                </div>
+            {% endif %}
 
             {% for field in form %}
                 <div class="admin-exercise-form-group exercise-field-{{ field.name }}">
-                    <label>{{ field.label }}</label>
+                    <label for="{{ field.id_for_label }}">{{ field.label }}</label>
+
                     {{ field }}
 
                     {% if field.help_text %}
@@ -30,7 +39,9 @@
 
                     {% if field.errors %}
                         <div class="admin-exercise-form-error">
-                            {{ field.errors }}
+                            {% for error in field.errors %}
+                                <p>{{ error }}</p>
+                            {% endfor %}
                         </div>
                     {% endif %}
                 </div>
@@ -100,6 +111,12 @@ document.addEventListener("DOMContentLoaded", function () {
 
         if (group) {
             group.style.display = "block";
+
+            const input = group.querySelector("input, textarea, select");
+
+            if (input) {
+                input.required = false;
+            }
         }
     }
 

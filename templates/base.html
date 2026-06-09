@@ -24,7 +24,8 @@
      <link rel="stylesheet" href="{% static 'css/login.css' %}">
     <link rel="stylesheet" href="{% static 'css/admin.css' %}">
     <link rel="stylesheet" href="{% static 'css/index.css' %}">
-
+     <link rel="stylesheet" href="{% static 'css/errer.css' %}">
+     <link rel="stylesheet" href="{% static 'css/fonts.css' %}">
 
     {% block page_css %}{% endblock %}
 </head>
@@ -33,7 +34,7 @@
 <header class="site-header">
     <div class="site-header-inner">
         <a href="{% url 'home' %}" class="site-logo">
-            <img class="site-logo-icon" src="{%static 'images/logo.png'%}" alt="">
+            <img class="site-logo-icon" src="{%static 'images/logo.webp'%}" alt="">
             <span>LinguaQuest</span>
         </a>
 
@@ -150,6 +151,24 @@
 
 </footer>
 
+
+<div class="cookie-modal" id="cookieModal">
+    <div class="cookie-modal-paper">
+        <div class="cookie-modal-check">✓</div>
+
+        <div class="cookie-modal-content">
+            <h3>Мы используем cookies</h3>
+            <p>
+                LinguaQuest использует cookies для входа в аккаунт,
+                сохранения сессии и корректной работы сайта.
+            </p>
+        </div>
+
+        <button type="button" class="cookie-modal-btn" id="cookieAcceptBtn">
+            Понятно
+        </button>
+    </div>
+</div>
 <script>
     const burgerBtn = document.getElementById('burgerBtn');
     const siteNav = document.getElementById('siteNav');
@@ -158,6 +177,19 @@
         burgerBtn.classList.toggle('active');
         siteNav.classList.toggle('active');
     });
+    document.addEventListener("DOMContentLoaded", function () {
+    const cookieModal = document.getElementById("cookieModal");
+    const cookieAcceptBtn = document.getElementById("cookieAcceptBtn");
+
+    if (!localStorage.getItem("linguaquest_cookie_accept")) {
+        cookieModal.classList.add("cookie-modal-show");
+    }
+
+    cookieAcceptBtn.addEventListener("click", function () {
+        localStorage.setItem("linguaquest_cookie_accept", "yes");
+        cookieModal.classList.remove("cookie-modal-show");
+    });
+});
 </script>
 
 </body>

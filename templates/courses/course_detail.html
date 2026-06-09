@@ -5,9 +5,9 @@
 
 <section class="course-scroll-section">
     <div class="course-scroll-card">
-        <img src="{% static 'images/titel.png' %}" alt="Пергамент курса" class="course-scroll-img">
+        <img src="{% static 'images/titel.webp' %}" alt="Пергамент курса" class="course-scroll-img">
 
-        <div class="course-scroll-content" style="margin-top:80px;">
+        <div class="course-scroll-content">
             <h2 class="course-scroll-title">{{ course.title }}</h2>
 
             <p class="course-scroll-description">
@@ -27,9 +27,9 @@
 
                 <p>
                     {% if course.is_open %}
-                    <span>Открытый курс</span>
+                        <span>Открытый курс</span>
                     {% else %}
-                    <span>Закрытый курс</span>
+                        <span>Закрытый курс</span>
                     {% endif %}
                 </p>
             </div>
@@ -37,7 +37,7 @@
     </div>
 </section>
 
-<hr >
+<hr>
 
 <h2 class="h2-list-curses">Путь обучения</h2>
 
@@ -60,11 +60,11 @@
 
             <div class="lesson-node-icon">
                 {% if item.result and item.result.best_score >= 50 %}
-                <img class="site-lesson-icon" src="{% static 'images/okey.png' %}" alt="Урок пройден">
+                <img class="site-lesson-icon" src="{% static 'images/okey.webp' %}" alt="Урок пройден">
                 {% elif item.unlocked %}
-                <img class="site-lesson-icon" src="{% static 'images/none.png' %}" alt="Урок открыт">
+                <img class="site-lesson-icon" src="{% static 'images/none.webp' %}" alt="Урок открыт">
                 {% else %}
-                <img class="site-lesson-icon" src="{% static 'images/closet.png' %}" alt="Урок закрыт">
+                <img class="site-lesson-icon" src="{% static 'images/closet.webp' %}" alt="Урок закрыт">
                 {% endif %}
             </div>
 
@@ -178,6 +178,7 @@
 </div>
 
 {% endif %}
+
 {% if page_obj.has_other_pages %}
 <div class="pagination">
 
@@ -203,6 +204,7 @@
 
 </div>
 {% endif %}
+
 <hr>
 
 <h2 class="h2-list-curses">Отзывы курса</h2>
@@ -210,14 +212,13 @@
 {% if user.is_authenticated and not user.is_staff %}
 <section class="comment-paper-section">
     <div class="comment-paper-card">
-        <img src="{% static 'images/comment-paper.png' %}" alt="Пергамент отзыва" class="comment-paper-img">
+        <img src="{% static 'images/comment-paper.webp' %}" alt="Пергамент отзыва" class="comment-paper-img">
 
         <div class="comment-paper-content">
             <h2 class="comment-paper-title">Оставить отзыв</h2>
 
-            <form method="post" class="comment-paper-form">
+            <form method="post" class="comment-paper-form" id="comment-form" novalidate>
                 {% csrf_token %}
-
 
                 <textarea
                         name="text"
@@ -225,8 +226,11 @@
                         class="comment-paper-textarea"
                         placeholder="Поделитесь мнением о курсе"
                         maxlength="500"
-                        required
                 ></textarea>
+
+                <div class="comment-paper-error" id="comment-error" hidden>
+                    <p style="color: #9b1f1f;">Поле отзыва обязательно для заполнения.</p>
+                </div>
 
                 <div class="comment-char-counter">
                     <span id="comment-current">0</span>/500
@@ -262,19 +266,37 @@
     </div>
 </div>
 {% endif %}
+
 <script>
     document.addEventListener("DOMContentLoaded", function () {
+        const form = document.getElementById("comment-form");
         const textarea = document.getElementById("comment");
         const current = document.getElementById("comment-current");
+        const error = document.getElementById("comment-error");
 
         if (textarea && current) {
             function updateCounter() {
                 current.textContent = textarea.value.length;
+
+                if (error && textarea.value.trim().length > 0) {
+                    error.hidden = true;
+                }
             }
 
             textarea.addEventListener("input", updateCounter);
             updateCounter();
         }
+
+        if (form && textarea && error) {
+            form.addEventListener("submit", function (event) {
+                if (textarea.value.trim().length === 0) {
+                    event.preventDefault();
+                    error.hidden = false;
+                    textarea.focus();
+                }
+            });
+        }
     });
 </script>
+
 {% endblock %}

@@ -462,6 +462,7 @@ box-shadow: 0 0 22px rgba(164, 90, 230, 0.55);
     gap: 14px;
     flex-wrap: wrap;
     margin-top: 24px;
+    margin-bottom: 30px;
 }
 
 .admin-exercise-form-btn {
@@ -980,6 +981,7 @@ box-shadow: 0 0 22px rgba(164, 90, 230, 0.55);
     background: linear-gradient(135deg, #7c3fb0, #5b248e);
     color: #fff !important;
     border: none;
+    height:45px;
 }
 
 .admin-lesson-form-btn:hover {
@@ -992,6 +994,7 @@ box-shadow: 0 0 22px rgba(164, 90, 230, 0.55);
     color: #6E2DA1 !important;
     border: 2px solid #6E2DA1;
     background: rgba(255, 245, 218, 0.35);
+    margin-bottom:70px;
 }
 
 .admin-lesson-form-cancel:hover {

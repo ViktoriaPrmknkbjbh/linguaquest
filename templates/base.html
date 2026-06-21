@@ -57,6 +57,9 @@
             <a href="{% url 'rating' %}" class="{% if request.resolver_match.url_name == 'rating' %}active{% endif %}">
                 Рейтинг
             </a>
+            <a href="{% url 'faq' %}" class="{% if request.resolver_match.url_name == 'faq' %}active{% endif %}">
+                FAQ
+            </a>
 
             {% if user.is_authenticated and not user.is_staff %}
             <a href="{% url 'profile' %}"
@@ -139,6 +142,7 @@
     </div>
          <div class="container">
         <p>© 2026 Все права защищен — LinguaQuest</p>
+             <a class="a_footer" href="{%url 'pol_comfid'%}">Политика конфиденциальности</a>
     </div>
     <div>
         <ul class="footer_content">

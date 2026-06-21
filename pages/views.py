@@ -17,6 +17,13 @@ def home_view(request):
 def about_view(request):
     return render(request, "pages/about.html")
 
+def faq_view(request):
+    return render(request, "pages/faq.html")
+
+
+def pol_comfid(request):
+    return render(request, "pages/pol_comfid.html")
+
 
 def custom_403_view(request, exception=None):
     return render(request, "errors/403.html", status=403)

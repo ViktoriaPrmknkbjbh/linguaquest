@@ -31,6 +31,7 @@
     margin: 0 0 22px;
     color: #5a3822;
     font-size: 30px;
+    font-weight: 900;
     line-height: 1.15;
     overflow-wrap: anywhere;
 }
@@ -90,26 +91,27 @@
 }
 
 .lesson-material-fixed-paper h2 {
-    margin: 40px 0 14px;
+    margin: 40px 0 18px;
     color: #5b2d0b;
-    font-size: 35px;
-    font-weight: 900;
-    line-height: 1.1;
+    font-size: 28px;
+    font-weight: 700;
+    font-style: normal;
+    line-height: 1.2;
     text-align: center;
 }
 
 .lesson-material-content {
     width: 100%;
-    max-width: 660px;
+    max-width: 690px;
     height: 390px;
     margin: 0 auto;
     display: flex;
     align-items: flex-start;
     justify-content: center;
-    color: #5a3822;
+    color: #5b2d0b;
     text-align: center;
-    overflow-wrap: anywhere;
-    word-break: break-word;
+    overflow-wrap: normal;
+    word-break: normal;
 }
 
 .lesson-material-page {
@@ -121,21 +123,38 @@
     justify-content: flex-start;
 }
 
-.lesson-material-page p {
+.lesson-material-page p,
+.lesson-material-line,
+.lesson-material-heading-line,
+.lesson-material-content p,
+.lesson-material-content div,
+.lesson-material-content span,
+.lesson-material-content strong,
+.lesson-material-content b,
+.lesson-material-content em,
+.lesson-material-content i {
     width: 100%;
-    margin: 0 0 9px;
+    margin: 0 0 7px;
+    padding: 0;
     color: #5b2d0b;
     font-size: 20px;
-    font-weight: 900;
+    font-weight: 600;
+    font-style: normal;
     line-height: 1.28;
     text-align: center;
+    text-transform: none;
+    letter-spacing: normal;
+    overflow-wrap: normal;
+    word-break: normal;
 }
 
 .lesson-material-heading-line {
-    margin-top: 10px !important;
-    margin-bottom: 10px !important;
-    font-size: 25px !important;
-    font-weight: 900 !important;
+    margin-top: 0 !important;
+    margin-bottom: 7px !important;
+    font-size: 20px !important;
+    font-weight: 600 !important;
+    font-style: normal !important;
+    line-height: 1.28 !important;
 }
 
 /* Кнопки пагинации на пергаменте */
@@ -144,7 +163,7 @@
     position: absolute;
     left: 125px;
     right: 125px;
-    bottom: 166px;
+    bottom: 126px;
     z-index: 10;
     display: flex;
     align-items: center;
@@ -304,174 +323,8 @@
         );
 }
 
-/* Адаптив */
+/* Прогресс */
 
-@media (max-width: 900px) {
-    .lesson-material-fixed-paper {
-        width: min(860px, 100%);
-        height: 690px;
-        min-height: 690px;
-        padding: 68px 92px 108px;
-    }
-
-    .lesson-material-fixed-paper h2 {
-        font-size: 34px;
-    }
-
-    .lesson-material-content {
-        height: 390px;
-        max-width: 620px;
-    }
-
-    .lesson-material-page {
-        height: 390px;
-    }
-
-    .lesson-material-page p {
-        font-size: 19px;
-        line-height: 1.26;
-    }
-
-    .lesson-material-heading-line {
-        font-size: 23px !important;
-    }
-
-    .lesson-material-pagination {
-        left: 92px;
-        right: 92px;
-        bottom: 162px;
-    }
-}
-
-@media (max-width: 768px) {
-    .lesson-paper-card {
-        min-height: 320px;
-    }
-
-    .lesson-paper-img {
-        min-height: 320px;
-    }
-
-    .lesson-paper-content {
-        inset: 11% 9% 10%;
-    }
-
-    .lesson-paper-content h1 {
-        margin-bottom: 14px;
-        font-size: 24px;
-    }
-
-    .lesson-paper-content p {
-        font-size: 15px;
-        line-height: 1.35;
-    }
-
-    .lesson-material-pagination {
-        left: 28px;
-        right: 28px;
-        bottom: 152px;
-        gap: 8px;
-        justify-content: center;
-    }
-}
-
-@media (max-width: 560px) {
-    .lesson-paper-card {
-        min-height: 300px;
-    }
-
-    .lesson-paper-img {
-        min-height: 300px;
-    }
-
-    .lesson-paper-content {
-        inset: 10% 9% 10%;
-    }
-
-    .lesson-paper-content h1 {
-        margin-bottom: 12px;
-        font-size: 22px;
-    }
-
-    .lesson-paper-content p {
-        font-size: 14px;
-        line-height: 1.3;
-    }
-
-    .lesson-material-fixed-paper {
-        width: 100%;
-        height: 640px;
-        min-height: 640px;
-        padding: 58px 36px 102px;
-    }
-
-    .lesson-material-fixed-paper h2 {
-        margin: 28px 0 12px;
-        font-size: 26px;
-    }
-
-    .lesson-material-content {
-        height: 350px;
-        max-width: 100%;
-    }
-
-    .lesson-material-page {
-        height: 350px;
-    }
-
-    .lesson-material-page p {
-        margin-bottom: 7px;
-        font-size: 15px;
-        line-height: 1.25;
-    }
-
-    .lesson-material-heading-line {
-        margin-top: 8px !important;
-        margin-bottom: 8px !important;
-        font-size: 18px !important;
-    }
-
-    .lesson-material-pagination {
-        left: 28px;
-        right: 28px;
-        bottom: 152px;
-        gap: 8px;
-    }
-
-    .lesson-page-btn {
-        min-width: 84px;
-        min-height: 34px;
-        padding: 8px 10px;
-        font-size: 12px;
-    }
-
-    .lesson-page-info {
-        min-width: auto;
-        padding: 7px 9px;
-        font-size: 11px;
-    }
-
-    .lesson-practice-paper {
-        min-height: 300px;
-        padding: 56px 34px;
-    }
-
-    .lesson-practice-paper h2 {
-        font-size: 25px;
-    }
-
-    .lesson-practice-paper p {
-        font-size: 14px;
-        line-height: 1.35;
-    }
-
-    .lesson-practice-paper .btn {
-        width: auto;
-        min-height: 34px;
-        padding: 7px 13px;
-        font-size: 12px;
-    }
-}
 .progress-line {
     width: 100%;
     height: 12px;
@@ -489,6 +342,8 @@
     border-radius: 999px;
     box-shadow: 0 0 16px rgba(168, 107, 226, 0.45);
 }
+
+/* Упражнения */
 
 .exercise-paper-section {
     width: 100%;
@@ -745,7 +600,84 @@
         );
 }
 
+/* Адаптив */
+
+@media (max-width: 900px) {
+    .lesson-material-fixed-paper {
+        width: min(860px, 100%);
+        height: 690px;
+        min-height: 690px;
+        padding: 68px 92px 108px;
+    }
+
+    .lesson-material-fixed-paper h2 {
+        font-size: 24px;
+    }
+
+    .lesson-material-content {
+        height: 390px;
+        max-width: 620px;
+    }
+
+    .lesson-material-page {
+        height: 390px;
+    }
+
+    .lesson-material-page p,
+    .lesson-material-line,
+    .lesson-material-heading-line,
+    .lesson-material-content p,
+    .lesson-material-content div,
+    .lesson-material-content span,
+    .lesson-material-content strong,
+    .lesson-material-content b,
+    .lesson-material-content em,
+    .lesson-material-content i {
+        margin-bottom: 7px !important;
+        font-size: 18px !important;
+        font-weight: 600 !important;
+        font-style: normal !important;
+        line-height: 1.26 !important;
+    }
+
+    .lesson-material-pagination {
+        left: 92px;
+        right: 92px;
+        bottom: 162px;
+    }
+}
+
 @media (max-width: 768px) {
+    .lesson-paper-card {
+        min-height: 320px;
+    }
+
+    .lesson-paper-img {
+        min-height: 320px;
+    }
+
+    .lesson-paper-content {
+        inset: 11% 9% 10%;
+    }
+
+    .lesson-paper-content h1 {
+        margin-bottom: 14px;
+        font-size: 24px;
+    }
+
+    .lesson-paper-content p {
+        font-size: 15px;
+        line-height: 1.35;
+    }
+
+    .lesson-material-pagination {
+        left: 28px;
+        right: 28px;
+        bottom: 152px;
+        gap: 8px;
+        justify-content: center;
+    }
+
     .exercise-paper-card {
         min-height: 380px;
         padding: 78px 56px 66px;
@@ -762,6 +694,110 @@
 
     .answer-option {
         font-size: 15px;
+    }
+}
+
+@media (max-width: 560px) {
+    .lesson-paper-card {
+        min-height: 300px;
+    }
+
+    .lesson-paper-img {
+        min-height: 300px;
+    }
+
+    .lesson-paper-content {
+        inset: 10% 9% 10%;
+    }
+
+    .lesson-paper-content h1 {
+        margin-bottom: 12px;
+        font-size: 22px;
+    }
+
+    .lesson-paper-content p {
+        font-size: 14px;
+        line-height: 1.3;
+    }
+
+    .lesson-material-fixed-paper {
+        width: 100%;
+        height: 640px;
+        min-height: 640px;
+        padding: 58px 36px 102px;
+    }
+
+    .lesson-material-fixed-paper h2 {
+        margin: 28px 0 12px;
+        font-size: 20px;
+        font-weight: 700;
+    }
+
+    .lesson-material-content {
+        height: 350px;
+        max-width: 100%;
+    }
+
+    .lesson-material-page {
+        height: 350px;
+    }
+
+    .lesson-material-page p,
+    .lesson-material-line,
+    .lesson-material-heading-line,
+    .lesson-material-content p,
+    .lesson-material-content div,
+    .lesson-material-content span,
+    .lesson-material-content strong,
+    .lesson-material-content b,
+    .lesson-material-content em,
+    .lesson-material-content i {
+        margin-bottom: 6px !important;
+        font-size: 15px !important;
+        font-weight: 600 !important;
+        font-style: normal !important;
+        line-height: 1.24 !important;
+    }
+
+    .lesson-material-pagination {
+        left: 28px;
+        right: 28px;
+        bottom: 152px;
+        gap: 8px;
+    }
+
+    .lesson-page-btn {
+        min-width: 84px;
+        min-height: 34px;
+        padding: 8px 10px;
+        font-size: 12px;
+    }
+
+    .lesson-page-info {
+        min-width: auto;
+        padding: 7px 9px;
+        font-size: 11px;
+    }
+
+    .lesson-practice-paper {
+        min-height: 300px;
+        padding: 56px 34px;
+    }
+
+    .lesson-practice-paper h2 {
+        font-size: 25px;
+    }
+
+    .lesson-practice-paper p {
+        font-size: 14px;
+        line-height: 1.35;
+    }
+
+    .lesson-practice-paper .btn {
+        width: auto;
+        min-height: 34px;
+        padding: 7px 13px;
+        font-size: 12px;
     }
 }
 

@@ -104,26 +104,19 @@
         const rawText = JSON.parse(contentData.textContent || '""');
 
         const lines = rawText
-            .split(/\r?\n/)
+            .replace(/\r\n/g, '\n')
+            .split('\n')
             .map(function (line) {
                 return line.trim();
             })
             .filter(function (line) {
                 return line.length > 0;
+            })
+            .map(function (line) {
+                return line.replace(/([.!?])([А-ЯЁ])/g, '$1 $2');
             });
 
-        const isMobile = window.matchMedia('(max-width: 560px)').matches;
-        const isTablet = window.matchMedia('(max-width: 900px)').matches;
-
-        let linesPerPage = 7;
-
-if (isTablet) {
-    linesPerPage = 6;
-}
-
-if (isMobile) {
-    linesPerPage = 5;
-}
+        let linesPerPage = 10;
 
         const pages = [];
 
@@ -135,12 +128,8 @@ if (isMobile) {
 
         function createMaterialLine(text) {
             const paragraph = document.createElement('p');
+            paragraph.className = 'lesson-material-line';
             paragraph.textContent = text;
-
-            if (text.endsWith(':') || (text.length <= 38 && !text.includes('—'))) {
-                paragraph.classList.add('lesson-material-heading-line');
-            }
-
             return paragraph;
         }
 
@@ -149,6 +138,7 @@ if (isMobile) {
 
             if (pages.length === 0) {
                 const emptyText = document.createElement('p');
+                emptyText.className = 'lesson-material-line';
                 emptyText.textContent = 'Материал урока пока не добавлен.';
                 contentBox.appendChild(emptyText);
 
